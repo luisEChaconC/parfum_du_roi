@@ -1,0 +1,43 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fefefe;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    color: #f0a500;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    z-index: 1000;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #f0a500;
+    font-weight: bold;
+  }
+
+  section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    border-bottom: 1px solid #ccc;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  /* Ajusta espacio superior por el header fijo */
+  .spacer {
+    height: 70px;
+  }
