@@ -125,29 +125,27 @@ nav {
   z-index: 1000;
 }
 
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; 
+  margin: 40px 0;
+}
+
+.title::before,
+.title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgb(222, 156, 126);
+}
+
 .perfumes-name {
   color: rgb(222, 156, 126);
   text-align: center;
   font-size: 60px;
   position: relative;
-}
-
-.perfumes-name::before, .perfumes-name::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 40%;
-  height: 1px;
-  background-color: rgb(222, 156, 126);
-  transform: translateY(-50%); 
-}
-
-.perfumes-name::before {
-  left: 0; 
-}
-
-.perfumes-name::after {
-  right: 0;
 }
 
 .cart {
