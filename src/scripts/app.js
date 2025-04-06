@@ -22,42 +22,42 @@ if (imgElement) {
 
 const carousels = {};
 
-function initCarousel(className) {
-  const images = document.querySelectorAll(`.${className} img`);
+function initCarousel(id) {
+  const images = document.querySelectorAll(`#${id} img`);
   const totalImages = images.length > 3 ? images.length - 3 : 1;
-  carousels[className] = {
+  carousels[id] = {
     index: 0,
     total: totalImages,
-    container: document.querySelector(`.${className}`)
+    container: document.querySelector(`#${id}`)
   };
 }
 
-function showNextImage(className) {
-  const carousel = carousels[className];
+function showNextImage(carouselId) {
+  const carousel = carousels[carouselId];
   if (!carousel) return;
   carousel.index = (carousel.index + 1) % carousel.total;
-  updateCarousel(className);
+  updateCarousel(carouselId);
 }
 
-function showPrevImage(className) {
-  const carousel = carousels[className];
+function showPrevImage(carouselId) {
+  const carousel = carousels[carouselId];
   if (!carousel) return;
   carousel.index = (carousel.index - 1 + carousel.total) % carousel.total;
-  updateCarousel(className);
+  updateCarousel(carouselId);
 }
 
-function updateCarousel(className) {
-  const carousel = carousels[className];
+function updateCarousel(id) {
+  const carousel = carousels[id];
   if (!carousel || !carousel.container) return;
   const offset = -carousel.index * 25;
   carousel.container.style.transform = `translateX(${offset}%)`;
 }
 
 // ===================== INICIALIZACIÓN ===================== //
-initCarousel('container-lv');
-initCarousel('container-creed');
-initCarousel('container-nv');
-initCarousel('container-usx');
+initCarousel('carousel1');
+initCarousel('carousel2');
+initCarousel('carousel3');
+initCarousel('carousel4');
 
 // ===================== MOSTRAR CONTRASEÑA ===================== //
 function togglePassword() {

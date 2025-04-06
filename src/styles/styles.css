@@ -418,16 +418,84 @@ nav {
 
 .container-lv {
   display: flex;
-  transition: transform 0.5s ease; 
+  transition: transform 0.5s ease;
+  /* gap: 16px; */
 }
 
-.container-lv img {
+.container-lv .product-item {
   width: 25%;
   object-fit: cover;
 }
 
-.container-lv img {
-  margin: 0 0px;
+.product-item {
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding: 10px;
+  position: relative;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  border-radius: 20px;
+}
+
+.product-item:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+
+.product-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
+}
+
+.product-item:hover::before {
+  opacity: 1;
+}
+
+
+.product-img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.product-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  z-index: 10;
+  width: 60%;
+  bottom: 10px;
+  gap: 10px;
+  z-index: 2;
+}
+
+.product-buttons img {
+  width: 30%;
+  cursor: pointer;
+}
+
+
+.product-item:hover .product-buttons {
+  visibility: visible;
+}
+
+.cart-btn {
+  float: right;
 }
 
 /*Estilos Creed*/
@@ -533,6 +601,7 @@ p {
   cursor: pointer;
   background: none;
   border: none;     
+  z-index: 2;
 }
 
 .prevBtn {
