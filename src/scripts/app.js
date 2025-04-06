@@ -1,4 +1,4 @@
-// ===================== SLIDESHOW POPULAR PERFUMES =====================
+// ===================== SLIDESHOW POPULAR PERFUMES ===================== //
 const images = [
   '../../img/aventus_cologne.jpeg',
   '../../img/aventus_absolu.jpg',
@@ -18,7 +18,7 @@ if (imgElement) {
   }, 3000);
 }
 
-// ===================== CARRUSELES GENÉRICOS =====================
+// ===================== CARRUSELES GENÉRICOS ===================== //
 
 const carousels = {};
 
@@ -53,8 +53,20 @@ function updateCarousel(className) {
   carousel.container.style.transform = `translateX(${offset}%)`;
 }
 
-// ===================== INICIALIZACIÓN =====================
+// ===================== INICIALIZACIÓN ===================== //
 initCarousel('container-lv');
 initCarousel('container-creed');
 initCarousel('container-nv');
 initCarousel('container-usx');
+
+// ===================== MOSTRAR CONTRASEÑA ===================== //
+function togglePassword() {
+  const input = document.getElementById("password");
+  const icon = document.getElementById("toggle-icon");
+
+  const isPassword = input.type === "password";
+  input.type = isPassword ? "text" : "password";
+
+  icon.src = isPassword ? "../../img/OcultarContraseña.png" : "../../img/MostrarContraseña.png";
+  icon.alt = isPassword ? "Ocultar contraseña" : "Mostrar contraseña";
+}

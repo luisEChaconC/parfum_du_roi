@@ -23,9 +23,10 @@
       </div>
 
       <ul class="perfil">
-        <li><a href="login.html">
-          <img src="../../img/perfil.png" alt="logo perfil" width="30" height="30"></a></li>
-        <li><img src="../../img/favoritos.png" alt="logo favoritos" width="30" height="30"></li>
+        <li><a href="#">
+            <img src="../../img/favoritos.png" alt="logo perfil" width="30" height="30"></a></li>
+        <li><a href = "cart.html">
+            <img src="../../img/carrito.png" alt="logo favoritos" width="30" height="30"></a></li>
       </ul>
     </div>
   </div>
@@ -35,25 +36,40 @@
       <li><a href="perfumes.html">Perfumes</a></li>
       <li><a href="#">Nicho</a></li>
       <li><a href="#">Diseñador</a></li>
-      <li><a href="#">Arabes</a></li>
+      <li><a href="#">Árabes</a></li>
       <li><a href="#">Decants</a></li>
       <li><a href="#">Tester</a></li>
       <li><a href="#">Contactos</a></li>
     </ul>
     </nav>
 
-  <div class="title">
-    <p id="login" class="perfumes-name">Carrito</p>
-  </div>
-  <div class="cart">
-    <p id="carrito"></p>
-    <img src="../../img/carrito.png" alt="carrito">
-  </div>
-  
-  <div class = "centrar">
-    <p id="carrito-vacio">Tu carrito está vacío</p>
-    <a href="perfumes.html" class="boton-elegante">Agregar productos</a>
-  </div>
+    <div class="title-wrapper">
+        <div class="title">
+          <p id="login" class="perfumes-name">Perfil</p>
+        </div>
+        <p class="subtitle">Por favor, ingresa tu correo y contraseña para continuar</p>
+      </div>
+         
+      <div class="form-container">
+        <h2>Iniciar Sesión</h2>
+        <form>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="form-group password-group">
+            <label for="password">Contraseña</label>
+            <div class="password-wrapper">
+              <input type="password" id="password" name="password" placeholder="••••••••">
+              <a href="#" class="forgot-password-inline"><u>¿Olvidaste tu contraseña?</u></a>
+              <button type="button" class="toggle-password" onclick="togglePassword()">
+                <img id="toggle-icon" src="../../img/MostrarContraseña.png" alt="Mostrar contraseña">
+              </button>
+            </div>
+          </div>         
+          <button type="submit" class="boton-elegante">Entrar</button>
+        </form>
+      </div>      
   
 
 
