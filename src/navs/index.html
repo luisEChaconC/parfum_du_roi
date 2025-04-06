@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Perfumes</title>
+    <link href="../styles/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-container">
+
+        <ul class="logo">
+          <li><img src="../../img/logo_amarillo.png" alt="logo marca" width="125" height="150"></li>
+        </ul>
+        
+        <div class="search-bar">
+          <input type="text" placeholder="Buscar perfumes...">
+          <button type="submit">🔍</button>
+        </div>
+
+        <ul class="perfil">
+          <li><img src="../../img/perfil.png" alt="logo perfil" width="40" height="40"></li>
+          <li><img src="../../img/favoritos.png" alt="logo favoritos" width="40" height="40"></li>
+          <li><img src="../../img/carrito.png" alt="logo carrito" width="40" height="40"></li>
+        </ul>
+      </div>
+
+    </div>
+    <nav>
+      <ul class="menu">
+        <li><a href="#">Perfumes</a></li>
+        <li><a href="#">Nicho</a></li>
+        <li><a href="#">Diseñador</a></li>
+        <li><a href="#">Arabes</a></li>
+        <li><a href="#">Decants</a></li>
+        <li><a href="#">Tester</a></li>
+        <li><a href="#">Contactos</a></li>
+      </nav>
+
+    <main>
+  
+      <div class="popular-perfumes">
+        <img src="img/lv_on.avif" alt="louis vuttom ombre nomade" width="1200" height="675">
+        <p>Tu perefume,<br>tu escencia<br></p>
+      </div>
+
+
+      <p class="perfumes-name">Louis Vuitton</p>
+      <div class="container-perfumes-lv">
+        <div class="container-lv">
+          <img src="../../img/louis_vuitton/magination.avif" alt="louis vuttom imagination">
+          <img src="../../img/louis_vuitton/lmmensite.avif" alt="louis vuttom lmmensite">
+          <img src="../../img/louis_vuitton/ombre-nomade.avif" alt="louis vuttom ombre nomade">
+          <img src="../../img/louis_vuitton/afternoon-swim.avif" alt="louis vuttom ofternoon swim">
+          <img src="../../img/louis_vuitton/california-dream.avif" alt="louis vuttom california dream">
+          <img src="../../img/louis_vuitton/orage.avif" alt="louis vuttom orange">
+          <img src="../../img/louis_vuitton/meteore.avif" alt="louis vuttom meteore">
+          <img src="../../img/louis_vuitton/pacific-chill.avif" alt="louis vuttom pacific chill">
+        </div>
+        <div class="button-container-lv">
+          <button id="prevBtn" class="prevBtn" onclick="showPrevImage_lv()"></button>
+          <button id="nextBtn" class="nextBtn" onclick="showNextImage_lv()"></button>
+        </div>
+      </div>
+
+      <p class="perfumes-name">Creed</p>
+      <div class="container-perfumes-creed">
+        <div class="container-creed">
+          <img src="../../img/creed/aventus.png" alt="creed aventus">
+          <img src="../../img/creed/green_irish_tweet.png" alt="creed green_irish_tweet">
+          <img src="../../img/creed/virgin_island_water.png" alt="creed virgin_island_water">
+          <img src="../../img/creed/silver_montain_water.png" alt="creed silver_montain_water">
+          <img src="../../img/creed/royal_oud.png" alt="creed royal_oud">
+          <img src="../../img/creed/royal_water.png" alt="creed royal_water">
+          <img src="../../img/creed/millesime_imperial.png" alt="creed millesime_imperial">
+          <img src="../../img/creed/himalaya.png" alt="creed himalaya">
+        </div>
+        <div class="button-container-creed">
+          <button id="prevBtn-creed" class="prevBtn-creed" onclick="showPrevImage_creed()"></button>
+          <button id="nextBtn-creed" class="nextBtn-creed" onclick="showNextImage_creed()"></button>
+        </div>
+      </div>
+
+    </main>
+    
+    <div>
+      <footer class="footer">
+        <div class="contacts">
+          <p id="title-contacts">  <strong>Contactos</strong></p>
+          <P>©2025, Perfumes</P>
+          <P>San Pedro, Costa Rica</P>
+          <p>+506 8888 8888</p>
+          <p>Email: perfumescr@gmail.com</p>
+        </div>
+        
+        <div class="menu-footer">
+          <p id="title-menu-footer"><strong>Menu</strong></p>
+          <P>Perfumes</P>
+          <P>Nicho</P>
+          <p>Diseñador</p>
+          <p>Arabes</p>
+          <p>Decants</p>
+          <p>Tester</p>
+          <p>Contactos</p>
+        </div>
+        <p id="copyright"></p>
+       
+      </footer>
+    </div>
+    <script src="../scripts/app.js"></script>
+    
+  </body>
+</html>
