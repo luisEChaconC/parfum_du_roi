@@ -1,8 +1,12 @@
 // Image slideshow for popular-perfumes
 const images = [
-  '../../img/lv_on.avif',
+  '../../img/aventus_cologne.jpeg',
+  '../../img/aventus_absolu.jpg',
   '../../img/creed_aventus.png',
-  '../../img/aventus_her.png'
+  '../../img/aventus_her.png',
+  '../../img/creed_woman.jpeg',
+  '../../img/silver_montain_water.jpg',
+  '../../img/lv_on.avif'
 ];
 
 const imgElement = document.querySelector('.popular-perfumes img');

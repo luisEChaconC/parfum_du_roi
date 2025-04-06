@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
@@ -5,7 +7,6 @@ html {
 
 .header {
   background-color: rgb(6, 6, 6);
-  padding: 20px;
 }
 
 body, .header {
@@ -37,42 +38,44 @@ body, .header {
 .search-bar {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0;
 }
 
 .search-bar input {
   padding: 8px 12px;
   border: 1px solid #000000;
-  border-radius: 20px;
+  border-right: none; 
+  border-radius: 20px 0 0 20px; 
   outline: none;
-  font-size: 14px;
+  font-size: 15px;
   background-color: #C8A535;
 }
 
 .search-bar button {
   background-color: #C8A535;
   border: none;
-  border-radius: 20px;
-  padding: 8px 12px;
+  border-radius: 0 20px 20px 0; 
+  padding: 5px 12px;
   cursor: pointer;
-  color: rgb(1, 1, 1);
+  color: rgb(0, 0, 0);
 }
 
 .menu {
   list-style: none;
   display: flex;
   margin-top: 0;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 100px;
+  margin-right: 100px;
   margin-bottom: 50px;
   gap: 20px;
   padding: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 
-  font-size: 25px;
+  font-size: 15px;
   
   justify-content: center;
+  font-family: sans-serif;
 
   background-color: rgb(33, 33, 33);
 }
@@ -86,7 +89,7 @@ body, .header {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Playfair Display', 'Helvetica Neue', 'Helvetica', Arial, sans-serif;
   background-color: rgb(47, 47, 47);
   overflow-x: hidden;
 }
@@ -103,7 +106,7 @@ body {
 
 .popular-perfumes p {
   text-align: center;
-  font-family: "Georgia", serif;
+  font-family: 'Playfair Display';
   font-size: 50px;
 
   margin-right: auto;
@@ -204,7 +207,8 @@ nav {
 .container-perfumes-nv {
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
   overflow: hidden;
   position: relative;
   background-color: rgb(34, 34, 34);
@@ -228,7 +232,8 @@ nav {
 .container-perfumes-usx {
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
   overflow: hidden;
   position: relative;
   background-color: rgb(34, 34, 34);
@@ -265,7 +270,6 @@ p {
   color: #C8A535;
 }
 
-
 /* Estilos botones lv*/
 .prevBtn, .nextBtn {
   position: absolute; 
@@ -284,7 +288,6 @@ p {
 .nextBtn {
   right: 20px; 
 }
-
 
 #prevBtn {
   width: 40px;
@@ -306,7 +309,6 @@ p {
   cursor: pointer;
 }
 
-
 /* Estilos botones creed*/
 
 .prevBtn-creed, .nextBtn-creed {
@@ -326,7 +328,6 @@ p {
 .nextBtn-creed {
   right: 20px; 
 }
-
 
 #prevBtn-creed {
   width: 40px;
@@ -350,7 +351,7 @@ p {
 
 /* footer */
 footer {
-  font-size: 15px;
+  font-size: 12px;
   background-color: black;
   margin: 0;
   bottom: 0;
@@ -358,6 +359,7 @@ footer {
   padding: 10px 20px; 
   display: flex;
   gap: 200px;
+  font-family: sans-serif;
 }
 
 .contacts {
