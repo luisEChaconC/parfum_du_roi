@@ -151,7 +151,8 @@ nav {
 .container-perfumes-lv {
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
   overflow: hidden;
   position: relative;
   background-color: rgb(34, 34, 34);
@@ -177,7 +178,8 @@ nav {
 .container-perfumes-creed {
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 100%;
+  margin-left: 40px;
+  margin-right: 40px;
   overflow: hidden;
   position: relative;
   background-color: rgb(34, 34, 34);
@@ -276,11 +278,11 @@ p {
 }
 
 .prevBtn {
-  left: 10px; 
+  left: 20px; 
 }
 
 .nextBtn {
-  right: 10px; 
+  right: 20px; 
 }
 
 
@@ -318,11 +320,11 @@ p {
 }
 
 .prevBtn-creed {
-  left: 10px; 
+  left: 20px; 
 }
 
 .nextBtn-creed {
-  right: 10px; 
+  right: 20px; 
 }
 
 
@@ -346,6 +348,7 @@ p {
   cursor: pointer;
 }
 
+/* footer */
 footer {
   font-size: 15px;
   background-color: black;
