@@ -1,4 +1,4 @@
-// Image slideshow for popular-perfumes
+// ===================== SLIDESHOW POPULAR PERFUMES =====================
 const images = [
   '../../img/aventus_cologne.jpeg',
   '../../img/aventus_absolu.jpg',
@@ -18,98 +18,43 @@ if (imgElement) {
   }, 3000);
 }
 
-// ===================== CARRUSELES ======================
+// ===================== CARRUSELES GENÉRICOS =====================
 
-// Índices individuales
-let currentIndexLV = 0;
-let currentIndexCreed = 0;
-let currentIndexNV = 0;
-let currentIndexUSX = 0;
+const carousels = {};
 
-// Obtener imágenes
-const images_lv = document.querySelectorAll('.container-lv img');
-const images_creed = document.querySelectorAll('.container-creed img');
-const images_nv = document.querySelectorAll('.container-nv img');
-const images_usx = document.querySelectorAll('.container-usx img');
-
-// Calcular cantidad visible (4 visibles → mover en bloques de 25%)
-const totalImagesLV = images_lv.length > 3 ? images_lv.length - 3 : 1;
-const totalImagesCreed = images_creed.length > 3 ? images_creed.length - 3 : 1;
-const totalImagesNV = images_nv.length > 3 ? images_nv.length - 3 : 1;
-const totalImagesUSX = images_usx.length > 3 ? images_usx.length - 3 : 1;
-
-// ========== LV ==========
-function showNextImage_lv() {
-  currentIndexLV = (currentIndexLV + 1) % totalImagesLV;
-  updateCarousel_lv();
+function initCarousel(className) {
+  const images = document.querySelectorAll(`.${className} img`);
+  const totalImages = images.length > 3 ? images.length - 3 : 1;
+  carousels[className] = {
+    index: 0,
+    total: totalImages,
+    container: document.querySelector(`.${className}`)
+  };
 }
 
-function showPrevImage_lv() {
-  currentIndexLV = (currentIndexLV - 1 + totalImagesLV) % totalImagesLV;
-  updateCarousel_lv();
+function showNextImage(className) {
+  const carousel = carousels[className];
+  if (!carousel) return;
+  carousel.index = (carousel.index + 1) % carousel.total;
+  updateCarousel(className);
 }
 
-function updateCarousel_lv() {
-  const carousel = document.querySelector('.container-lv');
-  if (carousel) {
-    const offset = -currentIndexLV * 25;
-    carousel.style.transform = `translateX(${offset}%)`;
-  }
+function showPrevImage(className) {
+  const carousel = carousels[className];
+  if (!carousel) return;
+  carousel.index = (carousel.index - 1 + carousel.total) % carousel.total;
+  updateCarousel(className);
 }
 
-// ========== CREED ==========
-function showNextImage_creed() {
-  currentIndexCreed = (currentIndexCreed + 1) % totalImagesCreed;
-  updateCarousel_creed();
+function updateCarousel(className) {
+  const carousel = carousels[className];
+  if (!carousel || !carousel.container) return;
+  const offset = -carousel.index * 25;
+  carousel.container.style.transform = `translateX(${offset}%)`;
 }
 
-function showPrevImage_creed() {
-  currentIndexCreed = (currentIndexCreed - 1 + totalImagesCreed) % totalImagesCreed;
-  updateCarousel_creed();
-}
-
-function updateCarousel_creed() {
-  const carousel = document.querySelector('.container-creed');
-  if (carousel) {
-    const offset = -currentIndexCreed * 25;
-    carousel.style.transform = `translateX(${offset}%)`;
-  }
-}
-
-// ========== NV ==========
-function showNextImage_nv() {
-  currentIndexNV = (currentIndexNV + 1) % totalImagesNV;
-  updateCarousel_nv();
-}
-
-function showPrevImage_nv() {
-  currentIndexNV = (currentIndexNV - 1 + totalImagesNV) % totalImagesNV;
-  updateCarousel_nv();
-}
-
-function updateCarousel_nv() {
-  const carousel = document.querySelector('.container-nv');
-  if (carousel) {
-    const offset = -currentIndexNV * 25;
-    carousel.style.transform = `translateX(${offset}%)`;
-  }
-}
-
-// ========== USX ==========
-function showNextImage_usx() {
-  currentIndexUSX = (currentIndexUSX + 1) % totalImagesUSX;
-  updateCarousel_usx();
-}
-
-function showPrevImage_usx() {
-  currentIndexUSX = (currentIndexUSX - 1 + totalImagesUSX) % totalImagesUSX;
-  updateCarousel_usx();
-}
-
-function updateCarousel_usx() {
-  const carousel = document.querySelector('.container-usx');
-  if (carousel) {
-    const offset = -currentIndexUSX * 25;
-    carousel.style.transform = `translateX(${offset}%)`;
-  }
-}
+// ===================== INICIALIZACIÓN =====================
+initCarousel('container-lv');
+initCarousel('container-creed');
+initCarousel('container-nv');
+initCarousel('container-usx');
