@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfumes</title>
+  <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+  <div class="header">
+    <div class="header-container">
+
+      <a href="index.html">
+        <ul class="logo">
+          <li><img src="../../img/logo_amarillo.png" alt="logo marca" width="58" height="70"></li>
+        </ul>
+      </a>
+      
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar perfumes...">
+        <button type="submit"><img src="../../img/icono_busqueda.png" width="20" height="20"></button>
+      </div>
+
+      <ul class="perfil">
+        <li><img src="../../img/perfil.png" alt="logo perfil" width="30" height="30"></li>
+        <li><img src="../../img/favoritos.png" alt="logo favoritos" width="30" height="30"></li>
+        <li><img src="../../img/carrito.png" alt="logo carrito" width="30" height="30"></li>
+      </ul>
+    </div>
+
+  </div>
+  <nav>
+    <ul class="menu">
+      <li><a href="#hombre">Hombre</a></li>
+      <li><a href="#mujer">Mujer</a></li>
+      <li><a href="#unisex">Unisex</a></li>
+      <li><a href="#nuevo">Nuevo Ingreso</a></li>
+    </ul>
+  </nav>
+
+  <div class="spacer"></div>
+
+
+  <p id="hombre" class="perfumes-name">Hombre</p>
+      <div class="container-perfumes-lv">
+        <div class="container-lv">
+          <img src="../../img/louis_vuitton/magination.avif" alt="louis vuttom imagination">
+          <img src="../../img/louis_vuitton/lmmensite.avif" alt="louis vuttom lmmensite">
+          <img src="../../img/louis_vuitton/ombre-nomade.avif" alt="louis vuttom ombre nomade">
+          <img src="../../img/louis_vuitton/afternoon-swim.avif" alt="louis vuttom ofternoon swim">
+          <img src="../../img/louis_vuitton/california-dream.avif" alt="louis vuttom california dream">
+          <img src="../../img/louis_vuitton/orage.avif" alt="louis vuttom orange">
+          <img src="../../img/louis_vuitton/meteore.avif" alt="louis vuttom meteore">
+          <img src="../../img/louis_vuitton/pacific-chill.avif" alt="louis vuttom pacific chill">
+        </div>
+        <div class="button-container-lv">
+          <button id="prevBtn" class="prevBtn" onclick="showPrevImage('container-lv')"></button>
+          <button id="nextBtn" class="nextBtn" onclick="showNextImage('container-lv')"></button>
+        </div>
+      </div>
+
+      <p id="mujer" class="perfumes-name">Mujer</p>
+      <div class="container-perfumes-creed">
+        <div class="container-creed">
+          <img src="../../img/creed/aventus.png" alt="creed aventus">
+          <img src="../../img/creed/green_irish_tweet.png" alt="creed green_irish_tweet">
+          <img src="../../img/creed/virgin_island_water.png" alt="creed virgin_island_water">
+          <img src="../../img/creed/silver_montain_water.png" alt="creed silver_montain_water">
+          <img src="../../img/creed/royal_oud.png" alt="creed royal_oud">
+          <img src="../../img/creed/royal_water.png" alt="creed royal_water">
+          <img src="../../img/creed/millesime_imperial.png" alt="creed millesime_imperial">
+          <img src="../../img/creed/himalaya.png" alt="creed himalaya">
+        </div>
+        <div class="button-container-creed">
+          <button id="prevBtn-creed" class="prevBtn-creed" onclick="showPrevImage('container-creed')"></button>
+          <button id="nextBtn-creed" class="nextBtn-creed" onclick="showNextImage('container-creed')"></button>
+        </div>
+      </div>
+      <p id="unisex" class="perfumes-name">Unisex</p>
+      <div class="container-perfumes-usx">
+        <div class="container-usx">
+          <img src="../../img/louis_vuitton/magination.avif" alt="louis vuttom imagination">
+          <img src="../../img/louis_vuitton/lmmensite.avif" alt="louis vuttom lmmensite">
+          <img src="../../img/louis_vuitton/ombre-nomade.avif" alt="louis vuttom ombre nomade">
+          <img src="../../img/louis_vuitton/afternoon-swim.avif" alt="louis vuttom ofternoon swim">
+          <img src="../../img/louis_vuitton/california-dream.avif" alt="louis vuttom california dream">
+          <img src="../../img/louis_vuitton/orage.avif" alt="louis vuttom orange">
+          <img src="../../img/louis_vuitton/meteore.avif" alt="louis vuttom meteore">
+          <img src="../../img/louis_vuitton/pacific-chill.avif" alt="louis vuttom pacific chill">
+        </div>
+        <div class="button-container-usx">
+          <button id="prevBtn" class="prevBtn" onclick="showPrevImage('container-usx')"></button>
+          <button id="nextBtn" class="nextBtn" onclick="showNextImage('container-usx')"></button>
+        </div>
+      </div>
+
+      <p id="nuevo" class="perfumes-name">Nuevo</p>
+      <div class="container-perfumes-creed">
+        <div class="container-nv">
+          <img src="../../img/creed/aventus.png" alt="creed aventus">
+          <img src="../../img/creed/green_irish_tweet.png" alt="creed green_irish_tweet">
+          <img src="../../img/creed/virgin_island_water.png" alt="creed virgin_island_water">
+          <img src="../../img/creed/silver_montain_water.png" alt="creed silver_montain_water">
+          <img src="../../img/creed/royal_oud.png" alt="creed royal_oud">
+          <img src="../../img/creed/royal_water.png" alt="creed royal_water">
+          <img src="../../img/creed/millesime_imperial.png" alt="creed millesime_imperial">
+          <img src="../../img/creed/himalaya.png" alt="creed himalaya">
+        </div>
+        <div class="button-container-nv">
+          <button id="prevBtn-creed" class="prevBtn-creed" onclick="showPrevImage('container-nv')"></button>
+          <button id="nextBtn-creed" class="nextBtn-creed" onclick="showNextImage('container-nv')"></button>
+        </div>
+      </div>
+      <div>
+        <footer class="footer">
+          <div class="contacts">
+            <p id="title-contacts">  <strong>Contactos</strong></p>
+            <P>©2025, Perfumes</P>
+            <P>San Pedro, Costa Rica</P>
+            <p>+506 8888 8888</p>
+            <p>Email: perfumescr@gmail.com</p>
+          </div>
+          
+          <div class="menu-footer">
+            <p id="title-menu-footer"><strong>Menu</strong></p>
+            <P>Perfumes</P>
+            <P>Nicho</P>
+            <p>Diseñador</p>
+            <p>Arabes</p>
+            <p>Decants</p>
+            <p>Tester</p>
+            <p>Contactos</p>
+          </div>
+          <p id="copyright"></p>
+         
+        </footer>
+      </div>
+      <script src="../scripts/app.js"></script>
+
+</body>
+</html>
