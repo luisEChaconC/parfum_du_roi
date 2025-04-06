@@ -1,3 +1,8 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
 .header {
   background-color: rgb(6, 6, 6);
   padding: 20px;
@@ -110,6 +115,12 @@ img {
   border-radius: 20px;
 }
 
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 .perfumes-name {
   color: rgb(222, 156, 126);
   text-align: center;
@@ -188,7 +199,53 @@ img {
 }
 
 /* otros estilos*/
+.container-perfumes-nv {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+}
 
+.container-nv {
+  display: flex;
+  transition: transform 0.5s ease; 
+}
+
+.container-nv img {
+  width: 25%;
+  object-fit: cover;
+}
+
+.container-nv img {
+  margin: 0 0px;
+}
+
+.container-perfumes-usx {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+}
+
+.container-usx {
+  display: flex;
+  transition: transform 0.5s ease; 
+}
+
+.container-usx img {
+  width: 25%;
+  object-fit: cover;
+}
+
+.container-usx img {
+  margin: 0 0px;
+}
 
 h1 {
   font-size: 40px;
