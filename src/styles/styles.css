@@ -625,3 +625,7 @@ footer {
   margin-right: 50px;
   text-align: center;
 }
+
+#txt_about_us {
+  font-family: 'Montserrat', sans-serif;
+}
