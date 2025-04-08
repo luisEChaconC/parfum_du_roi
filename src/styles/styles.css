@@ -698,3 +698,25 @@ footer {
 #txt_about_us {
   font-family: 'Montserrat', sans-serif;
 }
+
+.container-perfumes-lv {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 90%; /* o lo que necesites */
+  margin: 40px auto;
+  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+}
+
+.container-lv {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: fit-content; /* importante para evitar que crezca */
+}
+
+.product-item {
+  flex: 0 0 25%; /* 4 productos por fila */
+  box-sizing: border-box;
+  padding: 10px;
+}
