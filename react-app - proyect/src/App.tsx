@@ -4,18 +4,22 @@ import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
+import BannerImage from "./components/BannerImage";
 
 
 
 function App() {
   return (
-    <>
-      <TopBar />
-      <Header />
-      <Carousel/>
-      <Footer/>
-      
-    </>
+    <div className="bg-dark text-light min-vh-100"> 
+      <>
+        <TopBar />
+        <Header />
+        <BannerImage />
+        <Carousel/>
+        <Carousel/>
+        <Footer/>
+      </>
+    </div>
   );
   //<Carousel />
   //const list = ['Goku', "Tanjiro", "Eren"]

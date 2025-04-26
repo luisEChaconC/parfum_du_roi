@@ -1,0 +1,27 @@
+.custom-navbar {
+  background-color: #000000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px; 
+}
+
+
+/* Marca hover de navbar-brand */
+.navbar-brand:hover {
+  color: #BF8970;
+}
+
+/* Estilo base para todos los links */
+.custom-navbar .nav-link {
+  color: #D4AF37;
+}
+
+/* Hover para cualquier link */
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link.active:hover {
+  color: #BF8970;
+}
+
+/* Active link */
+.custom-navbar .nav-link.active {
+  color: #D4AF37;
+}

@@ -1,7 +1,7 @@
 import "./Footer.css";
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-4 mt-5">
+    <footer className=" py-4 mt-5">
       <div className="container">
         <div className="row">
           {/* Columna de Contacto */}
@@ -16,14 +16,14 @@ function Footer() {
           {/* Columna de Menú */}
           <div className="col-md-6 mb-3">
             <h5>Menú</h5>
-            <ul className="list-unstyled">
-              <li><a href="#" className="text-light text-decoration-none">Perfumes</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Nicho</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Diseñador</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Arabes</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Decants</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Tester</a></li>
-              <li><a href="#" className="text-light text-decoration-none">Contactos</a></li>
+            <ul className="list-unstyled footer-menu">
+              <li><a href="#">Perfumes</a></li>
+              <li><a href="#">Nicho</a></li>
+              <li><a href="#">Diseñador</a></li>
+              <li><a href="#">Arabes</a></li>
+              <li><a href="#">Decants</a></li>
+              <li><a href="#">Tester</a></li>
+              <li><a href="#">Contactos</a></li>
             </ul>
           </div>
         </div>

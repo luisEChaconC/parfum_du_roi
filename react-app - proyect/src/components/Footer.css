@@ -1,28 +1,13 @@
-
-
-/* footer */
 footer {
-  font-size: 12px;
-  background-color: rgb(255, 255, 255);
-  margin: 0;
-  bottom: 0;
-  width: 100%; 
-  padding: 10px 20px; 
-  display: flex;
-  gap: 200px;
-  font-family: sans-serif;
+  background-color: black;
+  color:#D4AF37;; 
 }
 
-.contacts {
-  margin-left: 10px; 
-  text-align: left;
+.footer-menu a {
+  color: #D4AF37;
+  text-decoration: none;
 }
 
-.menu-footer {
-  margin-right: 50px;
-  text-align: center;
-}
-
-#txt_about_us {
-  font-family: 'Montserrat', sans-serif;
+.footer-menu a:hover {
+  color: #BF8970;; 
 }
