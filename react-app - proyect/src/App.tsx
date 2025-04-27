@@ -2,9 +2,10 @@
 //import List from "./components/List";
 //import TopBar from "./components/TopBar";
 import Header from "./components/Header";
-import Carousel from "./components/Carousel";
+//import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import BannerImage from "./components/BannerImage";
+import ProductList from "./components/ProductList";
 import "./App.css";
 
 
@@ -17,8 +18,7 @@ function App() {
       
           <Header />
           <BannerImage />
-          <Carousel/>
-          <Carousel/>
+          <ProductList />
           <Footer/>
         </>
       </div>

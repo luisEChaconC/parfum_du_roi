@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 /* Contenedor del banner */
 .banner-container {
   display: flex;
@@ -32,11 +35,17 @@
   left: 80%;
   transform: translate(-50%, -50%);
   color: #cfb662;
-  font-family: 'Playfair Display', serif;
+  font-family: 'par';
   text-align: center;
   z-index: 2; /* Asegura que el texto esté encima del overlay */
 }
 
+#title {
+  font-family: 'Playfair Display';
+}
+
 #description {
   color: #cfb662;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
 }

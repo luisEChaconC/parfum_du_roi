@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+#title-new-product {
+  font-family: 'Montserrat';
+  margin-left: 40%;
+  color: #D4AF37;
+  font-weight: bold;
+}

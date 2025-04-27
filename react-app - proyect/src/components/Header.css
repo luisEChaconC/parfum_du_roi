@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 /* Estilos generales para el header */
 .header {
   display: flex;
@@ -5,6 +6,7 @@
   align-items: center; /* Centra los elementos verticalmente */
   padding: 20px;
   background-color: #000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Estilos para el menú de la izquierda */
