@@ -1,24 +1,27 @@
 //import Card, { CardBody } from "./components/Card";
 //import List from "./components/List";
-import TopBar from "./components/TopBar";
+//import TopBar from "./components/TopBar";
 import Header from "./components/Header";
 import Carousel from "./components/Carousel";
 import Footer from "./components/Footer";
 import BannerImage from "./components/BannerImage";
+import "./App.css";
 
 
 
 function App() {
   return (
-    <div className="bg-dark text-light min-vh-100"> 
-      <>
-        <TopBar />
-        <Header />
-        <BannerImage />
-        <Carousel/>
-        <Carousel/>
-        <Footer/>
-      </>
+    <div className=" text-light min-vh-100"> 
+      <div className="app">
+        <>
+      
+          <Header />
+          <BannerImage />
+          <Carousel/>
+          <Carousel/>
+          <Footer/>
+        </>
+      </div>
     </div>
   );
   //<Carousel />

@@ -1,36 +1,54 @@
-.custom-navbar {
-  background-color: #000000;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 15px; 
+/* Estilos generales para el header */
+.header {
+  display: flex;
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Centra los elementos verticalmente */
+  padding: 20px;
+  background-color: #000;
 }
 
-/* Marca hover de navbar-brand */
-.navbar-brand:hover {
+/* Estilos para el menú de la izquierda */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px; /* Espacio entre los items */
+}
+
+.nav-item .nav-link {
+  color: #D4AF37;
+  text-decoration: none;
+}
+
+.nav-item .nav-link:hover {
   color: #BF8970;
 }
 
-/* Estilo base para todos los links */
-.custom-navbar .nav-link {
-  color: #D4AF37;
+/* Estilos para el logo centrado */
+.header-center {
+  flex-grow: 1; /* Esto permite que el centro ocupe el espacio restante */
+  text-align: center;
+  margin-right: 100px;
 }
 
-/* Hover para cualquier link */
-.custom-navbar .nav-link:hover,
-.custom-navbar .nav-link.active:hover {
-  color: #BF8970;
+.logo-img {
+  height: 80px;
+  width: auto;
 }
 
-/* Active link */
-.custom-navbar .nav-link.active {
-  color: #D4AF37;
+/* Estilos para el menú de la derecha */
+.header-right {
+  display: flex;
+  align-items: center;
 }
 
-.custom-navbar .navbar-nav {
-  margin:  auto;
+.header-right .nav-list {
+  display: flex;
+  gap: 20px;
 }
-
-.custom-navbar .nav-item {
-  margin: 0 20px;
-}
-
-
