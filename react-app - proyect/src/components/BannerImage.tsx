@@ -3,13 +3,10 @@ import "./BannerImage.css";
 
 const BannerImage: React.FC = () => {
   const images = [
+    '/img/Nicho/promotion/portraits.avif',
     '/img/aventus_cologne.jpeg',
-    '/img/aventus_absolu.jpg',
     '/img/creed_aventus.png',
-    '/img/aventus_her.png',
-    '/img/creed_woman.jpeg'
-    //'/img/silver_montain_water.jpg'
-    //'/img/lv_on.avif'
+    '/img/lv_on.avif'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
