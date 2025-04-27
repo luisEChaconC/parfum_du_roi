@@ -1,19 +1,31 @@
 .navbar {
   background-color: black;
+  padding: 20px 0;
+  height: 80px;
 }
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .navbar-brand {
-  color: #D4AF37;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 .logo-img {
-  height: 70px;
+  height: 70px; /* Aumentar el tamaño del logo */
   width: auto;
 }
+
 /* Fondo y color de texto del input */
-/* el !important es para sobreescribir los estilos de bootstrap*/
 .form-control {
-  background-color: #1c1c1c !important; /* Fondo oscuro */
-  color: #D4AF37 !important; /* Texto dorado */
-  border: 1px solid #D4AF37 !important; /* Borde dorado */
+  background-color: #1c1c1c !important;
+  color: #D4AF37 !important;
+  border: 1px solid #D4AF37 !important;
 }
 
 /* Cambiar el color del placeholder */
@@ -23,13 +35,13 @@
 
 /* Estilo para el botón */
 .btn-outline-success {
-  border-color: #D4AF37 !important; /* Borde dorado */
-  color: #D4AF37 !important; /* Texto dorado */
+  border-color: #D4AF37 !important;
+  color: #D4AF37 !important;
 }
 
 /* Estilo al pasar el cursor sobre el botón */
 .btn-outline-success:hover {
-  background-color: #D4AF37 !important; /* Fondo dorado */
-  color: #000000 !important; /* Texto negro */
-  border-color: #D4AF37 !important; /* Borde dorado */
+  background-color: #D4AF37 !important;
+  color: #000000 !important;
+  border-color: #D4AF37 !important;
 }
