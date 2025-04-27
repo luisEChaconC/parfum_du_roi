@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-
 
 .title {
   display: flex;
@@ -24,6 +21,7 @@
   text-align: center;
   font-size: 60px;
   position: relative;
+  font-family: 'Playfair Display'
 }
 
 

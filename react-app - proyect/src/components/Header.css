@@ -4,7 +4,6 @@
   font-size: 15px; 
 }
 
-
 /* Marca hover de navbar-brand */
 .navbar-brand:hover {
   color: #BF8970;
@@ -25,3 +24,13 @@
 .custom-navbar .nav-link.active {
   color: #D4AF37;
 }
+
+.custom-navbar .navbar-nav {
+  margin:  auto;
+}
+
+.custom-navbar .nav-item {
+  margin: 0 20px;
+}
+
+

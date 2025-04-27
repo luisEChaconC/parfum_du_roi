@@ -1,0 +1,22 @@
+
+.banner-container {
+  display: flex;
+}
+
+.banner-text {
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #D4AF37;
+  font-family: 'Playfair Display'
+}
+
+.banner-image {
+  padding: 20px;
+  width: 70%;
+  height: 100%;
+  object-fit: cover;
+}

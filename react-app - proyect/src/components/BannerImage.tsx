@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./BannerImage.css";
 
 const BannerImage: React.FC = () => {
   const images = [
@@ -28,8 +29,11 @@ const BannerImage: React.FC = () => {
         src={images[currentImageIndex]}
         alt="Banner"
         className="banner-image"
-        style={{ width: "100%", height: "auto", objectFit: "cover" }}
       />
+      <div className="banner-text">
+        <h1>Tu Perfume, </h1>
+        <h1>Tu esencia </h1>
+      </div>
     </div>
   );
 };

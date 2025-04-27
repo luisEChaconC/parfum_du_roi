@@ -8,3 +8,28 @@
   height: 70px;
   width: auto;
 }
+/* Fondo y color de texto del input */
+/* el !important es para sobreescribir los estilos de bootstrap*/
+.form-control {
+  background-color: #1c1c1c !important; /* Fondo oscuro */
+  color: #D4AF37 !important; /* Texto dorado */
+  border: 1px solid #D4AF37 !important; /* Borde dorado */
+}
+
+/* Cambiar el color del placeholder */
+.form-control::placeholder {
+  color: #D4AF37 !important;
+}
+
+/* Estilo para el botón */
+.btn-outline-success {
+  border-color: #D4AF37 !important; /* Borde dorado */
+  color: #D4AF37 !important; /* Texto dorado */
+}
+
+/* Estilo al pasar el cursor sobre el botón */
+.btn-outline-success:hover {
+  background-color: #D4AF37 !important; /* Fondo dorado */
+  color: #000000 !important; /* Texto negro */
+  border-color: #D4AF37 !important; /* Borde dorado */
+}
