@@ -4,9 +4,9 @@ import "./BannerImage.css";
 const BannerImage: React.FC = () => {
   const images = [
     '/img/Nicho/promotion/portraits.avif',
-    '/img/aventus_cologne.jpeg',
-    '/img/creed_aventus.png',
-    '/img/lv_on.avif'
+    //'/img/aventus_cologne.jpeg',
+    //'/img/creed_aventus.png',
+    //'/img/lv_on.avif'
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
