@@ -1,6 +1,7 @@
-import { PerfumCategory } from "../global/PerfumCategory";
-import { Routes } from "../global/Routes";
+import { PerfumCategory } from "../../global/PerfumCategory";
+import { Routes } from "../../global/Routes/Routes";
 import "./Header.css";
+import { rightOptions } from "./userOptions";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 
@@ -25,10 +26,13 @@ function Header() {
 
       <div className="header-right">
         <ul className="nav-list">
-          <li className="nav-item"><a className="nav-link" href="#">Perfil</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Búsqueda</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Carrito</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Contactos</a></li>
+          {
+            rightOptions.map((option, index) => (
+              <li key={index} className="nav-item">
+                <Link className="nav-link" to={Routes[option]}>{option}</Link>
+              </li>
+            ))
+          }  
         </ul>
       </div>
     </header>
