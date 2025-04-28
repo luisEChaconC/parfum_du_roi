@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 /* Estilos generales para el header */
+.whole-header {
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
 .header {
   display: flex;
   justify-content: space-between; /* Espacio entre los elementos */
   align-items: center; /* Centra los elementos verticalmente */
-  padding: 20px;
-  background-color: #000;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -54,3 +59,4 @@
   display: flex;
   gap: 20px;
 }
+
