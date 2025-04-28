@@ -23,7 +23,7 @@ function App() {
         <Router> 
           <Header />
           <Routes> 
-          <Route path="/" element={<><BannerImage /><ProductList title="Nuevo Ingreso" products={newIncome} /></>} />
+            <Route path="/" element={<><BannerImage /><ProductList title="Nuevo Ingreso" products={newIncome} /></>} />
             <Route path="/nicho" element={<ProductList title="Nicho" products={newIncome}/>} /> {/* Se carga ProductList cuando se hace clic en "Nicho" */}
           </Routes>
           <Footer />

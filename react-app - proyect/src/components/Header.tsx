@@ -1,5 +1,7 @@
+import { PerfumCategory } from "../global/PerfumCategory";
+import { Routes } from "../global/Routes";
 import "./Header.css";
-import logo from "../assets/logo.png";
+import logo from "/logo.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -7,12 +9,11 @@ function Header() {
     <header className="header">
       <div className="header-left">
         <ul className="nav-list">
-          <li className="nav-item"><a className="nav-link" href="#">Nuevos</a></li>
-          <li className="nav-item"><Link className="nav-link" to="/nicho">Nicho</Link></li>
-          <li className="nav-item"><a className="nav-link" href="#">Diseñador</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Árabes</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Tester</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Decants</a></li>
+          {PerfumCategory.map((category, index) => (
+            <li key={index} className="nav-item">
+              <Link className="nav-link" to={Routes[category]}>{category}</Link>
+            </li>
+          ))}
         </ul>
       </div>
 
