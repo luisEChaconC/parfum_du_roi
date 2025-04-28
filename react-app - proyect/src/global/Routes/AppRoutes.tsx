@@ -3,10 +3,11 @@ import { Routes as AppPaths } from "./Routes";
 import BannerImage from "../../components/BannerImage";
 import ProductList from "../../components/ProductList";
 import { newIncome } from "../PerfumCategory";
+import { nicho } from "../PerfumCategory";
 
 const ElementPath = {
     [AppPaths.Home]: (<><BannerImage /><ProductList title="Nuevo Ingreso" products={newIncome} /></>),
-    [AppPaths.Nicho]: (<ProductList title="Nicho" products={newIncome} />),
+    [AppPaths.Nicho]: (<ProductList title="Nicho" products={nicho} />),
     [AppPaths.Nuevos]: (<ProductList title="Nuevos" products={newIncome} />),
     [AppPaths.Disenador]: (<ProductList title="Diseñador" products={newIncome} />),
     [AppPaths.Arabes]: (<ProductList title="Árabes" products={newIncome} />),
