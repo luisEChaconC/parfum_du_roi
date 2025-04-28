@@ -3,16 +3,20 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import "./App.css";
 import { AppRoutes } from "./global/Routes/AppRoutes"; // Importamos el componente AppRoutes
+import { CarritoProvider } from "./Context/Carrito/provider";
 
 function App() {
   return (
     <div className="text-light min-vh-100">
       <div className="app">
-        <Router> 
-          <Header />
-          <AppRoutes />
-          <Footer />
-        </Router>
+        <CarritoProvider>
+          <Router> 
+            <Header />
+            <AppRoutes />
+            <Footer />
+          </Router>
+        </CarritoProvider>
+        
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import BannerImage from "../../components/BannerImage";
 import ProductList from "../../components/ProductList";
 import { newIncome } from "../PerfumCategory";
 import { nicho } from "../PerfumCategory";
+import { Carrito } from "../../pages/Carrito/Carrito";
 
 const ElementPath = {
     [AppPaths.Home]: (<><BannerImage /><ProductList title="Nuevo Ingreso" products={newIncome} /></>),
@@ -13,6 +14,7 @@ const ElementPath = {
     [AppPaths.Arabes]: (<ProductList title="Árabes" products={newIncome} />),
     [AppPaths.Tester]: (<ProductList title="Tester" products={newIncome} />),
     [AppPaths.Decants]: (<ProductList title="Decants" products={newIncome} />),
+    [AppPaths.Carrito]: (<Carrito />),
 }
 
 export const AppRoutes = () => 
