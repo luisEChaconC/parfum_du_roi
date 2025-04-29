@@ -51,7 +51,7 @@ export const diseñador = [
 
 export const arabes = [
     { name: "Creed Aventus", image: "/img/Nicho/creed/aventus.png", price: "350" },
-    { name: "Creed Silver Mountain Water", image: "/img/Nicho/creed/silver_montain_water.png", price: "00" },
+    { name: "Creed Silver Mountain Water", image: "/img/Nicho/creed/silver_montain_water.png", price: "300" },
     { name: "Creed Himalaya", image: "/img/Nicho/creed/himalaya.png", price: "320" },
     { name: "Creed Virgin Island Water", image: "/img/Nicho/creed/virgin_island_water.png", price: "280" },
     { name: "Creed Millesime Imperial", image: "/img/Nicho/creed/millesime_imperial.png", price: "330" },
