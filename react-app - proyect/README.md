@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Guia para compilar y ejecutar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Ingrese a react-app-proyect
+## 2. Ingrese desde la terminal:
+    npm install react-router-dom
+## 3. Ingrese desde la terminal
+    npm run dev
+## 4. darle ctrl + click en  
+    http://localhostXXXX: 
+  Nota: XXXX representan el numero de puerto
+# Futuras mejoras
+    Al seleccionar un perfume, se quiere implementar que se muestre la imagen más grande, con algunas imagenes extra del perfume, y mostrar informacion sobre la piramide olfativa de estos y acordes principales.
+### Ejemplo Acordes principales
+![acordesPrincipales](./public/AcordesPrincipales.png)
+### Ejemplo Piramide Olfativa
+![piramideOlfativa](./public/piramideOlfativa.png)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+    Tambien se quiere mejorar visualmente el perfil e implementar un apartado de perfil editable de usuario en donde este muestre un pequeño historial de las compras realizadas.
+# Integrantes
+ * Kenneth Osorio Masis C15724
+ * Antony Picado Alvarado C15939
+ * Esteban Chacón Chaves C22039
+ * Ignacio Alesina Acuña C5A073
