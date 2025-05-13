@@ -6,8 +6,7 @@
   display: flex;
   position: relative; 
   width: 100%;
-  height: calc(100vh - 120px);  /* Increased from 60px; adjust this value if needed to match your exact navbar height */
-  overflow: hidden;  /* Prevents content from spilling out */
+  height: auto;
 }
 
 /* Overlay oscuro sobre la imagen */
@@ -32,19 +31,17 @@
 /* Texto encima de la imagen */
 .banner-text {
   position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(0, -50%);
+  top: 70%;
+  left: 80%;
+  transform: translate(-50%, -50%);
   color: #cfb662;
   font-family: 'par';
-  text-align: left;
-  margin-left: 100px;
-  z-index: 2;
+  text-align: center;
+  z-index: 2; /* Asegura que el texto esté encima del overlay */
 }
 
 #title {
   font-family: 'Playfair Display';
-  font-size: 65px;
 }
 
 #description {
