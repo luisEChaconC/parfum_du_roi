@@ -3,9 +3,9 @@ import "./BannerImage.css";
 
 const BannerImage: React.FC = () => {
   const images = [
-    '/img/Nicho/promotion/portraits.avif',
-    //'/img/aventus_cologne.jpeg',
-    //'/img/creed_aventus.png',
+    '/img/Nicho/promotion/portraits_volteada.avif',
+    // '/img/aventus_cologne.jpeg',
+    // '/img/creed_aventus.png',
     //'/img/lv_on.avif'
   ];
 
@@ -29,13 +29,7 @@ const BannerImage: React.FC = () => {
   />
   <div className="banner-overlay"></div> {}
   <div className="banner-text">
-    <h1 id="title">Tu Perfume, Tu esencia </h1>
-    <p id="description">
-      Las fragancias para hombre y mujer de Parfum du Roi 
-      exploran territorios olfativos dedicados a la pasión
-      por la aventura y la evasión. Fragancias excepcionales,
-      elaboradas con las mejores esencias de todo el mundo. 
-    </p>
+    <h1 id="title">Tu Perfume,<br />Tu Esencia </h1>
   </div>
 </div>
   );
