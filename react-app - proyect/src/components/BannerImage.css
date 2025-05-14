@@ -3,11 +3,12 @@
 
 /* Contenedor del banner */
 .banner-container {
+  /* margin-top: 50px; */
   display: flex;
   position: relative; 
   width: 100%;
-  height: calc(100vh - 100px);
-  overflow: hidden;
+  height: calc(105vh - 100px);
+  overflow: hidden; 
 }
 
 /* Overlay oscuro sobre la imagen */
