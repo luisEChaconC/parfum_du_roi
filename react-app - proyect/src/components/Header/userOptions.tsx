@@ -1,6 +1,6 @@
 export const rightOptions = [
-    "Perfil", 
     "Busqueda",
-    "Carrito",
-    "Contactos"
+    "Contactos",
+    "Perfil",
+    "Carrito"
 ]
