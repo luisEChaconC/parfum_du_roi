@@ -6,8 +6,8 @@
   display: flex;
   position: relative; 
   width: 100%;
-  height: calc(100vh - 120px);  /* Increased from 60px; adjust this value if needed to match your exact navbar height */
-  overflow: hidden;  /* Prevents content from spilling out */
+  height: calc(100vh - 100px);
+  overflow: hidden;
 }
 
 /* Overlay oscuro sobre la imagen */

@@ -5,6 +5,10 @@
   display: flex;
   flex-direction: column;
   padding: 20px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 
 .header {
@@ -12,12 +16,15 @@
   justify-content: space-between; /* Espacio entre los elementos */
   align-items: center; /* Centra los elementos verticalmente */
   font-family: 'Montserrat', sans-serif;
+  min-height: 80px;
+  position: relative;
 }
 
 /* Estilos para el menú de la izquierda */
 .header-left {
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .nav-list {
@@ -39,20 +46,25 @@
 
 /* Estilos para el logo centrado */
 .header-center {
-  flex-grow: 1; /* Esto permite que el centro ocupe el espacio restante */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  margin-right: 100px;
+  z-index: 0;
 }
 
 .logo-img {
   height: 80px;
   width: auto;
+  display: block;
 }
 
 /* Estilos para el menú de la derecha */
 .header-right {
   display: flex;
   align-items: center;
+  z-index: 1;
 }
 
 .header-right .nav-list {
@@ -62,5 +74,9 @@
 
 .header-icon {
   font-size: 30px;
+}
+
+body {
+  padding-top: 100px;
 }
 
