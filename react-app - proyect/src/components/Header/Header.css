@@ -57,6 +57,10 @@
 
 .header-right .nav-list {
   display: flex;
-  gap: 20px;
+  gap: 50px;
+}
+
+.header-icon {
+  font-size: 30px;
 }
 

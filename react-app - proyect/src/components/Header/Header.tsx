@@ -6,6 +6,7 @@ import { rightOptions } from "./userOptions";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { SearchComponent } from "./Search/Search";
+import { FiSearch, FiUsers, FiUser, FiShoppingCart } from 'react-icons/fi';
 
 function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);
@@ -31,16 +32,35 @@ function Header() {
         <div className="header-right">
           <ul className="nav-list">
             {
-              rightOptions.map((option, index) => { return option !== "Busqueda" ? (
-                <li key={index} className="nav-item">
-                  <Link className="nav-link" to={Routes[option]}>{option}</Link>
-                </li>
-              ) : (
-                <li key={index} className="nav-item">
-                  <button className="nav-link" onClick={() => setIsSearchActive(!isSearchActive)}>{option}</button>
-                </li>
-              )})
-            }  
+              rightOptions.map((option, index) => {
+                let Icon;
+                switch (option) {
+                  case 'Busqueda':
+                    Icon = FiSearch;
+                    break;
+                  case 'Contactos':
+                    Icon = FiUsers;
+                    break;
+                  case 'Perfil':
+                    Icon = FiUser;
+                    break;
+                  case 'Carrito':
+                    Icon = FiShoppingCart;
+                    break;
+                  default:
+                    Icon = null;
+                }
+                return option !== "Busqueda" ? (
+                  <li key={index} className="nav-item">
+                    <Link className="nav-link" to={Routes[option]}>{Icon && <Icon className="header-icon" />}</Link>
+                  </li>
+                ) : (
+                  <li key={index} className="nav-item">
+                    <button className="nav-link" onClick={() => setIsSearchActive(!isSearchActive)}>{Icon && <Icon className="header-icon" />}</button>
+                  </li>
+                )
+              })
+            }
           </ul>
         </div>
       </div>
@@ -50,7 +70,7 @@ function Header() {
           setIsSearchActive={setIsSearchActive}
         />
       )}
-  </header>
+    </header>
   );
 }
 
