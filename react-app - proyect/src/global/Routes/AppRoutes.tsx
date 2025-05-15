@@ -6,9 +6,9 @@ import NuevosPage from "../../pages/NuevosPage";
 import DisenadorPage from "../../pages/DisenadorPage";
 import ArabesPage from "../../pages/ArabesPage";
 import TesterPage from "../../pages/TesterPage";
+import Perfil from "../../pages/ProfilePage";
 import DecantsPage from "../../pages/DecantsPage";
 import { Carrito } from "../../pages/Carrito/Carrito";
-import  Perfil  from "../../components/Perfil";
 import  Contactos  from "../../components/Contactos";
 
 const ElementPath = {
@@ -20,7 +20,7 @@ const ElementPath = {
     [AppPaths.Tester]: (<TesterPage />),
     [AppPaths.Decants]: (<DecantsPage />),
     [AppPaths.Carrito]: (<Carrito />),
-    [AppPaths.Perfil]: (<Perfil />),
+    [AppPaths.Profile]: (<Perfil />),
     [AppPaths.Contactos]: (<Contactos />),
 }
 

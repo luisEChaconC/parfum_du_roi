@@ -12,6 +12,6 @@ export const Routes:Route = {
     Decants: "/decants",
     Contactos: "/contactos",
     Carrito: "/carrito",
-    Perfil: "/perfil",
+    Profile: "/perfil",
     Busqueda: "/busqueda",
 }
