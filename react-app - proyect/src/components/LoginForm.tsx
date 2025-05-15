@@ -70,12 +70,11 @@ const LoginForm = () => {
 
     if (Object.keys(newErrors).length > 0) {
       setShake(true);
-      setTimeout(() => setShake(false), 500); // dura igual que la animación
+      setTimeout(() => setShake(false), 500); 
       return;
     }
 
     console.log('Formulario válido. Enviando datos...');
-    // Aquí puedes continuar con el envío al backend
   };
 
   return (
