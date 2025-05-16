@@ -6,9 +6,10 @@ import NuevosPage from "../../pages/NuevosPage";
 import DisenadorPage from "../../pages/DisenadorPage";
 import ArabesPage from "../../pages/ArabesPage";
 import TesterPage from "../../pages/TesterPage";
-import Profile from "../../pages/ProfilePage";
+import LogIn from "../../pages/LogInPage";
 import SignIn from "../../pages/SignInPage";
 import DecantsPage from "../../pages/DecantsPage";
+import Profile from "../../pages/ProfilePage";
 import { Carrito } from "../../pages/Carrito/Carrito";
 import  Contactos  from "../../components/Contactos";
 
@@ -21,8 +22,9 @@ const ElementPath = {
     [AppPaths.Tester]: (<TesterPage />),
     [AppPaths.Decants]: (<DecantsPage />),
     [AppPaths.Carrito]: (<Carrito />),
-    [AppPaths.Perfil]: (<Profile />),
+    [AppPaths.Login]: (<LogIn />),
     [AppPaths.Registro]: (<SignIn />),
+    [AppPaths.Perfil]: (<Profile />),
     [AppPaths.Contactos]: (<Contactos />),
 }
 

@@ -1,16 +1,50 @@
-import React from "react";
-import "./Profile.css";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { LogOut } from 'lucide-react';
 
-const Profile: React.FC = () => {
+import './Profile.css';
+
+const Profile = () => {
+  const [usuario, setUsuario] = useState<{ nombre: string; correo: string } | null>(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem('usuarioActual');
+    if (usuarioGuardado) {
+      setUsuario(JSON.parse(usuarioGuardado));
+    } else {
+      navigate('/Login');
+    }
+  }, [navigate]);
+
   return (
-    <div className="perfil-container">
-      <h1 className="perfil-title">Mi Perfil</h1>
-      <div className="perfil-content">
-        <p>Nombre: Antony Picado Alvarado</p>
-        <p>Email: antony.picado@ucr.ac.cr</p>
-        <button className="perfil-btn">Editar Perfil</button>
+    <main className="perfil-wrapper">
+      <div className="perfil-card">
+        <h2 className="perfil-titulo">Perfil de Usuario</h2>
+        {usuario && (
+          <div className="perfil-datos">
+            <div className="perfil-item">
+              <span className="label">Nombre:</span>
+              <span>{usuario.nombre}</span>
+            </div>
+            <div className="perfil-item">
+              <span className="label">Correo:</span>
+              <span>{usuario.correo}</span>
+            </div>
+            <button
+              className="boton-elegante"
+              onClick={() => {
+                localStorage.removeItem('usuarioActual');
+                navigate('/Login');
+              }}
+            >
+              <LogOut size={16} style={{ marginRight: '8px' }} />
+              Cerrar sesión
+            </button>
+          </div>
+        )}
       </div>
-    </div>
+    </main>
   );
 };
 

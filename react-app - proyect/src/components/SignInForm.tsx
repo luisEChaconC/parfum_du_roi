@@ -66,74 +66,79 @@ const SignInForm: React.FC = () => {
   };
 
   return (
-    <div className="registro-container">
-      <p>Ingresa los datos pertinentes</p>
-      <form onSubmit={handleSubmit}>
-        <div className={`form-group ${errors.nombre ? 'error' : ''}`}>
-          <label>Nombre completo</label>
-          <input
-            type="text"
-            name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            placeholder="Ejm: Daniel Cabezas"
-          />
-          {errors.nombre && <div className="error-text">{errors.nombre}</div>}
-        </div>
+    <div className="registro-layout">
+      <div className="registro-imagen">
+        <img src="../img/Registro.png" alt="Registro visual" />
+      </div>
+      <div className="registro-container">
+        <p>Registro</p>
+        <form onSubmit={handleSubmit}>
+          <div className={`form-group ${errors.nombre ? 'error' : ''}`}>
+            <label>Nombre completo</label>
+            <input
+              type="text"
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+              placeholder="Ejm: Daniel Cabezas"
+            />
+            {errors.nombre && <div className="error-text">{errors.nombre}</div>}
+          </div>
 
-        <div className={`form-group ${errors.ubicacion ? 'error' : ''}`}>
-          <label>Ubicación</label>
-          <input
-            type="text"
-            name="ubicacion"
-            value={formData.ubicacion}
-            onChange={handleChange}
-            placeholder="Ejm: Ciudad, País"
-          />
-          {errors.ubicacion && <div className="error-text">{errors.ubicacion}</div>}
-        </div>
+          <div className={`form-group ${errors.ubicacion ? 'error' : ''}`}>
+            <label>Ubicación</label>
+            <input
+              type="text"
+              name="ubicacion"
+              value={formData.ubicacion}
+              onChange={handleChange}
+              placeholder="Ejm: Ciudad, País"
+            />
+            {errors.ubicacion && <div className="error-text">{errors.ubicacion}</div>}
+          </div>
 
-        <div className={`form-group ${errors.correo ? 'error' : ''}`}>
-          <label>Correo electrónico</label>
-          <input
-            type="email"
-            name="correo"
-            value={formData.correo}
-            onChange={handleChange}
-            placeholder="ejemplo@correo.com"
-          />
-          {errors.correo && <div className="error-text">{errors.correo}</div>}
-        </div>
+          <div className={`form-group ${errors.correo ? 'error' : ''}`}>
+            <label>Correo electrónico</label>
+            <input
+              type="email"
+              name="correo"
+              value={formData.correo}
+              onChange={handleChange}
+              placeholder="ejemplo@correo.com"
+            />
+            {errors.correo && <div className="error-text">{errors.correo}</div>}
+          </div>
 
-        <div className={`form-group ${errors.contraseña ? 'error' : ''}`}>
-          <label>Contraseña</label>
-          <input
-            type="password"
-            name="contraseña"
-            value={formData.contraseña}
-            onChange={handleChange}
-            placeholder="Mínimo 6 caracteres"
-          />
-          {errors.contraseña && <div className="error-text">{errors.contraseña}</div>}
-        </div>
+          <div className={`form-group ${errors.contraseña ? 'error' : ''}`}>
+            <label>Contraseña</label>
+            <input
+              type="password"
+              name="contraseña"
+              value={formData.contraseña}
+              onChange={handleChange}
+              placeholder="Mínimo 6 caracteres"
+            />
+            {errors.contraseña && <div className="error-text">{errors.contraseña}</div>}
+          </div>
 
-        <div className={`form-group ${errors.confirmarContraseña ? 'error' : ''}`}>
-          <label>Confirmar contraseña</label>
-          <input
-            type="password"
-            name="confirmarContraseña"
-            value={formData.confirmarContraseña}
-            onChange={handleChange}
-            placeholder="Repite la contraseña"
-          />
-          {errors.confirmarContraseña && (
-            <div className="error-text">{errors.confirmarContraseña}</div>
-          )}
-        </div>
+          <div className={`form-group ${errors.confirmarContraseña ? 'error' : ''}`}>
+            <label>Confirmar contraseña</label>
+            <input
+              type="password"
+              name="confirmarContraseña"
+              value={formData.confirmarContraseña}
+              onChange={handleChange}
+              placeholder="Repite la contraseña"
+            />
+            {errors.confirmarContraseña && (
+              <div className="error-text">{errors.confirmarContraseña}</div>
+            )}
+          </div>
 
-        <button type="submit">Registrarse</button>
-        {successMessage && <div className="success-message">{successMessage}</div>}
-      </form>
+          <button type="submit">Registrarse</button>
+          {successMessage && <div className="success-message">{successMessage}</div>}
+        </form>
+      </div>
     </div>
   );
 };

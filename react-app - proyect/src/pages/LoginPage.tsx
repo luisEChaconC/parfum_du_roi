@@ -1,11 +1,11 @@
 import React from 'react';
-import Profile from '../components/Profile';
+import LogInForm from '../components/LoginForm';
 
-const ProfilePage = () => {
+const LoginPage = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Perfil</h1>
-      <Profile />
+      <LogInForm />
     </div>
   );
 };
@@ -26,4 +26,4 @@ const styles: {
   },
 };
 
-export default ProfilePage;
+export default LoginPage;
