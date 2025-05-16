@@ -3,12 +3,12 @@
 
 /* Contenedor del banner */
 .banner-container {
-  /* margin-top: 50px; */
   display: flex;
   position: relative; 
   width: 100%;
-  height: calc(105vh - 100px);
-  overflow: hidden; 
+  height: calc(105vh - 30px);
+  overflow: hidden;
+  margin-bottom: -1;
 }
 
 /* Overlay oscuro sobre la imagen */
@@ -33,7 +33,7 @@
 /* Texto encima de la imagen */
 .banner-text {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 0;
   transform: translate(0, -50%);
   color: #cfb662;
@@ -52,4 +52,19 @@
   color: #cfb662;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    margin-left: 30px;
+  }
+
+  #title {
+    font-size: 38px;
+  }
+
+  #description {
+    font-size: 12px;
+  }
+
 }

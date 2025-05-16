@@ -78,7 +78,7 @@ export const Carrito = () => {
                 />
             </Box>
             
-            <Typography variant="h4" component="h2" sx={{ mb: 4, color: "#D4AF37", fontWeight: "bold" }}>
+            <Typography variant="h4" component="h2" sx={{ mb: 4, color: "#cfb662", fontWeight: "bold" }}>
                 Tu carrito está vacío
             </Typography>
             
@@ -87,7 +87,7 @@ export const Carrito = () => {
                 to={Routes.Home}
                 variant="contained"
                 sx={{
-                    backgroundColor: "#D4AF37",
+                    backgroundColor: "#cfb662",
                     color: "#000",
                     py: 1.5,
                     px: 4,
@@ -108,7 +108,7 @@ export const Carrito = () => {
             <Container maxWidth="lg" sx={{ py: 4 }}>
                 <Typography variant="h3" component="h1" sx={{ 
                     mb: 4, 
-                    color: "#D4AF37", 
+                    color: "#cfb662", 
                     fontWeight: "bold" 
                 }}>
                     Carrito
@@ -132,7 +132,7 @@ export const Carrito = () => {
         <Container maxWidth="lg" sx={{ py: 4 }}>
             <Typography variant="h3" component="h1" sx={{ 
                 mb: 4, 
-                color: "#D4AF37", 
+                color: "#cfb662", 
                 fontWeight: "bold" 
             }}>
                 Carrito
@@ -199,7 +199,7 @@ export const Carrito = () => {
                                         size="small"
                                         sx={{ 
                                             mt: 1, 
-                                            color: "#D4AF37",
+                                            color: "#cfb662",
                                             textTransform: "none",
                                             padding: "2px 8px",
                                             minWidth: "auto",
@@ -230,8 +230,8 @@ export const Carrito = () => {
                                       minWidth: "30px",
                                       height: "38px", 
                                       p: 0, 
-                                      color: "#D4AF37", 
-                                      border: "1px solid #D4AF37",
+                                      color: "#cfb662", 
+                                      border: "1px solid #cfb662",
                                       borderRadius: "4px 0 0 4px",
                                       display: "flex",
                                       alignItems: "center",
@@ -276,12 +276,12 @@ export const Carrito = () => {
                                                 padding: "8px 0",
                                             },
                                             "& fieldset": { 
-                                                border: "1px solid #D4AF37", 
+                                                border: "1px solid #cfb662", 
                                                 borderLeft: 0, 
                                                 borderRight: 0 
                                             },
-                                            "&:hover fieldset": { borderColor: "#D4AF37" },
-                                            "&.Mui-focused fieldset": { borderColor: "#D4AF37" }
+                                            "&:hover fieldset": { borderColor: "#cfb662" },
+                                            "&.Mui-focused fieldset": { borderColor: "#cfb662" }
                                         }
                                     }}
                                   />
@@ -291,8 +291,8 @@ export const Carrito = () => {
                                       minWidth: "30px",
                                       height: "38px", 
                                       p: 0, 
-                                      color: "#D4AF37", 
-                                      border: "1px solid #D4AF37",
+                                      color: "#cfb662", 
+                                      border: "1px solid #cfb662",
                                       borderRadius: "0 4px 4px 0",
                                       display: "flex",
                                       alignItems: "center",
@@ -345,7 +345,7 @@ export const Carrito = () => {
                     >
                         <Typography variant="h5" component="h2" sx={{ 
                             mb: 3, 
-                            color: "#D4AF37", 
+                            color: "#cfb662", 
                             fontWeight: "bold" 
                         }}>
                             RESUMEN
@@ -373,7 +373,7 @@ export const Carrito = () => {
                             fullWidth 
                             variant="contained" 
                             sx={{ 
-                                backgroundColor: "#D4AF37", 
+                                backgroundColor: "#cfb662", 
                                 color: "#000", 
                                 py: 1.5,
                                 "&:hover": {
@@ -390,8 +390,8 @@ export const Carrito = () => {
                             onClick={clearCart}
                             sx={{ 
                                 mt: 2,
-                                color: "#D4AF37", 
-                                borderColor: "#D4AF37",
+                                color: "#cfb662", 
+                                borderColor: "#cfb662",
                                 "&:hover": {
                                     borderColor: "#c4a037",
                                     backgroundColor: "rgba(212, 175, 55, 0.1)"

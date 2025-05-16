@@ -2,25 +2,36 @@ import { useState } from "react";
 import { PerfumCategory } from "../../global/PerfumCategory";
 import { Routes } from "../../global/Routes/Routes";
 import "./Header.css";
-import { rightOptions } from "./userOptions";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { SearchComponent } from "./Search/Search";
-import { FiSearch, FiUsers, FiUser, FiShoppingCart } from 'react-icons/fi';
+import { FiSearch, FiUsers, FiUser, FiShoppingCart, FiMenu } from 'react-icons/fi';
 
 function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header className="whole-header">
       <div className="header">
         <div className="header-left">
-          <ul className="nav-list">
+          <ul className={`nav-list ${isMobileMenuOpen ? 'mobile-hidden' : ''}`}>
             {PerfumCategory.map((category, index) => (
               <li key={index} className="nav-item">
                 <Link className="nav-link" to={Routes[category]}>{category}</Link>
               </li>
             ))}
           </ul>
+          <div className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
+            <button className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <FiMenu className="header-icon" />
+            </button>
+
+          </div>
         </div>
 
         <div className="header-center">
@@ -29,38 +40,18 @@ function Header() {
           </Link>
         </div>
 
+
         <div className="header-right">
           <ul className="nav-list">
-            {
-              rightOptions.map((option, index) => {
-                let Icon;
-                switch (option) {
-                  case 'Busqueda':
-                    Icon = FiSearch;
-                    break;
-                  case 'Contactos':
-                    Icon = FiUsers;
-                    break;
-                  case 'Perfil':
-                    Icon = FiUser;
-                    break;
-                  case 'Carrito':
-                    Icon = FiShoppingCart;
-                    break;
-                  default:
-                    Icon = null;
-                }
-                return option !== "Busqueda" ? (
-                  <li key={index} className="nav-item">
-                    <Link className="nav-link" to={Routes[option]}>{Icon && <Icon className="header-icon" />}</Link>
-                  </li>
-                ) : (
-                  <li key={index} className="nav-item">
-                    <button className="nav-link" onClick={() => setIsSearchActive(!isSearchActive)}>{Icon && <Icon className="header-icon" />}</button>
-                  </li>
-                )
-              })
-            }
+            <li className="nav-item">
+              <button className="nav-link" onClick={() => setIsSearchActive(!isSearchActive)}><FiSearch className="header-icon" /></button>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={Routes["Perfil"]}><FiUser className="header-icon" /></Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={Routes["Carrito"]}><FiShoppingCart className="header-icon" /></Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -70,6 +61,21 @@ function Header() {
           setIsSearchActive={setIsSearchActive}
         />
       )}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu">
+          {PerfumCategory.map((category, index) => (
+            <Link
+              key={index}
+              className="nav-link"
+              to={Routes[category]}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {category}
+            </Link>
+          ))}
+        </div>
+      )}
+
     </header>
   );
 }

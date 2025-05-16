@@ -1,15 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
+.product-brand {
+  font-size: 15px;
+  margin-bottom: 5px;
+  color: #ccbd8a;
+}
+
+.card-title {
+  font-size: 21px;
+  font-family: 'Lora';
+
+}
+
+.card-text {
+  font-size: 14px;
+}
 .product-card {
   position: relative;
-  color: #D4AF37 !important;
+  color: #cfb662 !important;
   border: none !important;
-  background-color: rgb(39, 39, 39) !important;
-  font-family: 'Montserrat'
+  background-color: rgb(25, 25, 25) !important;
+  font-family: 'Montserrat';
 }
 
 .product-card .card-img-top {
-  height: 250px;
+  height: 270px;
   object-fit: cover;
 }
 
@@ -46,8 +61,15 @@
 }
 
 #btn {
-  background-color: #D4AF37;
+  background-color: #cfb662;
   border: none;
   font-weight: bold;
   color:black;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }

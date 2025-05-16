@@ -1,7 +1,7 @@
 .perfil-container {
   padding: 2rem;
   background-color: rgb(39, 39, 39);
-  color: #D4AF37;
+  color: #cfb662;
   min-height: 60vh;
 }
 
@@ -22,7 +22,7 @@
 .perfil-btn {
   margin-top: 1.5rem;
   padding: 0.5rem 1rem;
-  background-color: #D4AF37;
+  background-color: #cfb662;
   color: black;
   border: none;
   font-weight: bold;
@@ -31,5 +31,5 @@
 }
 
 .perfil-btn:hover {
-  background-color: #bfa233;
+  background-color: #cfb662;
 }

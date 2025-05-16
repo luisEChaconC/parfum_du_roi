@@ -1,13 +1,41 @@
 footer {
   background-color: black;
-  color:#D4AF37;; 
+  color: #cfb662;
 }
 
 .footer-menu a {
-  color: #D4AF37;
+  color: #cfb662;
   text-decoration: none;
 }
 
 .footer-menu a:hover {
-  color: #BF8970;; 
+  color: #BF8970;
+}
+
+/* Mobile ajustes */
+@media (max-width: 768px) {
+  footer .row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  footer .col-md-6 {
+    flex: 1;
+    margin: 0 5px;
+  }
+
+  footer h5,
+  footer p,
+  .footer-menu a {
+    font-size: 14px;
+  }
+
+  .footer-menu {
+    padding-left: 0;
+  }
+
+  .footer-menu li {
+    margin-bottom: 6px;
+  }
 }

@@ -12,12 +12,12 @@
   content: "";
   flex: 1;
   height: 1px;
-  background-color: rgb(222, 156, 126);
+  background-color: #cfb662;;
 }
 
 .perfumes-name {
   margin-top: 30px;
-  color: rgb(222, 156, 126);
+  color: #cfb662;;
   text-align: center;
   font-size: 60px;
   position: relative;

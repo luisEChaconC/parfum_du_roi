@@ -37,13 +37,13 @@
 }
 
 .summary-title {
-  color: #D4AF37;
+  color: #cfb662;
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
 
 .pay-button {
-  background-color: #D4AF37;
+  background-color: #cfb662;
   color: #000;
   font-weight: bold;
   width: 100%;
@@ -56,5 +56,5 @@
 }
 
 .pay-button:hover {
-  background-color: #c4a037;
+  background-color: #cfb662;
 }

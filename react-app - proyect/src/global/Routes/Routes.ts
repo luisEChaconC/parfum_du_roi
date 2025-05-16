@@ -13,5 +13,7 @@ export const Routes:Route = {
     Contactos: "/contactos",
     Carrito: "/carrito",
     Perfil: "/perfil",
+    Login: "/login",
+    Registro: "/registro",
     Busqueda: "/busqueda",
 }

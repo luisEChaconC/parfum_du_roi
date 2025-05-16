@@ -1,16 +1,17 @@
 import React from "react";
 import "./ProductCard.css";
 import { CarritoContext } from "../Context/Carrito/carrito";
+
 interface props {
   name: string;
   image: string;
   price: string;
+  marca: string;
 }
 
-const ProductCard: React.FC<props> = ({ name, image, price }) => {
+const ProductCard: React.FC<props> = ({ name, image, price, marca }) => {
   const { addToCart, removeFromCart, carrito } = React.useContext(CarritoContext);
   
-  // Check if the product is already in the cart
   const isInCart = carrito.some(item => item.name === name);
   
   const handleCartClick = () => {
@@ -35,8 +36,9 @@ const ProductCard: React.FC<props> = ({ name, image, price }) => {
         </div>
       </div>
       <div className="card-body">
+        <h6 className="product-brand">{marca}</h6>
         <h5 className="card-title">{name}</h5>
-        <p className="card-text">{price}</p>
+        <p className="card-text">Desde los ${price}</p>
       </div>
     </div>
   );

@@ -6,10 +6,12 @@ import NuevosPage from "../../pages/NuevosPage";
 import DisenadorPage from "../../pages/DisenadorPage";
 import ArabesPage from "../../pages/ArabesPage";
 import TesterPage from "../../pages/TesterPage";
+import LogIn from "../../pages/LoginPage";
+import SignIn from "../../pages/SignInPage";
 import DecantsPage from "../../pages/DecantsPage";
+import Profile from "../../pages/ProfilePage";
 import { Carrito } from "../../pages/Carrito/Carrito";
-import  Perfil  from "../../components/Perfil";
-import  Contactos  from "../../components/Contactos";
+//import  Contactos  from "../../components/Contactos";
 
 const ElementPath = {
     [AppPaths.Home]: (<HomePage />),
@@ -20,8 +22,9 @@ const ElementPath = {
     [AppPaths.Tester]: (<TesterPage />),
     [AppPaths.Decants]: (<DecantsPage />),
     [AppPaths.Carrito]: (<Carrito />),
-    [AppPaths.Perfil]: (<Perfil />),
-    [AppPaths.Contactos]: (<Contactos />),
+    [AppPaths.Login]: (<LogIn/>),
+    [AppPaths.Registro]: (<SignIn />),
+    [AppPaths.Perfil]: (<Profile />),
 }
 
 export const AppRoutes = () => 
