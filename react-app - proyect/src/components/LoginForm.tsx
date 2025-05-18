@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './LogInForm.css';
+import './LoginForm.css';
 
 const EyeIcon = ({ open = true }) => (
   open ? (
