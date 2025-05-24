@@ -1,4 +1,4 @@
-import React from 'react';
+
 import BannerImage from '../components/BannerImage';
 import ProductList from '../components/ProductList';
 import { newIncome } from '../global/PerfumCategory';
