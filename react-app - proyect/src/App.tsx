@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { AppRoutes } from "./global/Routes/AppRoutes"; // Importamos el componente AppRoutes
 import { CarritoProvider } from "./Context/Carrito/provider";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="app">
         <CarritoProvider>
           <Router> 
+            <ScrollToTop />
             <Header />
             <AppRoutes />
             <Footer />

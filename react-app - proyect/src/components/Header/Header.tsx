@@ -5,7 +5,7 @@ import "./Header.css";
 import logo from "/logo.png";
 import { Link } from "react-router-dom";
 import { SearchComponent } from "./Search/Search";
-import { FiSearch, FiUsers, FiUser, FiShoppingCart, FiMenu } from 'react-icons/fi';
+import { FiSearch, FiUser, FiShoppingCart, FiMenu } from 'react-icons/fi';
 
 function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);

@@ -1,10 +1,11 @@
 import React from 'react';
 import LogInForm from '../components/LoginForm';
+import './LoginPage.css';
 
 const LoginPage = () => {
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Perfil</h1>
+      <h1 id="title" style={styles.title}>Perfil</h1>
       <LogInForm />
     </div>
   );

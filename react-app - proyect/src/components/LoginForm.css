@@ -17,7 +17,7 @@
   .form-container {
     flex: 1;
     background-color: #1f1f1f;
-    color: d4aa43;
+    color: cfb662;
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@
   
   .subtitle {
     font-size: 1rem;
-    color: #d4aa43;
+    color: #cfb662;
     text-align: left;
     margin-top: -10px;
     margin-bottom: 30px;
@@ -40,7 +40,7 @@
   h2 {
     font-size: 2rem;
     margin-bottom: 25px;
-    color: #d4aa43;
+    color: #cfb662;
     text-align: left;
   }
   
@@ -66,7 +66,7 @@
   }
   
   .form-group input:focus {
-    border-color: #d4aa43;
+    border-color: #cfb662;
     outline: none;
   }
   
@@ -90,7 +90,7 @@
   }
   
   .toggle-password.active svg {
-    stroke: #d4aa43;
+    stroke: #cfb662;
   }
   
   .forgot-password-inline {
@@ -107,7 +107,7 @@
   
   .boton-elegante {
     width: 100%;
-    background-color: #d4aa43;
+    background-color: #cfb662;
     border: none;
     padding: 12px;
     font-size: 1rem;
@@ -150,7 +150,7 @@
   }
   
   .register-link {
-    color: #d4aa43;
+    color: #cfb662;
     font-weight: bold;
     margin-left: 5px;
     text-decoration: none;

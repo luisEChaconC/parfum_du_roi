@@ -1,9 +1,11 @@
-import React from 'react';
 import ProductList from '../components/ProductList';
 import { nicho } from '../global/PerfumCategory';
 
 const NichoPage = () => (
-  <ProductList title="Nicho" products={nicho} />
+  <ProductList title="NICHO"
+  description="Descubre el pinaculo de la perfumería al sumergirte en fragancias 
+  excepcionales elaboradas por autores con la gama más alta de ingredientes naturales."
+  products={nicho} />
 );
 
 export default NichoPage; 

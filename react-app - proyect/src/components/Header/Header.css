@@ -7,6 +7,9 @@
   width: 100%;
   top: 0;
   z-index: 1000;
+  font-size: 13px;
+  text-transform: uppercase;
+
 }
 
 .header {

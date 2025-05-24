@@ -1,3 +1,4 @@
+/*
 import React from "react";
 import "./ProductCard.css";
 import { CarritoContext } from "../Context/Carrito/carrito";
@@ -38,7 +39,58 @@ const ProductCard: React.FC<props> = ({ name, image, price, marca }) => {
       <div className="card-body">
         <h6 className="product-brand">{marca}</h6>
         <h5 className="card-title">{name}</h5>
-        <p className="card-text">Desde los ${price}</p>
+        <p className="card-text">DESDE LOS ${price}</p>
+      </div>
+    </div>
+  );
+};
+
+export default ProductCard;
+
+*/
+
+import React from "react";
+import "./ProductCard.css";
+import { CarritoContext } from "../Context/Carrito/carrito";
+
+interface props {
+  name: string;
+  image: string;
+  price: string;
+  marca: string;
+}
+
+const ProductCard: React.FC<props> = ({ name, image, price, marca }) => {
+  const { addToCart, removeFromCart, carrito } = React.useContext(CarritoContext);
+
+  const isInCart = carrito.some(item => item.name === name);
+
+  const handleCartClick = () => {
+    if (isInCart) {
+      removeFromCart({ name, price: parseFloat(price), img: image });
+    } else {
+      addToCart({ name, price: parseFloat(price), img: image });
+    }
+  };
+
+  return (
+    <div className="card product-card">
+      <div className="img-container">
+        <img src={image} className="card-img-top" alt={name} />
+        {/* Quitamos el ícono superpuesto */}
+      </div>
+      <div className="card-body">
+        <h6 className="product-brand">{marca}</h6>
+        <h5 className="card-title">{name}</h5>
+        <p className="card-text">DESDE LOS ${price}</p>
+
+        {/* Botón para agregar/quitar del carrito */}
+        <button 
+          id="btn" 
+          onClick={handleCartClick} 
+        >
+          {isInCart ? "QUITAR DEL CARRITO" : "AGREGAR AL CARRITO"}
+        </button>
       </div>
     </div>
   );

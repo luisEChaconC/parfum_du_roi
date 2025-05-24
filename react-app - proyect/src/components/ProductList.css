@@ -1,9 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap");
 
 
 #title-new-product {
-  font-family: 'Montserrat';
+  font-family: 'Cormorant Garamond';
   color: #cfb662;
-  font-weight: bold;
   text-align: center;
+  font-size: 62px
+}
+
+.product-list-description {
+  flex-basis: 100%;
+  max-width: 700px;
+  white-space: normal !important;
+  text-align: center;
+  margin: 30px auto 120px; 
+  color: #cfb662b0;
+}
+
+.title-description-wrapper {
+  border-bottom: 1px solid #cfb66239; 
+  padding-bottom: 20px; 
+  margin-bottom: 30px; 
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button_sort {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 15px; /* separa el texto del botón */
+}
+
+.custom-sort-button {
+  border-color: #cfb6626b !important;
+  color: #cfb662d2 !important;
+  background-color: transparent !important;
+}
+
+.text-button {
+  color: #cfb662d2;
+}
+
+.custom-sort-button,
+.custom-sort-button:focus,
+.custom-sort-button:active,
+.custom-sort-button.show,
+.custom-sort-button.dropdown-toggle {
+  border-radius: 0 !important;
+  border-color: #cfb6626b !important;
+  color: #cfb662d2 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 768px) {
+  #title-new-product {
+    font-size: 20px;
+  }
+
+  .button_sort {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 15px; /* separa el texto del botón */
+  }
+
+  .custom-sort-button {
+    border-color: #cfb6626b !important;
+    color: #cfb662d2 !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+  }
+
+  .text-button {
+    color: #cfb66278;
+  }
 }

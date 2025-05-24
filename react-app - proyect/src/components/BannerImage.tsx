@@ -3,7 +3,8 @@ import "./BannerImage.css";
 
 const BannerImage: React.FC = () => {
   const images = [
-    '/img/Nicho/promotion/portraits_volteada.avif',
+    //'/img/Nicho/promotion/portraits_volteada.avif',
+    '/Angels_share.avif'
     // '/img/aventus_cologne.jpeg',
     // '/img/creed_aventus.png',
     //'/img/lv_on.avif'
@@ -29,7 +30,7 @@ const BannerImage: React.FC = () => {
   />
   <div className="banner-overlay"></div> {}
   <div className="banner-text">
-    <h1 id="title">Tu Perfume,<br />Tu Esencia </h1>
+    {/* <h1 id="title">Tu Perfume,<br />Tu Esencia </h1> */}
   </div>
 </div>
   );

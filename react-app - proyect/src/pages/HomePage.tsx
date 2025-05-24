@@ -4,7 +4,7 @@ import ProductList from '../components/ProductList';
 import { newIncome } from '../global/PerfumCategory';
 
 const HomePage = () => (
-  <><BannerImage /><ProductList title="Nuevos Ingresos" products={newIncome} /></>
+  <><BannerImage /><ProductList title="POPULARES" products={newIncome} /></>
 );
 
 export default HomePage;
