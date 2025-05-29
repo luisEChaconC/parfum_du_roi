@@ -1,8 +1,8 @@
-import { BrowserRouter as Router } from "react-router-dom"; // Importamos Router, Routes y Route
+import { BrowserRouter as Router } from "react-router-dom"; 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import "./App.css";
-import { AppRoutes } from "./global/Routes/AppRoutes"; // Importamos el componente AppRoutes
+import { AppRoutes } from "./global/Routes/AppRoutes"; 
 import { CarritoProvider } from "./Context/Carrito/provider";
 import ScrollToTop from "./components/ScrollToTop";
 

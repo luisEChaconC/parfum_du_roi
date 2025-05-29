@@ -1,4 +1,3 @@
-import React from 'react';
 import { Carrito } from './Carrito/Carrito';
 
 const CarritoPage = () => (

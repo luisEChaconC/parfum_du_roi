@@ -7,7 +7,7 @@
   display: flex;
   position: relative; 
   width: 100%;
-  height: calc(105vh - 30px);
+  height: 100vh;
   overflow: hidden;
   margin-bottom: -1;
 }
@@ -19,8 +19,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro con opacidad */
-  z-index: 1; /* Asegura que el overlay esté encima de la imagen */
+  background-color: rgba(0, 0, 0, 0.1); /* Fondo oscuro con opacidad */
+  z-index: 1;
 }
 
 /* Imagen de fondo */
@@ -67,5 +67,4 @@
   #description {
     font-size: 12px;
   }
-
 }

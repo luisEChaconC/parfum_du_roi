@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PerfumCategory } from "../../global/PerfumCategory";
 import { Routes } from "../../global/Routes/Routes";
 import "./Header.css";
-import logo from "/logo.png";
+import logo from "/logo_3.png";
 import { Link } from "react-router-dom";
 import { SearchComponent } from "./Search/Search";
 import { FiSearch, FiUser, FiShoppingCart, FiMenu } from 'react-icons/fi';
@@ -10,10 +10,21 @@ import { FiSearch, FiUser, FiShoppingCart, FiMenu } from 'react-icons/fi';
 function Header() {
   const [isSearchActive, setIsSearchActive] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+
+  // Controla la clase de animación con delay para transición
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      const timer = setTimeout(() => setMenuVisible(true), 10);
+      return () => clearTimeout(timer);
+    } else {
+      setMenuVisible(false);
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <header className="whole-header">
@@ -27,8 +38,17 @@ function Header() {
             ))}
           </ul>
           <div className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMobileMenu}>
-            <button className="menu-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            <FiMenu className="header-icon" />
+            <button 
+              className={`menu-toggle${isMobileMenuOpen ? ' active' : ''}`} 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+              type="button"
+            >
+              <div className="line">
+              <span className="top"></span>
+              <span className="mid"></span>
+              <span className="bottom"></span>
+              </div>
             </button>
 
           </div>
@@ -39,7 +59,6 @@ function Header() {
             <img src={logo} alt="Logo Perfumes" className="logo-img" />
           </Link>
         </div>
-
 
         <div className="header-right">
           <ul className="nav-list">
@@ -55,14 +74,16 @@ function Header() {
           </ul>
         </div>
       </div>
+
       {isSearchActive && (
         <SearchComponent
           isSearchActive={isSearchActive}
           setIsSearchActive={setIsSearchActive}
         />
       )}
+
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
+        <div className={`mobile-menu ${menuVisible ? 'translateX-enter-active' : ''}`}>
           {PerfumCategory.map((category, index) => (
             <Link
               key={index}
@@ -75,7 +96,6 @@ function Header() {
           ))}
         </div>
       )}
-
     </header>
   );
 }

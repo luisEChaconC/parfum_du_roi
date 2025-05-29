@@ -31,20 +31,14 @@
   font-family: 'Montserrat';
 
   padding: 16px;
-  transition: transform 0.3s ease;
-
-  height: 480px; /* 📌 altura fija */
+  transition:transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
 }
 
-/* Para darle efecto de hover 
-.product-card:hover {
-  transform: scale(1.05);
-}
-*/
 .product-card .img-container:hover img {
   transform: scale(1.05);
   transition: transform 0.3s ease;

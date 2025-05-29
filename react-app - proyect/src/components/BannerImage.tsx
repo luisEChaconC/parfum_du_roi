@@ -3,11 +3,9 @@ import "./BannerImage.css";
 
 const BannerImage: React.FC = () => {
   const images = [
-    //'/img/Nicho/promotion/portraits_volteada.avif',
-    '/Angels_share.avif'
-    // '/img/aventus_cologne.jpeg',
-    // '/img/creed_aventus.png',
-    //'/img/lv_on.avif'
+    '/img/Nicho/promotion/portraits_volteada.avif',
+    '/Angels_share.avif',
+    '/Angels_share_paradise.jpg',
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -15,7 +13,7 @@ const BannerImage: React.FC = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentImageIndex(prevIndex => (prevIndex + 1) % images.length);
-    }, 3000); // Cambiar la imagen cada 3 segundos
+    }, 5000); // Cambiar la imagen cada 3 segundos
 
     // Limpiar el intervalo cuando el componente se desmonte
     return () => clearInterval(intervalId);
