@@ -10,7 +10,9 @@ import LogIn from "../../pages/LoginPage";
 import SignIn from "../../pages/SignInPage";
 import DecantsPage from "../../pages/DecantsPage";
 import Profile from "../../pages/ProfilePage";
-import { Carrito } from "../../pages/Carrito/Carrito";
+import RecoverPassword from "../../pages/RecoverPasswordPage";
+import ResetPassword from "../../pages/ResetPasswordPage";
+import { Carrito } from "../../pages/Carrito/Carrito";   
 //import  Contactos  from "../../components/Contactos";
 
 const ElementPath = {
@@ -25,6 +27,8 @@ const ElementPath = {
     [AppPaths.Login]: (<LogIn/>),
     [AppPaths.Registro]: (<SignIn />),
     [AppPaths.Perfil]: (<Profile />),
+    [AppPaths.Recuperar]: (<RecoverPassword />),
+    [AppPaths.Resetear]: (<ResetPassword />),
 }
 
 export const AppRoutes = () => 

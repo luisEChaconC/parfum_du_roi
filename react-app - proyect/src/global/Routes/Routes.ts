@@ -16,4 +16,6 @@ export const Routes:Route = {
     Login: "/login",
     Registro: "/registro",
     Busqueda: "/busqueda",
+    Recuperar: "/recuperar",
+    Resetear: "/resetear", 
 }

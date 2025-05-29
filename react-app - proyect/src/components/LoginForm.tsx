@@ -110,7 +110,9 @@ const LogInForm = () => {
               </button>
             </div>
             {errors.password && <p className="error-message">{errors.password}</p>}
-            <a href="#" className="forgot-password-inline"><u>¿Olvidaste tu contraseña?</u></a>
+            <a href="#" className="forgot-password-inline" onClick={(e) => {e.preventDefault();
+                 navigate('/recuperar');
+            }}><u>¿Olvidaste tu contraseña?</u></a>
           </div>
 
           {errors.general && <p className="error-message general-error">{errors.general}</p>}
