@@ -1,0 +1,84 @@
+/* PaymentForm.css */
+
+
+.payment-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Que ocupe toda la pantalla verticalmente */
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.payment-container {
+  background-color: #ffffff;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(70, 85, 150, 0.1);
+  max-width: 450px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.text {
+  color: #727272;
+  text-align: center;
+}
+
+.text-card {
+  color: #333;
+}
+
+h3 {
+  font-weight: 600;
+  color: #333;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.form-control {
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-control:focus {
+  border-color: #4F8EF7;
+  box-shadow: 0 0 0 0.2rem rgba(79, 142, 247, 0.25);
+}
+
+.btn-primary {
+  background-color: #4F8EF7;
+  border-color: #4F8EF7;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 500;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #3a75d5;
+  border-color: #3a75d5;
+  box-shadow: 0 4px 10px rgba(63, 134, 255, 0.4);
+}
+
+.alert {
+  border-radius: 12px;
+  padding: 14px;
+  font-weight: 500;
+}
+
+input::placeholder {
+  color: #adb5bd;
+  font-size: 0.95rem;
+}
+
+.text-pay-online {
+  
+}

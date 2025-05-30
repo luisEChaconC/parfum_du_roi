@@ -13,6 +13,7 @@ import Profile from "../../pages/ProfilePage";
 import RecoverPassword from "../../pages/RecoverPasswordPage";
 import ResetPassword from "../../pages/ResetPasswordPage";
 import { Carrito } from "../../pages/Carrito/Carrito";   
+import PaymentForm from "../../components/PaymentForm";
 //import  Contactos  from "../../components/Contactos";
 
 const ElementPath = {
@@ -29,6 +30,7 @@ const ElementPath = {
     [AppPaths.Perfil]: (<Profile />),
     [AppPaths.Recuperar]: (<RecoverPassword />),
     [AppPaths.Resetear]: (<ResetPassword />),
+    [AppPaths.Pay]: (<PaymentForm />),
 }
 
 export const AppRoutes = () => 

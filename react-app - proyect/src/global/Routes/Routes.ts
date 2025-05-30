@@ -17,5 +17,6 @@ export const Routes:Route = {
     Registro: "/registro",
     Busqueda: "/busqueda",
     Recuperar: "/recuperar",
-    Resetear: "/resetear", 
+    Resetear: "/resetear",
+    Pay: "/pay", 
 }
