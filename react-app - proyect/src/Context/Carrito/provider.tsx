@@ -1,10 +1,41 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CarritoContext, Product, CartItem } from "./carrito";
+
+const CART_STORAGE_KEY = 'carritoData';
 
 export const CarritoProvider = ({children}: {children: React.ReactNode}) => {
     const [carrito, setCarrito] = useState<CartItem[]>([]);
     const [amountOfProducts, setAmountOfProducts] = useState<number>(0);
     const [totalPrice, setTotalPrice] = useState<number>(0);
+
+    // Load cart data from localStorage
+    const loadCartFromStorage = (): CartItem[] => {
+        try {
+            const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+            return storedCart ? JSON.parse(storedCart) : [];
+        } catch (error) {
+            console.error('Error loading cart from localStorage:', error);
+            return [];
+        }
+    };
+
+    // Save cart data to localStorage
+    const saveCartToStorage = (cartItems: CartItem[]) => {
+        try {
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+        } catch (error) {
+            console.error('Error saving cart to localStorage:', error);
+        }
+    };
+
+    // Initialize cart from localStorage on component mount
+    useEffect(() => {
+        const savedCart = loadCartFromStorage();
+        if (savedCart.length > 0) {
+            setCarrito(savedCart);
+            recalculateTotals(savedCart);
+        }
+    }, []);
 
     // Helper function to recalculate totals
     const recalculateTotals = (cartItems: CartItem[]) => {
@@ -33,6 +64,7 @@ export const CarritoProvider = ({children}: {children: React.ReactNode}) => {
             }
             
             recalculateTotals(newCart);
+            saveCartToStorage(newCart);
             return newCart;
         });
     };
@@ -41,6 +73,7 @@ export const CarritoProvider = ({children}: {children: React.ReactNode}) => {
         setCarrito((prev) => {
             const newCart = prev.filter((item) => item.product.id !== productId);
             recalculateTotals(newCart);
+            saveCartToStorage(newCart);
             return newCart;
         });
     };
@@ -58,6 +91,7 @@ export const CarritoProvider = ({children}: {children: React.ReactNode}) => {
                     : item
             );
             recalculateTotals(newCart);
+            saveCartToStorage(newCart);
             return newCart;
         });
     };
@@ -66,6 +100,7 @@ export const CarritoProvider = ({children}: {children: React.ReactNode}) => {
         setCarrito([]);
         setAmountOfProducts(0);
         setTotalPrice(0);
+        saveCartToStorage([]);
     };
   
     return (
