@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import ProductList from '../components/ProductList';
 import { loadProducts, PRODUCT_CATEGORIES, ProductData } from '../utils/productLoader';
 
