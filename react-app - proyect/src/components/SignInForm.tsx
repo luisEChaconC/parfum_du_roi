@@ -9,6 +9,13 @@ interface FormData {
   confirmarContraseña: string;
 }
 
+const passwordRules = [
+  { label: '8+ caracteres', test: (p: string) => p.length >= 8 },
+  { label: '1 mayúscula (A–Z)', test: (p: string) => /[A-Z]/.test(p) },
+  { label: '1 minúscula (a–z)', test: (p: string) => /[a-z]/.test(p) },
+  { label: '1 dígito o carácter especial', test: (p: string) => /[\d\W]/.test(p) },
+];
+
 const SignInForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     nombre: '',
@@ -20,16 +27,34 @@ const SignInForm: React.FC = () => {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [successMessage, setSuccessMessage] = useState('');
+  const [passwordProgress, setPasswordProgress] = useState(0);
+  const [passwordError, setPasswordError] = useState('');
 
   const validarEmail = (email: string) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
+  const validatePassword = (password: string) => {
+    const progress = passwordRules.reduce(
+      (acc, rule) => acc + (rule.test(password) ? 1 : 0),
+      0
+    );
+    setPasswordProgress(progress);
+
+    const secure = progress === passwordRules.length;
+    setPasswordError(secure ? '' : 'La contraseña no cumple los requisitos.');
+    return secure;
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: '' });
+
+    if (name === 'contraseña') {
+      validatePassword(value);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,6 +66,7 @@ const SignInForm: React.FC = () => {
     if (!formData.correo.trim()) newErrors.correo = 'Correo requerido';
     else if (!validarEmail(formData.correo)) newErrors.correo = 'Correo inválido';
     if (!formData.contraseña) newErrors.contraseña = 'Contraseña requerida';
+    else if (!validatePassword(formData.contraseña)) newErrors.contraseña = 'La contraseña no cumple los requisitos.';
     if (formData.contraseña !== formData.confirmarContraseña)
       newErrors.confirmarContraseña = 'Las contraseñas no coinciden';
 
@@ -70,6 +96,8 @@ const SignInForm: React.FC = () => {
       confirmarContraseña: '',
     });
     setErrors({});
+    setPasswordProgress(0);
+    setPasswordError('');
   };
 
   return (
@@ -123,9 +151,26 @@ const SignInForm: React.FC = () => {
               name="contraseña"
               value={formData.contraseña}
               onChange={handleChange}
-              placeholder="Mínimo 6 caracteres"
+              placeholder="Debe cumplir los requisitos"
             />
             {errors.contraseña && <div className="error-text">{errors.contraseña}</div>}
+
+            <div className="progress-wrapper">
+              <div
+                className="progress-bar"
+                style={{ width: `${(passwordProgress / passwordRules.length) * 100}%` }}
+              ></div>
+            </div>
+
+            <ul className="checklist">
+              {passwordRules.map((rule, i) => (
+                <li key={i} className={rule.test(formData.contraseña) ? 'ok' : 'ko'}>
+                  {rule.test(formData.contraseña) ? '✓' : '✗'} {rule.label}
+                </li>
+              ))}
+            </ul>
+
+            {passwordError && <div className="error-text">{passwordError}</div>}
           </div>
 
           <div className={`form-group ${errors.confirmarContraseña ? 'error' : ''}`}>

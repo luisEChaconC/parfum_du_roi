@@ -60,7 +60,7 @@ const PaymentForm: React.FC = () => {
     }
 
     if (!/^\d{3}$/.test(cvv)) {
-      newErrors.cvv = "CVV inválido. Debe tener 3 dígitos.";
+      newErrors.cvv = "CVV inválido. Debe tener 3 o 4 dígitos.";
       hasError = true;
     }
 
@@ -100,11 +100,11 @@ const PaymentForm: React.FC = () => {
   return (
     <div className="payment-wrapper">
       <div className="payment-container mt-5 mx-auto" style={{ minWidth: '600px' }}>
-        <h3 className="text-pay-online mb-4 text-center">Pago en linea</h3>
+        <h3 className="text-pay-online mb-4 text-center">Pago en línea</h3>
         <p className='text'>Todas las transacciones son seguras y están encriptadas.</p>
         <form onSubmit={handlePayment}>
           <div className="mb-3">
-            <h5 className='text-card'>Agrega una tarjeta de crédito o debito</h5>
+            <h5 className='text-card'>Agrega una tarjeta de crédito o débito</h5>
             <input
               type="text"
               className="form-control"
