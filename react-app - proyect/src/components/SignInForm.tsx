@@ -51,6 +51,13 @@ const SignInForm: React.FC = () => {
     }
 
     const registros = JSON.parse(localStorage.getItem('registros') || '[]');
+
+    if (registros.some((user: any) => user.correo === formData.correo)) {
+      setErrors({ correo: 'El correo electrónico ya está en uso.' });
+      setSuccessMessage('');
+      return;
+    }
+
     registros.push(formData);
     localStorage.setItem('registros', JSON.stringify(registros));
 
