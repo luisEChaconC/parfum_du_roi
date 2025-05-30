@@ -2,13 +2,12 @@ import React from "react";
 import  { useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductList.css";
-
-
+import { ProductData } from "../utils/productLoader";
 
 interface props {
   title: string; 
   description?: string; 
-  products: { marca:string; name: string; image: string; price:string } []; 
+  products: ProductData[]; 
 }
 
 const ProductList: React.FC<props> = ({title, description, products}) => {

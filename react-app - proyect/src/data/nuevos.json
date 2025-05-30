@@ -1,0 +1,10 @@
+[
+  { "id": "nuevos-creed-aventus", "marca": "CREED", "name": "AVENTUS", "image": "/img/Nicho/creed/aventus.png", "price": 350 },
+  { "id": "nuevos-creed-silver-mountain-water", "marca": "CREED", "name": "SILVER MOUNTAIN WATER", "image": "/img/Nicho/creed/silver_montain_water.png", "price": 300 },
+  { "id": "nuevos-tom-ford-bois-pacifique", "marca": "TOM FORD", "name": "BOIS PACIFIQUE", "image": "/img/Diseñador/tom_ford/bois_pacifique.avif", "price": 220 },
+  { "id": "nuevos-tom-ford-neroli-portofino", "marca": "TOM FORD", "name": "NEROLI PORTOFINO", "image": "/img/Diseñador/tom_ford/neroli_portofino.avif", "price": 250 },
+  { "id": "nuevos-tom-ford-ombre-leather", "marca": "TOM FORD", "name": "OMBRE LEATHER", "image": "/img/Diseñador/tom_ford/ombre_leather.avif", "price": 230 },
+  { "id": "nuevos-louis-vuitton-california-dream", "marca": "LOUIS VUITTON", "name": "CALIFORNIA DREAM", "image": "/img/Nicho/louis_vuitton/california-dream.avif", "price": 310 },
+  { "id": "nuevos-louis-vuitton-afternoon-swim", "marca": "LOUIS VUITTON", "name": "AFTTERNOON SWIM", "image": "/img/Nicho/louis_vuitton/afternoon-swim.avif", "price": 320 },
+  { "id": "nuevos-louis-vuitton-imagination", "marca": "LOUIS VUITTON", "name": "IMAGINATION", "image": "/img/Nicho/louis_vuitton/imagination.avif", "price": 370 }
+] 

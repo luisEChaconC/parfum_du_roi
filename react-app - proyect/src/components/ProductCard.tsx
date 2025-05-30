@@ -3,16 +3,17 @@ import "./ProductCard.css";
 import { CarritoContext } from "../Context/Carrito/carrito";
 
 interface props {
+  id?: string;
   name: string;
   image: string;
-  price: string;
+  price: number | string;
   marca: string;
 }
 
-const ProductCard: React.FC<props> = ({ name, image, price, marca }) => {
+const ProductCard: React.FC<props> = ({ id, name, image, price, marca }) => {
   const { addToCart, removeFromCart, carrito } = React.useContext(CarritoContext);
 
-  const productId = `${name.toLowerCase().replace(/\s+/g, '-')}-${marca.toLowerCase().replace(/\s+/g, '-')}`;
+  const productId = id || `${name.toLowerCase().replace(/\s+/g, '-')}-${marca.toLowerCase().replace(/\s+/g, '-')}`;
   
   const isInCart = carrito.some(item => item.product.id === productId);
 
@@ -20,7 +21,7 @@ const ProductCard: React.FC<props> = ({ name, image, price, marca }) => {
     const product = {
       id: productId,
       name,
-      price: parseFloat(price),
+      price: typeof price === 'string' ? parseFloat(price) : price,
       img: image
     };
 

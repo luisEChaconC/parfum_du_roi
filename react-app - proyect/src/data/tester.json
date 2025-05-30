@@ -1,0 +1,13 @@
+[
+  { "id": "tester-tom-ford-bois-pacifique", "marca": "TOM FORD", "name": "BOIS PACIFIQUE", "image": "/img/Diseñador/tom_ford/bois_pacifique.avif", "price": 220 },
+  { "id": "tester-tom-ford-neroli-portofino", "marca": "TOM FORD", "name": "NEROLI PORTOFINO", "image": "/img/Diseñador/tom_ford/neroli_portofino.avif", "price": 250 },
+  { "id": "tester-tom-ford-ombre-leather", "marca": "TOM FORD", "name": "OMBRE LEATHER", "image": "/img/Diseñador/tom_ford/ombre_leather.avif", "price": 230 },
+  { "id": "tester-tom-ford-oud-wood", "marca": "TOM FORD", "name": "OUD WOOD", "image": "/img/Diseñador/tom_ford/oud_wood.avif", "price": 220 },
+  { "id": "tester-tom-ford-tobacco-vanille", "marca": "TOM FORD", "name": "TOBACCO VANILLE", "image": "/img/Diseñador/tom_ford/tobacco_vanille.avif", "price": 260 },
+  { "id": "tester-tom-ford-black-orchid-parfum", "marca": "TOM FORD", "name": "BLACK ORCHID PARFUM", "image": "/img/Diseñador/tom_ford/nuevo/black_orchid_parfum.avif", "price": 230 },
+  { "id": "tester-tom-ford-eau-ombre-leather", "marca": "TOM FORD", "name": "EAU D'OMBRE LEATHER", "image": "/img/Diseñador/tom_ford/nuevo/eau_d_ombre_leather.avif", "price": 250 },
+  { "id": "tester-tom-ford-noir-extreme", "marca": "TOM FORD", "name": "NOIR EXTREME", "image": "/img/Diseñador/tom_ford/nuevo/noir_extreme.avif", "price": 230 },
+  { "id": "tester-tom-ford-ombre-leather-parfum", "marca": "TOM FORD", "name": "OMBRE LEATHER PARFUM", "image": "/img/Diseñador/tom_ford/nuevo/ombre_leather.avif", "price": 230 },
+  { "id": "tester-armani-acqua-di-gio", "marca": "ARMANI", "name": "CQUIA DI GIO", "image": "/img/Diseñador/Armani/giorgio-armani-acqua-di-gio.webp", "price": 310 },
+  { "id": "tester-dolce-gabbana-light-blue", "marca": "DOLCE AND GABBANA", "name": "LIGHT BLUE", "image": "/img/Diseñador/Dolce_and_gabbana/dolceandgabbana-light-blue-men.webp", "price": 340 }
+] 
