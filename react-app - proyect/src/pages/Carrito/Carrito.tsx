@@ -1,5 +1,5 @@
-import { useContext, useState } from "react"
-import { CarritoContext, Product } from "../../Context/Carrito/carrito"
+import { useContext } from "react"
+import { CarritoContext } from "../../Context/Carrito/carrito"
 import { Box, Button, Container, Grid, Paper, TextField, Typography } from "@mui/material"
 import RemoveIcon from '@mui/icons-material/Remove'
 import AddIcon from '@mui/icons-material/Add'
@@ -8,44 +8,7 @@ import { Routes } from "../../global/Routes/Routes"
 import "./Carrito.css"
 
 export const Carrito = () => {
-    const { carrito, totalPrice, amountOfProducts, clearCart, addToCart, removeFromCart } = useContext(CarritoContext)
-    
-    // State to track quantities for each product
-    const [quantities, setQuantities] = useState<Record<string, number>>(
-        carrito.reduce((acc, product) => {
-            acc[product.name] = 1;
-            return acc;
-        }, {} as Record<string, number>)
-    );
-
-    // Update quantity for a specific product
-    const updateQuantity = (product: Product, newQuantity: number) => {
-        if (newQuantity <= 0) return;
-        
-        setQuantities({
-            ...quantities,
-            [product.name]: newQuantity
-        });
-    };
-
-    // Calculate individual product total
-    const getProductTotal = (product: Product) => {
-        return product.price * (quantities[product.name] || 1);
-    };
-
-    // Calculate cart total based on quantities
-    const getCartTotal = () => {
-        return carrito.reduce((total, product) => {
-            return total + (product.price * (quantities[product.name] || 1));
-        }, 0);
-    };
-
-    // Calculate total items with quantities
-    const getTotalItems = () => {
-        return carrito.reduce((total, product) => {
-            return total + (quantities[product.name] || 1);
-        }, 0);
-    };
+    const { carrito, totalPrice, amountOfProducts, clearCart, removeFromCart, updateQuantity } = useContext(CarritoContext)
 
     // Empty cart component
     const EmptyCartState = () => (
@@ -150,9 +113,9 @@ export const Carrito = () => {
                             borderBottom: "1px solid #333"
                         }}
                     >
-                        {carrito.map((product) => (
+                        {carrito.map((cartItem) => (
                             <Box 
-                                key={product.name} 
+                                key={cartItem.product.id} 
                                 sx={{ 
                                     display: "flex", 
                                     alignItems: "center", 
@@ -176,8 +139,8 @@ export const Carrito = () => {
                                     }}
                                 >
                                     <img 
-                                        src={product.img} 
-                                        alt={product.name} 
+                                        src={cartItem.product.img} 
+                                        alt={cartItem.product.name} 
                                         style={{ 
                                             maxWidth: "100%", 
                                             maxHeight: "100%", 
@@ -189,13 +152,13 @@ export const Carrito = () => {
                                 {/* Product Info */}
                                 <Box sx={{ flexGrow: 1, ml: 2 }}>
                                     <Typography variant="h6" sx={{ color: "#FFF" }}>
-                                        {product.name}
+                                        {cartItem.product.name}
                                     </Typography>
                                     <Typography variant="body1" sx={{ color: "#FFF", mt: 1 }}>
-                                        ${product.price.toFixed(2)}
+                                        ${cartItem.product.price.toFixed(2)}
                                     </Typography>
                                     <Button 
-                                        onClick={() => removeFromCart(product)}
+                                        onClick={() => removeFromCart(cartItem.product.id)}
                                         size="small"
                                         sx={{ 
                                             mt: 1, 
@@ -225,7 +188,7 @@ export const Carrito = () => {
                                   borderRadius: "4px" 
                                 }}>
                                   <Button 
-                                    onClick={() => updateQuantity(product, quantities[product.name] - 1)} 
+                                    onClick={() => updateQuantity(cartItem.product.id, cartItem.quantity - 1)} 
                                     sx={{ 
                                       minWidth: "30px",
                                       height: "38px", 
@@ -242,11 +205,11 @@ export const Carrito = () => {
                                     <RemoveIcon />
                                   </Button>
                                   <TextField
-                                    value={quantities[product.name] || 1}
+                                    value={cartItem.quantity}
                                     onChange={(e) => {
                                         const val = parseInt(e.target.value);
-                                        if (!isNaN(val)) {
-                                            updateQuantity(product, val);
+                                        if (!isNaN(val) && val > 0) {
+                                            updateQuantity(cartItem.product.id, val);
                                         }
                                     }}
                                     inputProps={{ 
@@ -286,7 +249,7 @@ export const Carrito = () => {
                                     }}
                                   />
                                   <Button 
-                                    onClick={() => updateQuantity(product, quantities[product.name] + 1)} 
+                                    onClick={() => updateQuantity(cartItem.product.id, cartItem.quantity + 1)} 
                                     sx={{ 
                                       minWidth: "30px",
                                       height: "38px", 
@@ -307,7 +270,7 @@ export const Carrito = () => {
                                 {/* Product Total */}
                                 <Box sx={{ width: 100, textAlign: "right" }}>
                                     <Typography variant="body1" sx={{ color: "#FFF", fontWeight: "bold" }}>
-                                        ${getProductTotal(product).toFixed(2)}
+                                        ${(cartItem.product.price * cartItem.quantity).toFixed(2)}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -328,7 +291,7 @@ export const Carrito = () => {
                             Total
                         </Typography>
                         <Typography variant="h5" sx={{ color: "#FFF" }}>
-                            ${getCartTotal().toFixed(2)}
+                            ${totalPrice.toFixed(2)}
                         </Typography>
                     </Box>
                 </Grid>
@@ -356,7 +319,7 @@ export const Carrito = () => {
                                 Total de artículos:
                             </Typography>
                             <Typography variant="body1" sx={{ color: "#FFF", fontWeight: "bold" }}>
-                                {getTotalItems()}
+                                {amountOfProducts}
                             </Typography>
                         </Box>
                         
@@ -365,7 +328,7 @@ export const Carrito = () => {
                                 Total:
                             </Typography>
                             <Typography variant="h6" sx={{ color: "#FFF", fontWeight: "bold" }}>
-                                ${getCartTotal().toFixed(2)}
+                                ${totalPrice.toFixed(2)}
                             </Typography>
                         </Box>
                         
