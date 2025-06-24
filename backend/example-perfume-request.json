@@ -1,0 +1,52 @@
+{
+  "name": "Chanel No. 5",
+  "description": "The iconic fragrance from Chanel, a timeless classic with floral aldehyde composition.",
+  "brand": "Chanel",
+  "price": 125.50,
+  "stock": 50,
+  "targetGender": "Female",
+  "arrivalDate": "2024-01-15",
+  "concentration": "Eau de Parfum",
+  "category": "Designer",
+  "topNotes": [
+    {
+      "name": "Bergamot"
+    },
+    {
+      "name": "Lemon"
+    },
+    {
+      "name": "Neroli"
+    }
+  ],
+  "middleNotes": [
+    {
+      "name": "Rose"
+    },
+    {
+      "name": "Jasmine"
+    },
+    {
+      "name": "Lily of the Valley"
+    }
+  ],
+  "baseNotes": [
+    {
+      "name": "Sandalwood"
+    },
+    {
+      "name": "Vanilla"
+    },
+    {
+      "name": "Vetiver"
+    }
+  ],
+  "images": [
+    {
+      "path": "/images/chanel-no5-bottle.jpg"
+    },
+    {
+      "path": "/images/chanel-no5-package.jpg"
+    }
+  ]
+} 
