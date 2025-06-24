@@ -1,5 +1,4 @@
 import express, { Request, Response, RequestHandler } from 'express';
-import { errorHandler } from './presentation/middleware/error.middleware';
 import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
 
