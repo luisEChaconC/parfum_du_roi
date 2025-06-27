@@ -2,7 +2,7 @@ import { Image } from "@domain/entities/image.entity"
 import { Gender } from "@domain/enums/gender.enum"
 export class Product {
   constructor(
-    private _id: string,
+    private _stockKeepingUnit: string,
     private _name: string,
     private _description: string,
     private _brand: string,
@@ -13,8 +13,8 @@ export class Product {
     private _arrivalDate: Date,
   ) {}
 
-  public get id(): string {
-    return this._id;
+  public get stockKeepingUnit(): string {
+    return this._stockKeepingUnit;
   }
 
   public get name(): string {

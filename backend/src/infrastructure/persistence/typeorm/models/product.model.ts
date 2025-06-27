@@ -52,9 +52,7 @@ export class ProductModel {
   })
   targetGender!: Gender
 
-  @OneToMany(() => ImageModel, (images) => images.product, {
-    cascade: true,
-  })
+  @OneToMany(() => ImageModel, (images) => images.product)
   images!: ImageModel[]
 
   @Column({

@@ -19,21 +19,15 @@ export class PerfumeModel extends ProductModel {
   })
   category!: PerfumeCategory
 
-  @ManyToMany(() => NoteModel, {
-    cascade: true,
-  })
+  @ManyToMany(() => NoteModel)
   @JoinTable()
   topNotes!: NoteModel[]
 
-  @ManyToMany(() => NoteModel, {
-    cascade: true,
-  })
+  @ManyToMany(() => NoteModel)
   @JoinTable()
   middleNotes!: NoteModel[]
 
-  @ManyToMany(() => NoteModel, {
-    cascade: true,
-  })
+  @ManyToMany(() => NoteModel)
   @JoinTable()
   baseNotes!: NoteModel[]
 
