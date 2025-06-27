@@ -9,6 +9,14 @@ export class ProductModel {
 
   @Column({
     type: "varchar",
+    length: 20,
+    nullable: false,
+    unique: true,
+  })
+  stockKeepingUnit!: string
+
+  @Column({
+    type: "varchar",
     length: 100,
     nullable: false,
   })

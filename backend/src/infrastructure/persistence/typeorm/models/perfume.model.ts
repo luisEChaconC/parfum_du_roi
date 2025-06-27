@@ -33,7 +33,7 @@ export class PerfumeModel extends ProductModel {
 
   static fromDomain(perfume: Perfume): PerfumeModel {
     const ormEntity = new PerfumeModel();
-    ormEntity.id = perfume.id;
+    ormEntity.stockKeepingUnit = perfume.stockKeepingUnit;
     ormEntity.name = perfume.name;
     ormEntity.brand = perfume.brand;
     ormEntity.category = perfume.category;
@@ -54,7 +54,7 @@ export class PerfumeModel extends ProductModel {
     );
 
     return new Perfume (
-      this.id,
+      this.stockKeepingUnit,
       this.name,
       this.description,
       this.brand,
