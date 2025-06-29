@@ -1,6 +1,7 @@
 import { injectable, inject } from "inversify";
 import { DataSource, EntityManager, In, Repository } from "typeorm";
 import { TYPES } from "@composition/types";
+import { NoteMapper } from "@infrastructure/mapper/note.mapper";
 import { NoteModel } from "@model/note.model";
 import { Note } from "@entity/note.entity";
 import { DatabaseError } from "@infrastructure/errors/database.error";
@@ -13,16 +14,6 @@ export class TypeOrmNoteRepository {
     @inject(TYPES.DataSource) private readonly _dataSource: DataSource,
   ) {
     this._noteRepository = this._dataSource.getRepository(NoteModel);
-  }
-
-  async save(note: Note): Promise<Note> {
-    try {
-      const noteModel = NoteModel.fromDomain(note);
-      const savedNoteModel = await this._noteRepository.save(noteModel);
-      return savedNoteModel.toDomain();
-    } catch (error) {
-      throw new DatabaseError("Failed to save note");
-    }
   }
 
   async findByName(name: string): Promise<NoteModel | null> {
@@ -54,15 +45,5 @@ export class TypeOrmNoteRepository {
     } catch (error) {
       throw new DatabaseError("Failed to find notes by names in transaction scope");
     }
-  }
-
-  async findOrSaveInTransactionScope(note: Note, entityManager: EntityManager): Promise<Note> {
-    const noteModel = await entityManager.findOne(NoteModel, { where: { name: note.name } });
-    if (noteModel) {
-      return noteModel.toDomain();
-    }
-
-    const savedNoteModel = await entityManager.save(NoteModel.fromDomain(note));
-    return savedNoteModel.toDomain();
   }
 } 
