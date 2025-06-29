@@ -12,7 +12,7 @@ export class GetPerfumesByCategoryUseCase implements IGetPerfumesByCategoryUseCa
     private readonly perfumeRepository: IPerfumeRepository
   ) {}
 
-  async execute(category: PerfumeCategory): Promise<GetPerfumeByCategoryResponseDto[]> {
+  async executeAsync(category: PerfumeCategory): Promise<GetPerfumeByCategoryResponseDto[]> {
     const perfumes = await this.perfumeRepository.findByCategory(category);
     return perfumes.map(perfume => GetPerfumeByCategoryResponseDto.fromDomain(perfume));
   }
