@@ -1,5 +1,6 @@
-// import { CreatePerfumeRequestDto } from "@application/dtos/perfume/create-perfume-request.dto";
+import { CreatePerfumeRequestDto } from "@dto/perfume/create-perfume-request.dto";
+import { Perfume } from "@entity/perfume.entity";
 
-// export interface ICreatePerfumeUseCase {
-//   execute(request: CreatePerfumeRequestDto): Promise<void>;
-// }
+export interface ICreatePerfumeUseCase {
+  executeAsync(requestDto: CreatePerfumeRequestDto): Promise<Perfume>;
+}
