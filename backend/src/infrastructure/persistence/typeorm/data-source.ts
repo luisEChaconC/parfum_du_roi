@@ -15,6 +15,11 @@ const dataSourceOptions: DataSourceOptions = {
   entities: [PerfumeModel, ProductModel, ImageModel, NoteModel],
   synchronize: true,
   logging: false,
+  extra: {
+    autocommit: false,
+    acquireTimeout: 60000,
+    timeout: 60000,
+  },
 };
 
 export const dataSource = new DataSource(dataSourceOptions);
