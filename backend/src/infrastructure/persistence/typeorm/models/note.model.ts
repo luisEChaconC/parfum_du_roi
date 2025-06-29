@@ -13,16 +13,4 @@ export class NoteModel {
     unique: true,
   })
   name!: string
-
-  static fromDomain(note: Note): NoteModel {
-    const ormEntity = new NoteModel();
-    ormEntity.name = note.name;
-    return ormEntity;
-  }
-
-  toDomain(): Note {
-    return new Note (
-      this.name,
-    )
-  }
 }
