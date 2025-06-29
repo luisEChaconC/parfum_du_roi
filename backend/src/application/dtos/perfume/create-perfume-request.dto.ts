@@ -23,7 +23,7 @@ export class CreatePerfumeRequestDto {
   ) {}
 
   static toDomain(createPerfumeRequestDto: CreatePerfumeRequestDto): Perfume {
-    return new Perfume(
+    return new Perfume (
       createPerfumeRequestDto.name,
       createPerfumeRequestDto.description,
       createPerfumeRequestDto.brand,
