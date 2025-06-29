@@ -1,9 +1,11 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import { databaseConfig } from "@infrastructure/config/database.config";
-import { PerfumeModel } from "./models/perfume.model";
-import { ProductModel } from "./models/product.model";
-import { ImageModel } from "./models/image.model";
-import { NoteModel } from "./models/note.model";
+import { UserModel } from "@model/user.models";
+import { SessionModel } from "@model/session.model";
+import { ProductModel } from "@model/product.model";
+import { ImageModel } from "@model/image.model";
+import { PerfumeModel } from "@model/perfume.model";
+import { NoteModel } from "@model/note.model";
 
 const dataSourceOptions: DataSourceOptions = {
   type: "mysql",
@@ -12,7 +14,7 @@ const dataSourceOptions: DataSourceOptions = {
   username: databaseConfig.username,
   password: databaseConfig.password,
   database: databaseConfig.database,
-  entities: [PerfumeModel, ProductModel, ImageModel, NoteModel],
+  entities: [UserModel, SessionModel, ProductModel, ImageModel, PerfumeModel, NoteModel],
   synchronize: true,
   logging: false,
   extra: {
