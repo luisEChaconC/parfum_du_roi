@@ -9,20 +9,19 @@ export class NoteModel {
   @Column({
     type: "varchar",
     length: 50,
+    nullable: false,
     unique: true,
   })
   name!: string
-  
+
   static fromDomain(note: Note): NoteModel {
     const ormEntity = new NoteModel();
-    ormEntity.id = note.id;
     ormEntity.name = note.name;
-    return ormEntity;    
+    return ormEntity;
   }
 
   toDomain(): Note {
     return new Note (
-      this.id,
       this.name,
     )
   }

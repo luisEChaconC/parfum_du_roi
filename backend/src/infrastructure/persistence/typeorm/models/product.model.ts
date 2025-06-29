@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, TableInheritance } from "typeorm"
 import { Gender } from "@domain/enums/gender.enum"
 import { ImageModel } from "@model/image.model"
 
@@ -60,7 +60,9 @@ export class ProductModel {
   })
   targetGender!: Gender
 
-  @OneToMany(() => ImageModel, (images) => images.product)
+  @OneToMany(() => ImageModel, (images) => images.product, {
+    eager: true,
+  })
   images!: ImageModel[]
 
   @Column({

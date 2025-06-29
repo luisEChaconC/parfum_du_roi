@@ -1,12 +1,18 @@
-import { Entity, Column, ManyToMany, JoinTable } from "typeorm"
+import { Entity, Column, ManyToMany, JoinTable, PrimaryColumn } from "typeorm"
 import { ProductModel } from "@infrastructure/persistence/typeorm/models/product.model"
 import { Perfume, Notes } from "@entity/perfume.entity"
 import { NoteModel } from "@model/note.model"
+import { ImageModel } from "@model/image.model"
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum"
 import { PerfumeConcentration } from "@domain/enums/perfume-concentration.enum"
 
 @Entity("perfumes")
-export class PerfumeModel extends ProductModel {
+export class PerfumeModel {
+  @PrimaryColumn({
+    type: "uuid",
+  })
+  id!: string
+
   @Column({
     type: "enum",
     enum: PerfumeConcentration,
@@ -19,53 +25,21 @@ export class PerfumeModel extends ProductModel {
   })
   category!: PerfumeCategory
 
-  @ManyToMany(() => NoteModel)
+  @ManyToMany(() => NoteModel, {
+    eager: true,
+  })
   @JoinTable()
   topNotes!: NoteModel[]
 
-  @ManyToMany(() => NoteModel)
+  @ManyToMany(() => NoteModel, {
+    eager: true,
+  })
   @JoinTable()
   middleNotes!: NoteModel[]
 
-  @ManyToMany(() => NoteModel)
+  @ManyToMany(() => NoteModel, {
+    eager: true,
+  })
   @JoinTable()
   baseNotes!: NoteModel[]
-
-  static fromDomain(perfume: Perfume): PerfumeModel {
-    const ormEntity = new PerfumeModel();
-    ormEntity.stockKeepingUnit = perfume.stockKeepingUnit;
-    ormEntity.name = perfume.name;
-    ormEntity.brand = perfume.brand;
-    ormEntity.category = perfume.category;
-    ormEntity.concentration = perfume.concentration;
-    ormEntity.description = perfume.description;
-    ormEntity.price = perfume.price;
-    ormEntity.stock = perfume.stock;
-    return ormEntity;
-  }
-
-  toDomain(): Perfume {
-    const domainEntityImages = this.images?.map(ormEntityImage => ormEntityImage.toDomain()) || [];
-
-    const domainEntityNotes = new Notes (
-      this.topNotes?.map(ormEntityNote => ormEntityNote.toDomain()) || [],
-      this.middleNotes?.map(ormEntityNote => ormEntityNote.toDomain()) || [],
-      this.baseNotes?.map(ormEntityNote => ormEntityNote.toDomain()) || [],
-    );
-
-    return new Perfume (
-      this.stockKeepingUnit,
-      this.name,
-      this.description,
-      this.brand,
-      this.price,
-      this.stock,
-      this.targetGender,
-      domainEntityImages,
-      this.arrivalDate,
-      this.concentration,
-      this.category,
-      domainEntityNotes,
-    );
-  }
 }

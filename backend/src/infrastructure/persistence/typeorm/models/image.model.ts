@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm"
-import { ProductModel } from "@infrastructure/persistence/typeorm/models/product.model"
 import { Image } from "@domain/entities/image.entity"
+import { ProductModel } from "./product.model";
 
 @Entity("images")
 export class ImageModel {
@@ -10,23 +10,23 @@ export class ImageModel {
   @Column({
     type: "varchar",
     length: 255,
+    nullable: false,
+    unique: true,
   })
   path!: string
 
   @ManyToOne(() => ProductModel, (products) => products.images)
-  @JoinColumn({ name: "productId" })
-  product!: ProductModel
+  @JoinColumn({ name: "product_id" })
+  product!: ProductModel;
 
   static fromDomain(image: Image): ImageModel {
     const ormEntity = new ImageModel();
-    ormEntity.id = image.id;
     ormEntity.path = image.path;
     return ormEntity;
   }
 
   toDomain(): Image {
     return new Image (
-      this.id,
       this.path,
     )
   }
