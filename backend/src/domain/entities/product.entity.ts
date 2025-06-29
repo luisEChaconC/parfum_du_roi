@@ -1,8 +1,9 @@
 import { Image } from "@domain/entities/image.entity"
 import { Gender } from "@domain/enums/gender.enum"
+import { randomUUID } from 'crypto'
+
 export class Product {
   constructor(
-    private _stockKeepingUnit: string,
     private _name: string,
     private _description: string,
     private _brand: string,
@@ -10,8 +11,11 @@ export class Product {
     private _stock: number,
     private _targetGender: Gender,
     private _images: Image[],
-    private _arrivalDate: Date,
+    private _stockKeepingUnit: string = this.generateStockKeepingUnit(),
+    private _arrivalDate: Date = new Date(),
   ) {}
+
+  // Getters
 
   public get stockKeepingUnit(): string {
     return this._stockKeepingUnit;
@@ -47,5 +51,11 @@ export class Product {
 
   public get arrivalDate(): Date {
     return this._arrivalDate;
+  }
+
+  // Business Methods
+
+  private generateStockKeepingUnit(): string {
+    return randomUUID().replace(/-/g, '').substring(0, 20).toUpperCase();
   }
 }

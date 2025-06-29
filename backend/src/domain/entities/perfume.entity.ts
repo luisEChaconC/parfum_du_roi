@@ -15,7 +15,6 @@ export class Notes {
 
 export class Perfume extends Product {
   constructor(
-    stockKeepingUnit: string,
     name: string,
     description: string,
     brand: string,
@@ -23,12 +22,13 @@ export class Perfume extends Product {
     stock: number,
     targetGender: Gender,
     images: Image[],
-    arrivalDate: Date,
     private _concentration: PerfumeConcentration,
     private _category: PerfumeCategory,
     private _notes: Notes,
+    stockKeepingUnit?: string,
+    arrivalDate?: Date,
   ) {
-    super(stockKeepingUnit, name, description, brand, price, stock, targetGender, images, arrivalDate);
+    super(name, description, brand, price, stock, targetGender, images, stockKeepingUnit, arrivalDate);
   }
 
   public get concentration(): PerfumeConcentration {
