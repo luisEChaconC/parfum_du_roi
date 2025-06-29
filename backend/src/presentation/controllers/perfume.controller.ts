@@ -4,12 +4,14 @@ import { Request, Response } from "express";
 import { IGetPerfumesByCategoryUseCase } from "@application/ports/use-cases/get-perfume-by-category.use-case.interface";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { BadRequestError } from "@presentation/errors/bad-request.error";
+import { CreatePerfumeRequestDto } from "@dto/perfume/create-perfume-request.dto";
+import { ICreatePerfumeUseCase } from "@application/ports/use-cases/create-perfume.use-case.interface";
 
 @injectable()
 export class PerfumeController {
   constructor(
-    @inject(TYPES.GetPerfumesByCategoryUseCase)
-    private readonly getPerfumesByCategoryUseCase: IGetPerfumesByCategoryUseCase
+    @inject(TYPES.GetPerfumesByCategoryUseCase) private readonly getPerfumesByCategoryUseCase: IGetPerfumesByCategoryUseCase,
+    @inject(TYPES.CreatePerfumeUseCase) private readonly createPerfumeUseCase: ICreatePerfumeUseCase,
   ) {}
 
   async getPerfumesByCategory(req: Request, res: Response): Promise<void> {
@@ -19,7 +21,13 @@ export class PerfumeController {
       throw new BadRequestError("Invalid perfume category provided.");
     }
 
-    const perfumes = await this.getPerfumesByCategoryUseCase.execute(category);
+    const perfumes = await this.getPerfumesByCategoryUseCase.executeAsync(category);
     res.status(200).json(perfumes);
+  }
+
+  async createPerfume(req: Request<CreatePerfumeRequestDto>, res: Response): Promise<void> {
+    const perfume = CreatePerfumeRequestDto.toDomain(req.body);
+    const createdPerfume = await this.createPerfumeUseCase.executeAsync(perfume);
+    res.status(201).json(createdPerfume);
   }
 }
