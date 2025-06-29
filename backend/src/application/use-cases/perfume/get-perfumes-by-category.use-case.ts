@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "@composition/types";
-import { IGetPerfumesByCategoryUseCase } from "@application/ports/use-cases/get-perfume-by-category.use-case.interface";
+import { IGetPerfumesByCategoryUseCase } from "@port/use-case/perfume/get-perfume-by-category.use-case.interface";
 import { IPerfumeRepository } from "@application/ports/repositories/perfume.repository.interface";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { GetPerfumeByCategoryResponseDto } from "@application/dtos/perfume/get-perfume-by-category-response.dto";

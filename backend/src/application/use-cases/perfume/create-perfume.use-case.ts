@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "@composition/types";
-import { ICreatePerfumeUseCase } from "@application/ports/use-cases/create-perfume.use-case.interface";
+import { ICreatePerfumeUseCase } from "@port/use-case/perfume/create-perfume.use-case.interface";
 import { IPerfumeRepository } from "@application/ports/repositories/perfume.repository.interface";
 import { CreatePerfumeRequestDto } from "@application/dtos/perfume/create-perfume-request.dto";
 import { Perfume } from "@entity/perfume.entity";

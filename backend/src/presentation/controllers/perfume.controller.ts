@@ -1,11 +1,11 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "@composition/types";
 import { Request, Response } from "express";
-import { IGetPerfumesByCategoryUseCase } from "@application/ports/use-cases/get-perfume-by-category.use-case.interface";
+import { IGetPerfumesByCategoryUseCase } from "@port/use-case/perfume/get-perfume-by-category.use-case.interface";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { BadRequestError } from "@presentation/errors/bad-request.error";
 import { CreatePerfumeRequestDto } from "@dto/perfume/create-perfume-request.dto";
-import { ICreatePerfumeUseCase } from "@application/ports/use-cases/create-perfume.use-case.interface";
+import { ICreatePerfumeUseCase } from "@port/use-case/perfume/create-perfume.use-case.interface";
 
 @injectable()
 export class PerfumeController {
