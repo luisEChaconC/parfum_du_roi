@@ -32,27 +32,28 @@
     // "moduleResolution": "node10",                     /* Specify how TypeScript looks up a file from a given module specifier. */
     "paths": {
       // Infrastructure
-      "@infrastructure/*": ["src/infrastructure/*"],
-      "@database/*": ["src/infrastructure/database/*"],
-      "@repository/*": ["src/infrastructure/persistence/typeorm/repositories/*"],
-      "@typeorm/*": ["src/infrastructure/persistence/typeorm/*"],
       "@model/*": ["src/infrastructure/persistence/typeorm/models/*"],
+      "@infrastructure/mapper/*": ["src/infrastructure/mappers/*"],
+      "@typeorm/*": ["src/infrastructure/persistence/typeorm/*"],
+      "@repository/*": ["src/infrastructure/persistence/typeorm/repositories/*"],
+      "@database/*": ["src/infrastructure/database/*"],
+      "@infrastructure/*": ["src/infrastructure/*"],
 
       // Presentation
-      "@presentation/*": ["src/presentation/*"],
-      "@controller/*": ["src/presentation/controllers/*"],
       "@routes": ["src/presentation/routes"],
+      "@controller/*": ["src/presentation/controllers/*"],
+      "@presentation/*": ["src/presentation/*"],
 
       // Application
-      "@application/*": ["src/application/*"],
-      "@use-case/*": ["src/application/use-cases/*"],
-      "@port/use-case/*": ["src/application/ports/use-cases/*"],
-      "@port/repository/*": ["src/application/ports/repositories/*"],
       "@dto/*": ["src/application/dtos/*"],
+      "@port/repository/*": ["src/application/ports/repositories/*"],
+      "@port/use-case/*": ["src/application/ports/use-cases/*"],
+      "@use-case/*": ["src/application/use-cases/*"],
+      "@application/*": ["src/application/*"],
 
       // Domain
-      "@domain/*": ["src/domain/*"],
       "@entity/*": ["src/domain/entities/*"],
+      "@domain/*": ["src/domain/*"],
 
       // Composition
       "@composition": ["src/composition"],
