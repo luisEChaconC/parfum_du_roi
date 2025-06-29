@@ -1,4 +1,4 @@
-import { inject } from "inversify";
+import { inject, injectable } from "inversify";
 import { IPerfumeRepository } from "@application/ports/repositories/perfume.repository.interface";
 import { TYPES } from "@composition/types";
 import { Perfume } from "@domain/entities/perfume.entity";
@@ -7,6 +7,7 @@ import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { TypeOrmPerfumeRepository } from "@infrastructure/persistence/typeorm/repositories/perfume.repository";
 import { ProductMapper } from "@infrastructure/mapper/product.mapper";
 
+@injectable()
 export class PerfumeRepositoryAdapter implements IPerfumeRepository {
   constructor(
     @inject(TYPES.TypeOrmPerfumeRepository) private readonly perfumeRepository: TypeOrmPerfumeRepository,
