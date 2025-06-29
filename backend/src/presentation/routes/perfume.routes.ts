@@ -7,6 +7,10 @@ const router = Router();
 
 const perfumeController = dependencyContainer.get<PerfumeController>(TYPES.PerfumeController);
 
+// Gets
 router.get("/category/:category", asyncHandler(perfumeController.getPerfumesByCategory.bind(perfumeController)));
+
+// Posts
+router.post("/", asyncHandler(perfumeController.createPerfume.bind(perfumeController)));
 
 export { router as perfumeRoutes };
