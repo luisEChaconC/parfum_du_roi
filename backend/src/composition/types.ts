@@ -8,7 +8,8 @@ export const TYPES = {
 
   // Repository Ports
   UserRepository: Symbol.for('UserRepository'),
-  PerfumeRepository: Symbol.for('PerfumeRepository'),
+  CartRepository: Symbol.for('CartRepository'),
+  PerfumeRepository: Symbol.for('PerfumeRepository'), 
 
   // Infrastructure Layer
   // Repository Concrete Implementations
