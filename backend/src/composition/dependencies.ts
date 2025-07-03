@@ -4,6 +4,7 @@ import { TYPES } from './types';
 // Infrastructure layer imports
 // Repositories
 import { TypeOrmUserRepository } from '@repository/user.repository';
+import { TypeOrmCartRepository } from '@repository/cart.repository';
 import { TypeOrmProductRepository } from '@repository/product.repository';
 import { TypeOrmImageRepository } from '@repository/image.repository';
 import { TypeOrmPerfumeRepository } from '@repository/perfume.repository';
@@ -44,6 +45,7 @@ export const registerDependencies = (container: Container): void => {
 
   // Repositories
   container.bind<TypeOrmUserRepository>(TYPES.TypeOrmUserRepository).to(TypeOrmUserRepository).inRequestScope();
+  container.bind<TypeOrmCartRepository>(TYPES.TypeOrmCartRepository).to(TypeOrmCartRepository).inRequestScope();
   container.bind<TypeOrmProductRepository>(TYPES.TypeOrmProductRepository).to(TypeOrmProductRepository).inRequestScope();
   container.bind<TypeOrmImageRepository>(TYPES.TypeOrmImageRepository).to(TypeOrmImageRepository).inRequestScope();
   container.bind<TypeOrmPerfumeRepository>(TYPES.TypeOrmPerfumeRepository).to(TypeOrmPerfumeRepository).inRequestScope();
