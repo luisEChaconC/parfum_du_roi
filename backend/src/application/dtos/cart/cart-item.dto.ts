@@ -16,5 +16,13 @@ export class CartItemDto {
       item.priceAtTimeOfAdd,
     );
   }
-}
 
+  static toDomain(dto: CartItemDto): CartItem {
+    return new CartItem(
+      dto.productStockKeepingUnit,
+      dto.productName,
+      dto.quantity,
+      dto.priceAtTimeOfAdd,
+    );
+  }
+}
