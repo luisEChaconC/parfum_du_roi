@@ -13,6 +13,9 @@ export class CartRepositoryAdapter implements ICartRepository {
 
   async findByUserId(userId: string): Promise<Cart> {
     const cartModel = await this._cartRepository.findByUserId(userId);
+    if (!cartModel) {
+      return null;
+    }
     return CartMapper.toDomain(cartModel);
   }
 }
