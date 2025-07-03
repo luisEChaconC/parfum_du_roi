@@ -7,7 +7,7 @@ export class CartItem {
   ) {}
 
   public get productStockKeepingUnit(): string {
-    return this.productStockKeepingUnit;
+    return this._productStockKeepingUnit;
   }
 
   public get quantity(): number {
