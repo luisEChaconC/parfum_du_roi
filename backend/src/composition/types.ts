@@ -14,9 +14,10 @@ export const TYPES = {
   // Infrastructure Layer
   // Repository Concrete Implementations
   TypeOrmUserRepository: Symbol.for('TypeOrmUserRepository'),
+  TypeOrmCartRepository: Symbol.for('TypeOrmCartRepository'),
   TypeOrmProductRepository: Symbol.for('TypeOrmProductRepository'),
-  TypeOrmPerfumeRepository: Symbol.for('TypeOrmPerfumeRepository'),
   TypeOrmImageRepository: Symbol.for('TypeOrmImageRepository'),
+  TypeOrmPerfumeRepository: Symbol.for('TypeOrmPerfumeRepository'),
   TypeOrmNoteRepository: Symbol.for('TypeOrmNoteRepository'),
 
   // Data Source
