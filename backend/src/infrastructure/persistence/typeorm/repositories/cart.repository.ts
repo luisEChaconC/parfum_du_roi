@@ -13,6 +13,14 @@ export class TypeOrmCartRepository {
     this._cartRepository = this._dataSource.getRepository(CartModel);
   }
 
+  async saveOrReplace(cart: CartModel): Promise<CartModel> {
+    const existingCart = await this._cartRepository.findOne({ where: { userId: cart.userId } });
+    if (existingCart) {
+      return this._cartRepository.save({ ...existingCart, ...cart });
+    }
+    return this._cartRepository.save(cart);
+  }
+
   async findByUserId(userId: string): Promise<CartModel | null> {
     return this._cartRepository.findOne({ where: { userId } });
   }
