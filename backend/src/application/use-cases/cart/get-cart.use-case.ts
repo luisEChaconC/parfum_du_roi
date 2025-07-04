@@ -11,7 +11,10 @@ export class GetCartUseCase implements IGetCartUseCase {
   ) {}
 
   async executeAsync(userId: string): Promise<GetCartResponseDto> {    
-    const cart = await this.cartRepository.getCart(userId);
+    const cart = await this.cartRepository.findByUserId(userId);
+    if (!cart) {
+      throw new Error("Cart not found");
+    }
     return GetCartResponseDto.fromDomain(cart);
   }
 }
