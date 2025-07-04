@@ -17,4 +17,3 @@ export class CreateCartUseCase implements ICreateCartUseCase {
     return CreateCartResponseDto.fromDomain(savedCart);
   }
 }
-  
