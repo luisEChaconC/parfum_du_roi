@@ -1,5 +1,19 @@
-import { CartItemDto } from "@dto/cart/cart-item.dto";
+import { CartItem } from "@entity/cart-item.entity";
 import { Cart } from "@entity/cart.entity";
+
+class CartItemDto {
+  constructor(
+    public readonly productStockKeepingUnit: string,
+    public readonly quantity: number,
+  ) {}
+
+  static toDomain(dto: CartItemDto): CartItem {
+    return new CartItem(
+      dto.productStockKeepingUnit,
+      dto.quantity
+    );
+  }
+}
 
 export class CreateCartRequestDto {
   constructor(
