@@ -1,9 +1,9 @@
 export class CartItem {
   constructor(
     private _productStockKeepingUnit: string,
-    private _productName: string,
     private _quantity: number,
-    private _priceAtTimeOfAdd: number,
+    private _productName?: string,
+    private _priceAtTimeOfAdd?: number,
   ) {}
 
   public get productStockKeepingUnit(): string {
@@ -14,15 +14,18 @@ export class CartItem {
     return this._quantity;
   }
 
-  public get priceAtTimeOfAdd(): number {
+  public get priceAtTimeOfAdd(): number | undefined {
     return this._priceAtTimeOfAdd;
   }
 
-  public get productName(): string {
+  public get productName(): string | undefined {
     return this._productName;
   }
 
-  public getSubtotalPrice(): number {
+  public getSubtotalPrice(): number | undefined {
+    if (!this._priceAtTimeOfAdd) {
+      return undefined;
+    }
     return this._quantity * this._priceAtTimeOfAdd;
   }
 }
