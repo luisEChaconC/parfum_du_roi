@@ -37,7 +37,10 @@ export class TypeOrmProductRepository {
 
   async findById(id: string): Promise<ProductModel | null> {
     try {
-      const product = await this._productRepository.findOne({ where: { id } });
+      const product = await this._productRepository.findOne({
+        where: { id },
+        relations: ["images"],
+      });
       return product;
     } catch (error) {
       throw new DatabaseError("Failed to find product by id");

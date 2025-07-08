@@ -22,6 +22,7 @@ import { dataSource } from "@typeorm/data-source";
 // Use cases
 import { CreateUserUseCase } from '@use-case/user/create-user.use-case';
 import { LogInUseCase } from '@use-case/user/log-in.use-case';
+import { GetPerfumeByIdUseCase } from '@use-case/perfume/get-perfume-by-id.use-case';
 import { GetPerfumesByCategoryUseCase } from '@use-case/perfume/get-perfumes-by-category.use-case';
 import { CreatePerfumeUseCase } from '@use-case/perfume/create-perfume.use-case';
 
@@ -36,9 +37,10 @@ export const registerDependencies = (container: Container): void => {
   // Use cases
   container.bind<CreateUserUseCase>(TYPES.CreateUserUseCase).to(CreateUserUseCase).inTransientScope();
   container.bind<LogInUseCase>(TYPES.LogInUseCase).to(LogInUseCase).inTransientScope();
+  container.bind<GetPerfumeByIdUseCase>(TYPES.GetPerfumeByIdUseCase).to(GetPerfumeByIdUseCase).inTransientScope();
   container.bind<GetPerfumesByCategoryUseCase>(TYPES.GetPerfumesByCategoryUseCase).to(GetPerfumesByCategoryUseCase).inTransientScope();
   container.bind<CreatePerfumeUseCase>(TYPES.CreatePerfumeUseCase).to(CreatePerfumeUseCase).inTransientScope();
-
+  
   // Infrastructure layer dependencies
   // Adapters
   container.bind<UserRepositoryAdapter>(TYPES.UserRepository).to(UserRepositoryAdapter).inRequestScope();
