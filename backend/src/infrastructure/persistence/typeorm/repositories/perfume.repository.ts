@@ -63,6 +63,19 @@ export class TypeOrmPerfumeRepository {
     }
   }
 
+  async findWithDependenciesById(id: string): Promise<[ProductModel, PerfumeModel]> {
+    const product = await this._productRepository.findById(id);
+    if (!product) {
+      throw new DatabaseError("Product not found");
+    }
+
+    const perfume = await this.findById(id);
+    if (!perfume) {
+      throw new DatabaseError("Perfume not found");
+    }
+    return [product, perfume];
+  }
+
   async findByCategory(category: PerfumeCategory): Promise<[ProductModel, PerfumeModel][]> {
     try {
       const perfumes = await this._perfumeRepository.find({
@@ -98,5 +111,13 @@ export class TypeOrmPerfumeRepository {
       console.log(error);
       throw new DatabaseError("Failed to save perfume in transaction scope");
     }
+  }
+
+  private async findById(id: string): Promise<PerfumeModel | null> {
+    const perfume = await this._perfumeRepository.findOne({
+      where: { id: id },
+      relations: ["topNotes", "middleNotes", "baseNotes"],
+    });
+    return perfume;
   }
 }

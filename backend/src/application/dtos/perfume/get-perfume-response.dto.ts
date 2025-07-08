@@ -3,8 +3,9 @@ import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { PerfumeConcentration } from "@domain/enums/perfume-concentration.enum";
 import { Gender } from "@domain/enums/gender.enum";
 
-export class GetPerfumeByCategoryResponseDto {
+export class GetPerfumeResponseDto {
   constructor(
+    public readonly id: string,
     public readonly name: string,
     public readonly description: string,
     public readonly brand: string,
@@ -19,8 +20,9 @@ export class GetPerfumeByCategoryResponseDto {
     public readonly baseNotes: string[],
   ) {}
 
-  static fromDomain(perfume: Perfume): GetPerfumeByCategoryResponseDto {
-    return new GetPerfumeByCategoryResponseDto(
+  static fromDomain(perfume: Perfume): GetPerfumeResponseDto {
+    return new GetPerfumeResponseDto(
+      perfume.id,
       perfume.name,
       perfume.description,
       perfume.brand,

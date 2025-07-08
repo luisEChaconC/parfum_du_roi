@@ -3,6 +3,7 @@ export const TYPES = {
   // Use Cases
   CreateUserUseCase: Symbol.for('CreateUserUseCase'),
   LogInUseCase: Symbol.for('LogInUseCase'),
+  GetPerfumeByIdUseCase: Symbol.for('GetPerfumeByIdUseCase'),
   GetPerfumesByCategoryUseCase: Symbol.for('GetPerfumesByCategoryUseCase'),
   CreatePerfumeUseCase: Symbol.for('CreatePerfumeUseCase'),
 
