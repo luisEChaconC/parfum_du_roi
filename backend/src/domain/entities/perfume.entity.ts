@@ -25,10 +25,9 @@ export class Perfume extends Product {
     private _concentration: PerfumeConcentration,
     private _category: PerfumeCategory,
     private _notes: Notes,
-    stockKeepingUnit?: string,
-    arrivalDate?: Date,
+    id?: string,
   ) {
-    super(name, description, brand, price, stock, targetGender, images, stockKeepingUnit, arrivalDate);
+    super(name, description, brand, price, stock, targetGender, images, id);
   }
 
   public get concentration(): PerfumeConcentration {
