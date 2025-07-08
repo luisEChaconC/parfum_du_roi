@@ -5,9 +5,9 @@ import { Image } from "@entity/image.entity";
 import { IImageRepository } from "@application/ports/repositories/image.repository.interface";
 import { DatabaseError } from "@infrastructure/errors/database.error";
 import { DataSource, EntityManager, In } from "typeorm";
-
+import { ProductModel } from "@model/product.model";
 @injectable()
-export class TypeOrmImageRepository implements IImageRepository {
+export class TypeOrmImageRepository {
   private readonly _imageRepository;
 
   constructor(
@@ -16,13 +16,13 @@ export class TypeOrmImageRepository implements IImageRepository {
     this._imageRepository = this._dataSource.getRepository(ImageModel);
   }
 
-  async save(image: Image, productId: string): Promise<void> {
+  async bulkSaveInTransactionScope(images: ImageModel[], entityManager: EntityManager): Promise<ImageModel[]> {
     try {
-    const imageModel = ImageModel.fromDomain(image);
-      imageModel.product = { id: productId } as any; // TypeORM will handle the relation
-    await this._imageRepository.save(imageModel);
+      const savedImages = await entityManager.save(images);
+      return savedImages;
     } catch (error) {
-      throw new DatabaseError("Failed to save image");
+      console.log(error);
+      throw new DatabaseError("Failed to bulk save images in transaction scope");
     }
   }
 
