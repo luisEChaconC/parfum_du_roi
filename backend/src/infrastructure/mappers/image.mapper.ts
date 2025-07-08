@@ -5,6 +5,7 @@ import { ProductModel } from "@model/product.model";
 export class ImageMapper {
   static fromDomain(imageEntity: Image, productModel: ProductModel): ImageModel {
     const imageModel = new ImageModel();
+    imageModel.id = imageEntity.id;
     imageModel.path = imageEntity.path;
     imageModel.product = productModel;
     return imageModel;
@@ -13,6 +14,7 @@ export class ImageMapper {
   static toDomain(imageModel: ImageModel): Image {
     return new Image(
       imageModel.path,
+      imageModel.id,
     );
   }
 }

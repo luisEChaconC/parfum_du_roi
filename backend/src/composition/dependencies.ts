@@ -11,7 +11,9 @@ import { TypeOrmNoteRepository } from '@repository/note.repository';
 
 // Adapters
 import { UserRepositoryAdapter } from '@infrastructure/adapters/user.repository.adapter';
+import { ImageRepositoryAdapter } from '@infrastructure/adapters/image.repository.adapter';
 import { PerfumeRepositoryAdapter } from '@infrastructure/adapters/perfume.repository.adapter';
+import { NoteRepositoryAdapter } from '@infrastructure/adapters/note.repository.adapter';
 
 // Data source
 import { dataSource } from "@typeorm/data-source";
@@ -40,7 +42,9 @@ export const registerDependencies = (container: Container): void => {
   // Infrastructure layer dependencies
   // Adapters
   container.bind<UserRepositoryAdapter>(TYPES.UserRepository).to(UserRepositoryAdapter).inRequestScope();
+  container.bind<ImageRepositoryAdapter>(TYPES.ImageRepository).to(ImageRepositoryAdapter).inRequestScope();
   container.bind<PerfumeRepositoryAdapter>(TYPES.PerfumeRepository).to(PerfumeRepositoryAdapter).inRequestScope();
+  container.bind<NoteRepositoryAdapter>(TYPES.NoteRepository).to(NoteRepositoryAdapter).inRequestScope();
 
   // Repositories
   container.bind<TypeOrmUserRepository>(TYPES.TypeOrmUserRepository).to(TypeOrmUserRepository).inRequestScope();
@@ -58,11 +62,3 @@ export const registerDependencies = (container: Container): void => {
   container.bind<UserController>(TYPES.UserController).to(UserController).inRequestScope();
   container.bind<PerfumeController>(TYPES.PerfumeController).to(PerfumeController).inRequestScope();
 };
-
-
-
-
-
-
-
-
