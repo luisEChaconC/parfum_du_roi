@@ -10,6 +10,7 @@ export class PerfumeMapper {
     const perfumeModel = new PerfumeModel();
 
     // Map properties
+    perfumeModel.id = perfumeEntity.id;
     perfumeModel.concentration = perfumeEntity.concentration;
     perfumeModel.category = perfumeEntity.category;
 
@@ -58,8 +59,7 @@ export class PerfumeMapper {
       perfumeModel.concentration,
       perfumeModel.category,
       domainNotes,
-      productEntity.stockKeepingUnit,
-      productEntity.arrivalDate,
+      perfumeModel.id,
     );
   }
 }
