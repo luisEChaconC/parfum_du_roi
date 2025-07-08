@@ -20,6 +20,11 @@ export class PerfumeRepositoryAdapter implements IPerfumeRepository {
     return PerfumeMapper.toDomain(savedProductModel, savedPerfumeModel);
   }
 
+  async findById(id: string): Promise<Perfume> {
+    const productPerfumePair = await this.perfumeRepository.findWithDependenciesById(id);
+    return PerfumeMapper.toDomain(productPerfumePair[0], productPerfumePair[1]);
+  }
+
   async findByCategory(category: PerfumeCategory): Promise<Perfume[]> {
     const productPerfumePairs = await this.perfumeRepository.findByCategory(category);
 

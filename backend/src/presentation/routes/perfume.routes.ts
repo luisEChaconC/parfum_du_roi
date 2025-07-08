@@ -8,6 +8,7 @@ const router = Router();
 const perfumeController = dependencyContainer.get<PerfumeController>(TYPES.PerfumeController);
 
 // Gets
+router.get("/:id", asyncHandler(perfumeController.getPerfumeById.bind(perfumeController)));
 router.get("/category/:category", asyncHandler(perfumeController.getPerfumesByCategory.bind(perfumeController)));
 
 // Posts

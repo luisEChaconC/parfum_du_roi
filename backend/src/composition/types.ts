@@ -5,6 +5,7 @@ export const TYPES = {
   LogInUseCase: Symbol.for('LogInUseCase'),
   CreateCartUseCase: Symbol.for('CreateCartUseCase'),
   GetCartUseCase: Symbol.for('GetCartUseCase'),
+  GetPerfumeByIdUseCase: Symbol.for('GetPerfumeByIdUseCase'),
   GetPerfumesByCategoryUseCase: Symbol.for('GetPerfumesByCategoryUseCase'),
   CreatePerfumeUseCase: Symbol.for('CreatePerfumeUseCase'),
 
