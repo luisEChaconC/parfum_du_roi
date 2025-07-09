@@ -26,7 +26,8 @@ export class PerfumeController {
   }
 
   async createPerfume(req: Request<CreatePerfumeRequestDto>, res: Response): Promise<void> {
-    const createdPerfume = await this.createPerfumeUseCase.executeAsync(req.body);
+    const perfume = CreatePerfumeRequestDto.toDomain(req.body);
+    const createdPerfume = await this.createPerfumeUseCase.executeAsync(perfume);
     res.status(201).json(createdPerfume);
   }
 }

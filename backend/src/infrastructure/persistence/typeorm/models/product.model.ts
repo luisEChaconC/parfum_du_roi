@@ -1,13 +1,19 @@
-import { Column, Entity, PrimaryColumn, OneToMany, TableInheritance } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany, TableInheritance } from "typeorm"
 import { Gender } from "@domain/enums/gender.enum"
 import { ImageModel } from "@model/image.model"
 
 @Entity("products")
 export class ProductModel {
-  @PrimaryColumn({
-    type: "uuid",
-  })
+  @PrimaryGeneratedColumn("uuid")
   id!: string
+
+  @Column({
+    type: "varchar",
+    length: 20,
+    nullable: false,
+    unique: true,
+  })
+  stockKeepingUnit!: string
 
   @Column({
     type: "varchar",
@@ -58,4 +64,10 @@ export class ProductModel {
     eager: true,
   })
   images!: ImageModel[]
+
+  @Column({
+    name: "arrival_date",
+    type: "date",
+  })
+  arrivalDate!: Date
 }

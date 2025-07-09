@@ -3,7 +3,7 @@ import { Gender } from "@domain/enums/gender.enum";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { PerfumeConcentration } from "@domain/enums/perfume-concentration.enum";
 import { NotesDto } from "../notes.dto";
-import { Perfume, Notes } from "@domain/entities/perfume.entity";
+import { Perfume} from "@domain/entities/perfume.entity";
 import { ImageDto } from "../image.dto";
 
 export class CreatePerfumeRequestDto {
@@ -18,9 +18,11 @@ export class CreatePerfumeRequestDto {
     public readonly concentration: PerfumeConcentration,
     public readonly category: PerfumeCategory,
     public readonly notes: NotesDto,
+    public readonly stockKeepingUnit?: string,
+    public readonly arrivalDate?: Date,
   ) {}
 
-  static toDomain(createPerfumeRequestDto: CreatePerfumeRequestDto, notes: Notes): Perfume {
+  static toDomain(createPerfumeRequestDto: CreatePerfumeRequestDto): Perfume {
     return new Perfume (
       createPerfumeRequestDto.name,
       createPerfumeRequestDto.description,
@@ -31,7 +33,9 @@ export class CreatePerfumeRequestDto {
       createPerfumeRequestDto.images.map(imageDto => ImageDto.toDomain(imageDto)),
       createPerfumeRequestDto.concentration,
       createPerfumeRequestDto.category,
-      notes,
+      NotesDto.toDomain(createPerfumeRequestDto.notes),
+      createPerfumeRequestDto.stockKeepingUnit,
+      createPerfumeRequestDto.arrivalDate,
     );
   }
 }

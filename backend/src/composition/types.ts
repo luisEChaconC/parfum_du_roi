@@ -8,9 +8,7 @@ export const TYPES = {
 
   // Repository Ports
   UserRepository: Symbol.for('UserRepository'),
-  ImageRepository: Symbol.for('ImageRepository'),
   PerfumeRepository: Symbol.for('PerfumeRepository'),
-  NoteRepository: Symbol.for('NoteRepository'),
 
   // Infrastructure Layer
   // Repository Concrete Implementations

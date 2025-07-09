@@ -5,13 +5,15 @@ import { ImageMapper } from "./image.mapper";
 export class ProductMapper {
   static fromDomain(product: Product): ProductModel {
     const productModel = new ProductModel();
-    productModel.id = product.id;
+
+    productModel.stockKeepingUnit = product.stockKeepingUnit;
     productModel.name = product.name;
     productModel.description = product.description;
     productModel.brand = product.brand;
     productModel.price = product.price;
     productModel.stock = product.stock;
     productModel.targetGender = product.targetGender;
+    productModel.arrivalDate = product.arrivalDate;
 
     // Map image relationships
     productModel.images = product.images.map(imageEntity =>
@@ -35,7 +37,8 @@ export class ProductMapper {
       productModel.stock,
       productModel.targetGender,
       domainImages,
-      productModel.id,
+      productModel.stockKeepingUnit,
+      productModel.arrivalDate,
     );
   }
 }

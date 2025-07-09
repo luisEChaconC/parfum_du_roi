@@ -5,7 +5,6 @@ import { NoteModel } from "@model/note.model";
 export class NoteMapper {
   static fromDomain(noteEntity: Note): NoteModel {
     const noteModel = new NoteModel();
-    noteModel.id = noteEntity.id;
     noteModel.name = noteEntity.name;
     return noteModel;
   }
@@ -13,7 +12,6 @@ export class NoteMapper {
   static toDomain(noteModel: NoteModel): Note {
     return new Note (
       noteModel.name,
-      noteModel.id,
     );
   }
 }

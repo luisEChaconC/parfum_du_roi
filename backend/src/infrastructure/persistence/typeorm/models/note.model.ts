@@ -1,11 +1,9 @@
-import { Entity, PrimaryColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { Note } from "@entity/note.entity"
 
 @Entity("notes")
 export class NoteModel {
-  @PrimaryColumn({
-    type: "uuid",
-  })
+  @PrimaryGeneratedColumn("uuid")
   id!: string
 
   @Column({

@@ -1,4 +1,4 @@
-import { Entity, Column, ManyToMany, JoinTable, PrimaryColumn, OneToOne, JoinColumn } from "typeorm"
+import { Entity, Column, ManyToMany, JoinTable, PrimaryColumn } from "typeorm"
 import { ProductModel } from "@infrastructure/persistence/typeorm/models/product.model"
 import { Perfume, Notes } from "@entity/perfume.entity"
 import { NoteModel } from "@model/note.model"
@@ -10,7 +10,6 @@ import { PerfumeConcentration } from "@domain/enums/perfume-concentration.enum"
 export class PerfumeModel {
   @PrimaryColumn({
     type: "uuid",
-    name: "product_id",
   })
   id!: string
 
@@ -29,50 +28,18 @@ export class PerfumeModel {
   @ManyToMany(() => NoteModel, {
     eager: true,
   })
-  @JoinTable({
-    name: "perfume_top_notes",
-    joinColumn: {
-      name: "perfume_id",
-    },
-    inverseJoinColumn: {
-      name: "note_id",
-    },
-  })
+  @JoinTable()
   topNotes!: NoteModel[]
 
   @ManyToMany(() => NoteModel, {
     eager: true,
   })
-  @JoinTable({
-    name: "perfume_middle_notes",
-    joinColumn: {
-      name: "perfume_id",
-    },
-    inverseJoinColumn: {
-      name: "note_id",
-    },
-  })
+  @JoinTable()
   middleNotes!: NoteModel[]
 
   @ManyToMany(() => NoteModel, {
     eager: true,
   })
-  @JoinTable({
-    name: "perfume_base_notes",
-    joinColumn: {
-      name: "perfume_id",
-    },
-    inverseJoinColumn: {
-      name: "note_id",
-    },
-  })
+  @JoinTable()
   baseNotes!: NoteModel[]
-
-  @OneToOne(() => ProductModel, {
-    eager: true,
-  })
-  @JoinColumn({
-    name: "product_id",
-  })
-  product!: ProductModel
 }

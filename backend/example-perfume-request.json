@@ -1,303 +1,52 @@
-[
-  {
-    "name": "Acqua di Gio",
-    "description": "A classic aquatic fragrance for men, inspired by the fresh sea breeze and warm sun.",
-    "brand": "Giorgio Armani",
-    "price": 95.00,
-    "stock": 120,
-    "targetGender": "Male",
-    "arrivalDate": "2024-03-01",
-    "concentration": "Eau de Toilette",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Bergamot" },
-        { "name": "Neroli" },
-        { "name": "Green Tangerine" }
-      ],
-      "middleNotes": [
-        { "name": "Marine Notes" },
-        { "name": "Jasmine" },
-        { "name": "Rosemary" }
-      ],
-      "baseNotes": [
-        { "name": "Cedarwood" },
-        { "name": "Patchouli" },
-        { "name": "White Musk" }
-      ]
+{
+  "name": "Chanel No. 5",
+  "description": "The iconic fragrance from Chanel, a timeless classic with floral aldehyde composition.",
+  "brand": "Chanel",
+  "price": 125.50,
+  "stock": 50,
+  "targetGender": "Female",
+  "arrivalDate": "2024-01-15",
+  "concentration": "Eau de Parfum",
+  "category": "Designer",
+  "topNotes": [
+    {
+      "name": "Bergamot"
     },
-    "images": [
-      { "path": "/images/acqua-di-gio-bottle.jpg" },
-      { "path": "/images/acqua-di-gio-package.jpg" }
-    ]
-  },
-  {
-    "name": "Black Opium",
-    "description": "A seductive and energetic fragrance for women, with notes of coffee, vanilla, and white flowers.",
-    "brand": "Yves Saint Laurent",
-    "price": 110.00,
-    "stock": 80,
-    "targetGender": "Female",
-    "arrivalDate": "2024-02-10",
-    "concentration": "Eau de Parfum",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Pear" },
-        { "name": "Pink Pepper" },
-        { "name": "Orange Blossom" }
-      ],
-      "middleNotes": [
-        { "name": "Coffee" },
-        { "name": "Jasmine" },
-        { "name": "Bitter Almond" }
-      ],
-      "baseNotes": [
-        { "name": "Vanilla" },
-        { "name": "Patchouli" },
-        { "name": "Cedar" }
-      ]
+    {
+      "name": "Lemon"
     },
-    "images": [
-      { "path": "/images/black-opium-bottle.jpg" },
-      { "path": "/images/black-opium-package.jpg" }
-    ]
-  },
-  {
-    "name": "Aventus",
-    "description": "A sophisticated and powerful fragrance for men, celebrating strength, vision, and success.",
-    "brand": "Creed",
-    "price": 325.00,
-    "stock": 30,
-    "targetGender": "Male",
-    "arrivalDate": "2024-01-20",
-    "concentration": "Eau de Parfum",
-    "category": "Niche",
-    "notes": {
-      "topNotes": [
-        { "name": "Pear" },
-        { "name": "Bergamot" },
-        { "name": "Blackcurrant" }
-      ],
-      "middleNotes": [
-        { "name": "Patchouli" },
-        { "name": "Jasmine" },
-        { "name": "Rose" }
-      ],
-      "baseNotes": [
-        { "name": "Oakmoss" },
-        { "name": "Ambergris" },
-        { "name": "Vanilla" }
-      ]
+    {
+      "name": "Neroli"
+    }
+  ],
+  "middleNotes": [
+    {
+      "name": "Rose"
     },
-    "images": [
-      { "path": "/images/creed-aventus-bottle.jpg" },
-      { "path": "/images/creed-aventus-package.jpg" }
-    ]
-  },
-  {
-    "name": "Baccarat Rouge 540",
-    "description": "A luminous and sophisticated fragrance, featuring amber, floral, and woody facets.",
-    "brand": "Maison Francis Kurkdjian",
-    "price": 295.00,
-    "stock": 25,
-    "targetGender": "Unisex",
-    "arrivalDate": "2024-03-15",
-    "concentration": "Eau de Parfum",
-    "category": "Niche",
-    "notes": {
-      "topNotes": [
-        { "name": "Jasmine" },
-        { "name": "Saffron" }
-      ],
-      "middleNotes": [
-        { "name": "Amberwood" },
-        { "name": "Ambergris" }
-      ],
-      "baseNotes": [
-        { "name": "Fir Resin" },
-        { "name": "Cedar" }
-      ]
+    {
+      "name": "Jasmine"
     },
-    "images": [
-      { "path": "/images/baccarat-rouge-540-bottle.jpg" },
-      { "path": "/images/baccarat-rouge-540-package.jpg" }
-    ]
-  },
-  {
-    "name": "Sauvage",
-    "description": "A radically fresh composition, raw and noble all at once. Inspired by wild, open spaces.",
-    "brand": "Dior",
-    "price": 105.00,
-    "stock": 150,
-    "targetGender": "Male",
-    "arrivalDate": "2024-02-01",
-    "concentration": "Eau de Toilette",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Reggio Bergamot" }
-      ],
-      "middleNotes": [
-        { "name": "Sichuan Pepper" }
-      ],
-      "baseNotes": [
-        { "name": "Ambroxan" }
-      ]
+    {
+      "name": "Lily of the Valley"
+    }
+  ],
+  "baseNotes": [
+    {
+      "name": "Sandalwood"
     },
-    "images": [
-      { "path": "/images/dior-sauvage-bottle.jpg" },
-      { "path": "/images/dior-sauvage-package.jpg" }
-    ]
-  },
-  {
-    "name": "Light Blue",
-    "description": "A vibrant and fresh floral-fruity scent for women, evoking the spirit of the Sicilian summer.",
-    "brand": "Dolce & Gabbana",
-    "price": 85.00,
-    "stock": 90,
-    "targetGender": "Female",
-    "arrivalDate": "2024-01-05",
-    "concentration": "Eau de Toilette",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Sicilian Lemon" },
-        { "name": "Apple" },
-        { "name": "Cedar" }
-      ],
-      "middleNotes": [
-        { "name": "Bamboo" },
-        { "name": "Jasmine" },
-        { "name": "White Rose" }
-      ],
-      "baseNotes": [
-        { "name": "Cedar" },
-        { "name": "Musk" },
-        { "name": "Amber" }
-      ]
+    {
+      "name": "Vanilla"
     },
-    "images": [
-      { "path": "/images/light-blue-bottle.jpg" },
-      { "path": "/images/light-blue-package.jpg" }
-    ]
-  },
-  {
-    "name": "Tom Ford Oud Wood",
-    "description": "A pioneering scent in the oud trend, featuring rare oud wood, sandalwood, and vetiver.",
-    "brand": "Tom Ford",
-    "price": 280.00,
-    "stock": 40,
-    "targetGender": "Unisex",
-    "arrivalDate": "2024-03-20",
-    "concentration": "Eau de Parfum",
-    "category": "Niche",
-    "notes": {
-      "topNotes": [
-        { "name": "Rosewood" },
-        { "name": "Cardamom" }
-      ],
-      "middleNotes": [
-        { "name": "Oud Wood" },
-        { "name": "Sandalwood" }
-      ],
-      "baseNotes": [
-        { "name": "Vetiver" },
-        { "name": "Amber" }
-      ]
+    {
+      "name": "Vetiver"
+    }
+  ],
+  "images": [
+    {
+      "path": "/images/chanel-no5-bottle.jpg"
     },
-    "images": [
-      { "path": "/images/tom-ford-oud-wood-bottle.jpg" },
-      { "path": "/images/tom-ford-oud-wood-package.jpg" }
-    ]
-  },
-  {
-    "name": "Versace Eros",
-    "description": "A fresh, woody, and slightly oriental fragrance for men, inspired by the god of love.",
-    "brand": "Versace",
-    "price": 90.00,
-    "stock": 110,
-    "targetGender": "Male",
-    "arrivalDate": "2024-02-15",
-    "concentration": "Eau de Toilette",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Mint" },
-        { "name": "Green Apple" },
-        { "name": "Lemon" }
-      ],
-      "middleNotes": [
-        { "name": "Tonka Bean" },
-        { "name": "Geranium" }
-      ],
-      "baseNotes": [
-        { "name": "Vanilla" },
-        { "name": "Cedarwood" },
-        { "name": "Vetiver" }
-      ]
-    },
-    "images": [
-      { "path": "/images/versace-eros-bottle.jpg" },
-      { "path": "/images/versace-eros-package.jpg" }
-    ]
-  },
-  {
-    "name": "Good Girl",
-    "description": "A powerful and sensual fragrance for women, representing the duality of a woman's character.",
-    "brand": "Carolina Herrera",
-    "price": 100.00,
-    "stock": 95,
-    "targetGender": "Female",
-    "arrivalDate": "2024-01-25",
-    "concentration": "Eau de Parfum",
-    "category": "Designer",
-    "notes": {
-      "topNotes": [
-        { "name": "Almond" },
-        { "name": "Coffee" }
-      ],
-      "middleNotes": [
-        { "name": "Jasmine Sambac" },
-        { "name": "Tuberose" }
-      ],
-      "baseNotes": [
-        { "name": "Tonka Bean" },
-        { "name": "Cacao" }
-      ]
-    },
-    "images": [
-      { "path": "/images/good-girl-bottle.jpg" },
-      { "path": "/images/good-girl-package.jpg" }
-    ]
-  },
-  {
-    "name": "Lost Cherry",
-    "description": "A full-bodied journey into the once-forbidden; a contrasting scent that reveals a tempting dichotomy of playful, candy-like gleam on the outside and luscious flesh on the inside.",
-    "brand": "Tom Ford",
-    "price": 395.00,
-    "stock": 20,
-    "targetGender": "Unisex",
-    "arrivalDate": "2024-03-25",
-    "concentration": "Eau de Parfum",
-    "category": "Niche",
-    "notes": {
-      "topNotes": [
-        { "name": "Black Cherry" },
-        { "name": "Bitter Almond" }
-      ],
-      "middleNotes": [
-        { "name": "Griotte Syrup" },
-        { "name": "Turkish Rose" }
-      ],
-      "baseNotes": [
-        { "name": "Peru Balsam" },
-        { "name": "Roasted Tonka" }
-      ]
-    },
-    "images": [
-      { "path": "/images/lost-cherry-bottle.jpg" },
-      { "path": "/images/lost-cherry-package.jpg" }
-    ]
-  }
-] 
+    {
+      "path": "/images/chanel-no5-package.jpg"
+    }
+  ]
+} 

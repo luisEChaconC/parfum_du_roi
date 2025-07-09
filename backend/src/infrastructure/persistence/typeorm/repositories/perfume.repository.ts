@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "@composition/types";
-import { DataSource, Repository, In, EntityManager } from "typeorm";
+import { DataSource, Repository, In } from "typeorm";
 import { PerfumeModel } from "@model/perfume.model";
 import { NoteModel } from "@model/note.model";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
@@ -27,7 +27,10 @@ export class TypeOrmPerfumeRepository {
     this._perfumeRepository = this._dataSource.getRepository(PerfumeModel);
   }
 
-  async save(perfume: PerfumeModel): Promise<PerfumeModel> {
+  async save(product: ProductModel, perfume: PerfumeModel): Promise<PerfumeModel> {
+    const savedProductModel = await this._productRepository.save(product);
+
+    perfume.id = savedProductModel.id;
     const savedPerfumeModel = await this._perfumeRepository.save(perfume);
     return savedPerfumeModel;
   }
@@ -35,27 +38,74 @@ export class TypeOrmPerfumeRepository {
   async saveWithDependenciesTransaction(product: ProductModel, perfume: PerfumeModel): Promise<[ProductModel, PerfumeModel]> {
     try {
       return await this._dataSource.transaction(async (manager) => {
-        const savedProduct = await this._productRepository.saveWithDependenciesInTransactionScope(product, manager);
-
-        const topNotes = perfume.topNotes;
-        const middleNotes = perfume.middleNotes;
-        const baseNotes = perfume.baseNotes;
+        // Check if any images already exist
+        const allImagePaths = product.images.map(image => image.path);
         
-        perfume.topNotes = [];
-        perfume.middleNotes = [];
-        perfume.baseNotes = [];
-        const savedPerfume = await this.saveInTransactionScope(perfume, manager);
-        await this._noteRepository.bulkSaveInTransactionScope([...topNotes, ...middleNotes, ...baseNotes], manager);
+        if (allImagePaths.length > 0) {
+          const imageRepository = manager.getRepository(ImageModel);
+          const existingImages = await imageRepository.find({ 
+            where: { path: In(allImagePaths) } 
+          });
+          
+          if (existingImages.length > 0) {
+            const existingPath = existingImages[0].path;
+            throw new DatabaseError(`${existingPath} already exists`);
+          }
+        }
 
-        savedPerfume.topNotes = topNotes;
-        savedPerfume.middleNotes = middleNotes;
-        savedPerfume.baseNotes = baseNotes;
-        const savedPerfumeWithNotes = await this.saveInTransactionScope(savedPerfume, manager);
+        // Check if any notes already exist and save new ones manually
+        const allNoteNames = [
+          ...perfume.topNotes.map(note => note.name),
+          ...perfume.middleNotes.map(note => note.name),
+          ...perfume.baseNotes.map(note => note.name)
+        ];
 
-        return [savedProduct, savedPerfumeWithNotes];
+        const noteRepository = manager.getRepository(NoteModel);
+        const existingNotes = await noteRepository.find({
+          where: { name: In(allNoteNames) }
+        });
+        const existingNotesMap = new Map(existingNotes.map(note => [note.name, note]));
+
+        // Process and save notes manually
+        const processNotes = async (notes: NoteModel[]): Promise<NoteModel[]> => {
+          const processedNotes: NoteModel[] = [];
+          for (const note of notes) {
+            const existingNote = existingNotesMap.get(note.name);
+            if (existingNote) {
+              processedNotes.push(existingNote);
+            } else {
+              const savedNote = await noteRepository.save(note);
+              existingNotesMap.set(note.name, savedNote); // Cache for other categories
+              processedNotes.push(savedNote);
+            }
+          }
+          return processedNotes;
+        };
+
+        perfume.topNotes = await processNotes(perfume.topNotes);
+        perfume.middleNotes = await processNotes(perfume.middleNotes);
+        perfume.baseNotes = await processNotes(perfume.baseNotes);
+
+          // Create the product first
+        const productRepository = manager.getRepository(ProductModel);
+        const productToSave = { ...product };
+        productToSave.images = []; // Remove images temporarily
+        const savedProduct = await productRepository.save(productToSave);
+
+        const imageRepository = manager.getRepository(ImageModel);
+        for (const image of product.images) {
+          image.product = savedProduct;
+          await imageRepository.save(image);
+        }
+
+        // Create the perfume using the product's ID
+        perfume.id = savedProduct.id;
+        const perfumeRepository = manager.getRepository(PerfumeModel);
+        const savedPerfume = await perfumeRepository.save(perfume);
+
+        return [savedProduct, savedPerfume];
       });
     } catch (error) {
-      console.log(error);
       if (error instanceof DatabaseError) {
         throw error;
       }
@@ -87,16 +137,6 @@ export class TypeOrmPerfumeRepository {
       return result;
     } catch (error) {
       throw new DatabaseError("Failed to find perfumes by category");
-    }
-  }
-
-  private async saveInTransactionScope(perfume: PerfumeModel, manager: EntityManager): Promise<PerfumeModel> {
-    try {
-      const savedPerfume = await manager.save(perfume);
-      return savedPerfume;
-    } catch (error) {
-      console.log(error);
-      throw new DatabaseError("Failed to save perfume in transaction scope");
     }
   }
 }
