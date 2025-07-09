@@ -6,7 +6,6 @@ import { ProductModel } from "@model/product.model";
 import { ImageModel } from "@model/image.model";
 import { PerfumeModel } from "@model/perfume.model";
 import { NoteModel } from "@model/note.model";
-import { Order } from '@domain/entities/order';
 
 const dataSourceOptions: DataSourceOptions = {
   type: "mysql",
@@ -15,7 +14,7 @@ const dataSourceOptions: DataSourceOptions = {
   username: databaseConfig.username,
   password: databaseConfig.password,
   database: databaseConfig.database,
-  entities: [UserModel, SessionModel, ProductModel, ImageModel, PerfumeModel, NoteModel, Order],
+  entities: [UserModel, SessionModel, ProductModel, ImageModel, PerfumeModel, NoteModel],
   synchronize: true,
   logging: false,
   extra: {
