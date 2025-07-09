@@ -5,6 +5,7 @@ import { createSessionStore } from '@typeorm/sessionStore';
 import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
 import { errorHandler } from "@presentation/middleware/error.middleware";
+import { paymentValidationRoutes } from "@presentation/routes/payment-validation.route";
 
 dataSource.initialize();
 
@@ -46,6 +47,8 @@ app.get('/csrf-token', (req, res) => {
 });
 
 app.use("/api", routes);
+
+app.use("/api/payments", paymentValidationRoutes);
 
 interface CustomError extends Error {
   code?: string;

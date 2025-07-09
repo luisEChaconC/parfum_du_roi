@@ -6,6 +6,7 @@ export const TYPES = {
   GetPerfumeByIdUseCase: Symbol.for('GetPerfumeByIdUseCase'),
   GetPerfumesByCategoryUseCase: Symbol.for('GetPerfumesByCategoryUseCase'),
   CreatePerfumeUseCase: Symbol.for('CreatePerfumeUseCase'),
+  ProcessPaymentUseCase: Symbol.for("ProcessPaymentUseCase"),
 
   // Repository Ports
   UserRepository: Symbol.for('UserRepository'),
@@ -29,5 +30,6 @@ export const TYPES = {
   PerfumeController: Symbol.for('PerfumeController'),
   UserController: Symbol.for('UserController'),
   AuthController: Symbol.for('AuthController'),
+  PaymentValidationController: Symbol.for("PaymentValidationController"),
 };
 
