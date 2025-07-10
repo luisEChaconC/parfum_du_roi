@@ -6,6 +6,9 @@ import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
 import { errorHandler } from "@presentation/middleware/error.middleware";
 import { paymentValidationRoutes } from "@presentation/routes/payment-validation.route";
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 
 dataSource.initialize();
 
@@ -64,7 +67,13 @@ app.use((err: CustomError, req: Request, res: Response, next: NextFunction) => {
 
 app.use(errorHandler);
 
+// Configurar HTTPS
+const privateKey = fs.readFileSync(path.join(__dirname, '../certs/parfumduroi.local+3-key.pem'), 'utf8');
+const certificate = fs.readFileSync(path.join(__dirname, '../certs/parfumduroi.local+3.pem'), 'utf8');
+const credentials = { key: privateKey, cert: certificate };
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+
+https.createServer(credentials, app).listen(PORT, () => {
+  console.log(`Server is running with HTTPS on https://localhost:${PORT}`);
 });
