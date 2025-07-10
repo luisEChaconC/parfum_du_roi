@@ -4,6 +4,7 @@ import { TYPES } from './types';
 // Infrastructure layer imports
 // Repositories
 import { TypeOrmUserRepository } from '@repository/user.repository';
+import { TypeOrmCartRepository } from '@repository/cart.repository';
 import { TypeOrmProductRepository } from '@repository/product.repository';
 import { TypeOrmImageRepository } from '@repository/image.repository';
 import { TypeOrmPerfumeRepository } from '@repository/perfume.repository';
@@ -11,6 +12,8 @@ import { TypeOrmNoteRepository } from '@repository/note.repository';
 
 // Adapters
 import { UserRepositoryAdapter } from '@infrastructure/adapters/user.repository.adapter';
+import { CartRepositoryAdapter } from '@infrastructure/adapters/cart.repository.adapter';
+import { ProductRepositoryAdapter } from '@infrastructure/adapters/product.repository.adapter';
 import { ImageRepositoryAdapter } from '@infrastructure/adapters/image.repository.adapter';
 import { PerfumeRepositoryAdapter } from '@infrastructure/adapters/perfume.repository.adapter';
 import { NoteRepositoryAdapter } from '@infrastructure/adapters/note.repository.adapter';
@@ -22,6 +25,8 @@ import { dataSource } from "@typeorm/data-source";
 // Use cases
 import { CreateUserUseCase } from '@use-case/user/create-user.use-case';
 import { LogInUseCase } from '@use-case/user/log-in.use-case';
+import { UpdateCartUseCase } from '@use-case/cart/update-cart.use-case';
+import { GetCartUseCase } from '@use-case/cart/get-cart.use-case';
 import { GetPerfumeByIdUseCase } from '@use-case/perfume/get-perfume-by-id.use-case';
 import { GetPerfumesByCategoryUseCase } from '@use-case/perfume/get-perfumes-by-category.use-case';
 import { CreatePerfumeUseCase } from '@use-case/perfume/create-perfume.use-case';
@@ -30,6 +35,7 @@ import { CreatePerfumeUseCase } from '@use-case/perfume/create-perfume.use-case'
 // Controllers
 import { AuthController } from '@controller/auth.controller';
 import { UserController } from '@controller/user.controller';
+import { CartController } from '@controller/cart.controller';
 import { PerfumeController } from '@controller/perfume.controller';
 
 export const registerDependencies = (container: Container): void => {
@@ -37,6 +43,8 @@ export const registerDependencies = (container: Container): void => {
   // Use cases
   container.bind<CreateUserUseCase>(TYPES.CreateUserUseCase).to(CreateUserUseCase).inTransientScope();
   container.bind<LogInUseCase>(TYPES.LogInUseCase).to(LogInUseCase).inTransientScope();
+  container.bind<UpdateCartUseCase>(TYPES.UpdateCartUseCase).to(UpdateCartUseCase).inTransientScope();
+  container.bind<GetCartUseCase>(TYPES.GetCartUseCase).to(GetCartUseCase).inTransientScope();
   container.bind<GetPerfumeByIdUseCase>(TYPES.GetPerfumeByIdUseCase).to(GetPerfumeByIdUseCase).inTransientScope();
   container.bind<GetPerfumesByCategoryUseCase>(TYPES.GetPerfumesByCategoryUseCase).to(GetPerfumesByCategoryUseCase).inTransientScope();
   container.bind<CreatePerfumeUseCase>(TYPES.CreatePerfumeUseCase).to(CreatePerfumeUseCase).inTransientScope();
@@ -44,12 +52,15 @@ export const registerDependencies = (container: Container): void => {
   // Infrastructure layer dependencies
   // Adapters
   container.bind<UserRepositoryAdapter>(TYPES.UserRepository).to(UserRepositoryAdapter).inRequestScope();
+  container.bind<ProductRepositoryAdapter>(TYPES.ProductRepository).to(ProductRepositoryAdapter).inRequestScope();
   container.bind<ImageRepositoryAdapter>(TYPES.ImageRepository).to(ImageRepositoryAdapter).inRequestScope();
   container.bind<PerfumeRepositoryAdapter>(TYPES.PerfumeRepository).to(PerfumeRepositoryAdapter).inRequestScope();
+  container.bind<CartRepositoryAdapter>(TYPES.CartRepository).to(CartRepositoryAdapter).inRequestScope();
   container.bind<NoteRepositoryAdapter>(TYPES.NoteRepository).to(NoteRepositoryAdapter).inRequestScope();
 
   // Repositories
   container.bind<TypeOrmUserRepository>(TYPES.TypeOrmUserRepository).to(TypeOrmUserRepository).inRequestScope();
+  container.bind<TypeOrmCartRepository>(TYPES.TypeOrmCartRepository).to(TypeOrmCartRepository).inRequestScope();
   container.bind<TypeOrmProductRepository>(TYPES.TypeOrmProductRepository).to(TypeOrmProductRepository).inRequestScope();
   container.bind<TypeOrmImageRepository>(TYPES.TypeOrmImageRepository).to(TypeOrmImageRepository).inRequestScope();
   container.bind<TypeOrmPerfumeRepository>(TYPES.TypeOrmPerfumeRepository).to(TypeOrmPerfumeRepository).inRequestScope();
@@ -62,5 +73,6 @@ export const registerDependencies = (container: Container): void => {
   // Controllers
   container.bind<AuthController>(TYPES.AuthController).to(AuthController).inRequestScope();
   container.bind<UserController>(TYPES.UserController).to(UserController).inRequestScope();
+  container.bind<CartController>(TYPES.CartController).to(CartController).inRequestScope();
   container.bind<PerfumeController>(TYPES.PerfumeController).to(PerfumeController).inRequestScope();
 };

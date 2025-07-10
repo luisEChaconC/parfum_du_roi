@@ -2,9 +2,9 @@ import { Image } from "@domain/entities/image.entity";
 import { Gender } from "@domain/enums/gender.enum";
 import { PerfumeCategory } from "@domain/enums/perfume-category.enum";
 import { PerfumeConcentration } from "@domain/enums/perfume-concentration.enum";
-import { NotesDto } from "../notes.dto";
-import { Perfume, Notes } from "@domain/entities/perfume.entity";
-import { ImageDto } from "../image.dto";
+import { NotesDto } from "@dto/notes.dto";
+import { Perfume, Notes} from "@domain/entities/perfume.entity";
+import { ImageDto } from "@dto/image.dto";
 
 export class CreatePerfumeRequestDto {
   constructor(
