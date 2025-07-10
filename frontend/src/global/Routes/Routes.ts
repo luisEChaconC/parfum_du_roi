@@ -19,4 +19,5 @@ export const Routes:Route = {
     Recuperar: "/recuperar",
     Resetear: "/resetear",
     Pay: "/pay", 
+    DetallesPerfume: "/perfume/:id",
 }

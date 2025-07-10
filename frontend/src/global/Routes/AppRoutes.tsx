@@ -10,6 +10,7 @@ import LogIn from "../../pages/LoginPage";
 import SignIn from "../../pages/SignInPage";
 import DecantsPage from "../../pages/DecantsPage";
 import Profile from "../../pages/ProfilePage";
+import PerfumeDetail from "../../pages/PerfumeDetailPage";
 import RecoverPassword from "../../pages/RecoverPasswordPage";
 import ResetPassword from "../../pages/ResetPasswordPage";
 import { Carrito } from "../../pages/Carrito/Carrito";   
@@ -31,6 +32,7 @@ const ElementPath = {
     [AppPaths.Recuperar]: (<RecoverPassword />),
     [AppPaths.Resetear]: (<ResetPassword />),
     [AppPaths.Pay]: (<PaymentForm />),
+    [AppPaths.DetallesPerfume]: (<PerfumeDetail />),
 }
 
 export const AppRoutes = () => 

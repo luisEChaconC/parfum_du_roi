@@ -1,39 +1,46 @@
-import { useState, useEffect } from 'react';
-import ProductList from '../components/ProductList';
-import { loadProducts, PRODUCT_CATEGORIES, ProductData } from '../utils/productLoader';
+import React, { useState, useEffect } from "react";
+import ProductList from "../components/ProductList";
+import { loadPerfumesByCategory, PerfumeData } from "../utils/perfumeLoader";
+import { ProductData } from "../utils/productLoader";
 
 const ArabesPage = () => {
-  const [products, setProducts] = useState<ProductData[]>([]);
+  const [perfumes, setPerfumes] = useState<PerfumeData[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const mapPerfumeToProductData = (perfume: PerfumeData): ProductData => ({
+    id: perfume.id,
+    marca: perfume.brand,
+    name: perfume.name,
+    image: perfume.imagePaths.length > 0 ? perfume.imagePaths[0] : "",
+    price: perfume.price,
+  });
+
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchPerfumes = async () => {
       setLoading(true);
       try {
-        const arabesProducts = await loadProducts(PRODUCT_CATEGORIES.ARABES);
-        setProducts(arabesProducts);
+        const data = await loadPerfumesByCategory("Arabics");
+        console.log("Perfumes recibidos (Arabics):", data);
+        setPerfumes(data);
       } catch (error) {
-        console.error('Error loading arabes products:', error);
+        console.error("Error cargando perfumes árabes:", error);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchProducts();
+    fetchPerfumes();
   }, []);
 
-  if (loading) {
-    return <div>Cargando productos...</div>;
-  }
+  if (loading) return <div>Cargando productos...</div>;
 
   return (
-    <ProductList 
-      title="ARABES"
+    <ProductList
+      title="ÁRABES"
       description="Embárcate en un viaje sensorial hacia el Oriente con nuestras exquisitas 
       fragancias árabes. Cada esencia captura la rica tradición perfumística de Medio Oriente."
-      products={products} 
+      products={perfumes.map(mapPerfumeToProductData)}
     />
   );
 };
 
-export default ArabesPage; 
+export default ArabesPage;

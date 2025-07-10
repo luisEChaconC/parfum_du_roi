@@ -1,39 +1,46 @@
-import React, { useState, useEffect } from 'react';
-import ProductList from '../components/ProductList';
-import { loadProducts, PRODUCT_CATEGORIES, ProductData } from '../utils/productLoader';
+import React, { useState, useEffect } from "react";
+import ProductList from "../components/ProductList";
+import { loadPerfumesByCategory, PerfumeData } from "../utils/perfumeLoader";
+import { ProductData } from "../utils/productLoader";
 
 const DisenadorPage = () => {
-  const [products, setProducts] = useState<ProductData[]>([]);
+  const [perfumes, setPerfumes] = useState<PerfumeData[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const mapPerfumeToProductData = (perfume: PerfumeData): ProductData => ({
+    id: perfume.id,
+    marca: perfume.brand,
+    name: perfume.name,
+    image: perfume.imagePaths.length > 0 ? perfume.imagePaths[0] : "",
+    price: perfume.price,
+  });
+
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchPerfumes = async () => {
       setLoading(true);
       try {
-        const diseñadorProducts = await loadProducts(PRODUCT_CATEGORIES.DISEÑADOR);
-        setProducts(diseñadorProducts);
+        const data = await loadPerfumesByCategory("Designer");
+        console.log("Perfumes recibidos:", data);
+        setPerfumes(data);
       } catch (error) {
-        console.error('Error loading diseñador products:', error);
+        console.error(error);
       } finally {
-        setLoading(false);
+        setLoading(false);  
       }
     };
-
-    fetchProducts();
+    fetchPerfumes();
   }, []);
 
-  if (loading) {
-    return <div>Cargando productos...</div>;
-  }
+
+  if (loading) return <div>Cargando productos...</div>;
 
   return (
-    <ProductList 
+    <ProductList
       title="DISEÑADOR"
-      description="Explora la elegancia de las marcas de lujo más prestigiosas del mundo. 
-      Cada fragancia cuenta una historia de sofisticación y estilo atemporal."
-      products={products} 
+      description="Explora la elegancia de las marcas de lujo más prestigiosas del mundo..."
+      products={perfumes.map(mapPerfumeToProductData)}
     />
   );
 };
 
-export default DisenadorPage; 
+export default DisenadorPage;
