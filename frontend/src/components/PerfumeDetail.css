@@ -1,49 +1,75 @@
 .perfume-detail-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 40px;
   color: #cfb662;
   font-family: "Cormorant Garamond", serif;
   background-color: #1a1a1a;
   min-height: 100vh;
   box-sizing: border-box;
+  flex-wrap: wrap; /* Soporta diseño responsive */
+}
+
+.price {
+  font-size: 30px;
+  color: #e0c98f;
+  margin-bottom: 20px;
 }
 
 .perfume-image {
   max-width: 350px;
   width: 100%;
   border-radius: 20px;
-  margin-bottom: 30px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   object-fit: cover;
 }
 
+.add-to-cart-btn {
+  background-color: #cfb662;
+  color: #1a1a1a;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e0c98f;
+}
+
 .perfume-info {
-  max-width: 700px;
-  text-align: center;
+  flex: 1;
+  max-width: 600px;
   background-color: #2a2a2a;
-  padding: 30px;
+  padding: 40px;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .perfume-info h1 {
-  font-size: 56px;
-  margin-bottom: 15px;
+  font-size: 48px;
+  margin-bottom: 10px;
   color: #e0c98f;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .perfume-info .brand {
-  font-size: 24px;
+  font-size: 22px;
   font-style: italic;
   color: #d4b87e;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .description {
-  margin: 30px 0;
+  margin: 20px 0;
   font-size: 18px;
   line-height: 1.6;
   color: #ccc;
@@ -51,8 +77,8 @@
 
 .details {
   border-top: 1px solid #444;
-  padding-top: 30px;
-  margin-top: 30px;
+  padding-top: 25px;
+  margin-top: 20px;
   text-align: left;
   font-size: 17px;
   color: #ccc;
@@ -87,13 +113,21 @@
   margin-left: -1em;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .perfume-detail-container {
-    padding: 20px 15px;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+  }
+
+  .perfume-info {
+    padding: 30px;
+    max-width: 100%;
   }
 
   .perfume-info h1 {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .perfume-info .brand {
@@ -113,7 +147,7 @@
   }
 
   .perfume-info h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .perfume-info .brand {
@@ -127,4 +161,5 @@
   .description {
     margin: 20px 0;
   }
+
 }
