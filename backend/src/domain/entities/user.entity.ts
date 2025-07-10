@@ -1,9 +1,10 @@
+import { randomUUID } from "crypto";
 export class User {
   constructor(
     private _email: string,
     private _hashedPassword: string,
     private _fullName: string,
-    private _id?: string,
+    private _id: string = randomUUID(),
   ) {}
 
   // Getters
@@ -19,7 +20,7 @@ export class User {
     return this._fullName;
   }
 
-  public get id(): string | undefined {
+  public get id(): string {
     return this._id;
   }
 }

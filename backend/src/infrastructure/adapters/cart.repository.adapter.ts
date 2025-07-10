@@ -11,10 +11,14 @@ export class CartRepositoryAdapter implements ICartRepository {
     @inject(TYPES.TypeOrmCartRepository) private readonly _cartRepository: TypeOrmCartRepository,
   ) {}
 
-  async saveOrReplace(cart: Cart): Promise<Cart> {
+  async createEmptyCart(userId: string): Promise<void> {
+    await this._cartRepository.createEmptyCart(userId);
+  }
+
+  async update(cart: Cart): Promise<Cart> {
     const cartModel = CartMapper.fromDomain(cart);
-    const savedCartModel = await this._cartRepository.saveOrReplace(cartModel);
-    return CartMapper.toDomain(savedCartModel);
+    const updatedCartModel = await this._cartRepository.update(cartModel);
+    return CartMapper.toDomain(updatedCartModel);
   }
 
   async findByUserId(userId: string): Promise<Cart | null> {
