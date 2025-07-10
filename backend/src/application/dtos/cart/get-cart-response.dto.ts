@@ -3,18 +3,18 @@ import { CartItem } from "@entity/cart-item.entity";
 
 class CartItemDto {
   constructor(
-    public readonly productStockKeepingUnit: string,
+    public readonly productId: string,
+    public readonly productName: string,
+    public readonly priceAtTimeOfAdd: number,
     public readonly quantity: number,
-    public readonly productName?: string,
-    public readonly priceAtTimeOfAdd?: number,
   ) {}
 
   static fromDomain(item: CartItem): CartItemDto {
     return new CartItemDto(
-      item.productStockKeepingUnit,
+      item.product.id,
+      item.product.name,
+      item.product.price,
       item.quantity,
-      item.productName,
-      item.priceAtTimeOfAdd,
     );
   }
 }

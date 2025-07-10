@@ -1,5 +1,18 @@
-import { CartItemDto } from "@dto/cart/cart-item.dto";
+import { CartItem } from "@entity/cart-item.entity";
 import { Cart } from "@entity/cart.entity";
+
+export class CartItemDto {
+  constructor(
+    public readonly productId: string,
+    public readonly productName: string,
+    public readonly price: number,
+    public readonly quantity: number,
+  ) {}
+
+  static fromDomain(item: CartItem): CartItemDto {
+    return new CartItemDto(item.product.id, item.product.name, item.product.price, item.quantity);
+  }
+}
 
 export class CreateCartResponseDto {
   constructor(
