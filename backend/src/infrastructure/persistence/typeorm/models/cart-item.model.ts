@@ -1,12 +1,18 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, Column, ManyToOne, JoinColumn, PrimaryColumn } from "typeorm";
 import { CartModel } from "./cart.model";
 import { ProductModel } from "./product.model";
 @Entity("cart_items")
 export class CartItemModel {
-  @PrimaryGeneratedColumn()
-  id!: number;
+  @PrimaryColumn({ name: "product_id" })
+  productId!: string;
 
-  @ManyToOne(() => ProductModel, (product) => product.id)
+  @PrimaryColumn({ name: "cart_id" })
+  cartId!: string;
+
+  @ManyToOne(() => ProductModel, {
+    eager: true,
+  })
+  @JoinColumn({ name: "product_id" })
   product!: ProductModel;
 
   @Column({
@@ -15,5 +21,6 @@ export class CartItemModel {
   quantity!: number;
 
   @ManyToOne(() => CartModel, (cart) => cart.items)
+  @JoinColumn({ name: "cart_id" })
   cart!: CartModel;
 }
