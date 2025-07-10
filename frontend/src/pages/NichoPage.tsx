@@ -1,39 +1,46 @@
-import { useState, useEffect } from 'react';
-import ProductList from '../components/ProductList';
-import { loadProducts, PRODUCT_CATEGORIES, ProductData } from '../utils/productLoader';
+import React, { useState, useEffect } from "react";
+import ProductList from "../components/ProductList";
+import { loadPerfumesByCategory, PerfumeData } from "../utils/perfumeLoader";
+import { ProductData } from "../utils/productLoader";
 
 const NichoPage = () => {
-  const [products, setProducts] = useState<ProductData[]>([]);
+  const [perfumes, setPerfumes] = useState<PerfumeData[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const mapPerfumeToProductData = (perfume: PerfumeData): ProductData => ({
+    id: perfume.id,
+    marca: perfume.brand,
+    name: perfume.name,
+    image: perfume.imagePaths.length > 0 ? perfume.imagePaths[0] : "",
+    price: perfume.price,
+  });
+
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchPerfumes = async () => {
       setLoading(true);
       try {
-        const nichoProducts = await loadProducts(PRODUCT_CATEGORIES.NICHO);
-        setProducts(nichoProducts);
+        const data = await loadPerfumesByCategory("Niche");
+        console.log("Perfumes recibidos (Niche):", data);
+        setPerfumes(data);
       } catch (error) {
-        console.error('Error loading nicho products:', error);
+        console.error("Error cargando perfumes de Nicho:", error);
       } finally {
-        setLoading(false);
+        setLoading(false);  
       }
     };
-
-    fetchProducts();
+    fetchPerfumes();
   }, []);
 
-  if (loading) {
-    return <div>Cargando productos...</div>;
-  }
+  if (loading) return <div>Cargando productos...</div>;
 
   return (
-    <ProductList 
+    <ProductList
       title="NICHO"
-      description="Descubre el pinaculo de la perfumería al sumergirte en fragancias 
+      description="Descubre el pináculo de la perfumería al sumergirte en fragancias 
       excepcionales elaboradas por autores con la gama más alta de ingredientes naturales."
-      products={products} 
+      products={perfumes.map(mapPerfumeToProductData)}
     />
   );
 };
 
-export default NichoPage; 
+export default NichoPage;
