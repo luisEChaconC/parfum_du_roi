@@ -35,7 +35,7 @@ const ArabesPage = () => {
 
   return (
     <ProductList
-      title="ARABES"
+      title="ÁRABES"
       description="Embárcate en un viaje sensorial hacia el Oriente con nuestras exquisitas 
       fragancias árabes. Cada esencia captura la rica tradición perfumística de Medio Oriente."
       products={perfumes.map(mapPerfumeToProductData)}

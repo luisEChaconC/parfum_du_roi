@@ -21,3 +21,8 @@ export const loadPerfumesByCategory = async (category: string): Promise<PerfumeD
   const response = await axios.get(`/api/perfume/category/${category}`);
   return response.data;
 };
+
+export const loadPerfumeById = async (id: string): Promise<PerfumeData> => {
+  const response = await axios.get(`/api/perfume/${id}`);
+  return response.data;
+};
