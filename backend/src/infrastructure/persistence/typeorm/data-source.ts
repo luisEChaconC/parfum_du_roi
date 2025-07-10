@@ -6,7 +6,6 @@ import { ProductModel } from "@model/product.model";
 import { ImageModel } from "@model/image.model";
 import { PerfumeModel } from "@model/perfume.model";
 import { NoteModel } from "@model/note.model";
-import { Order } from '@domain/entities/order';
 import { CartModel } from "@infrastructure/persistence/typeorm/models/cart.model";
 import { CartItemModel } from "@infrastructure/persistence/typeorm/models/cart-item.model";
 

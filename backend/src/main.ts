@@ -6,7 +6,6 @@ import { createSessionStore } from '@typeorm/sessionStore';
 import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
 import { errorHandler } from "@presentation/middleware/error.middleware";
-import paymentRouter from '@presentation/routes/payment.route';
 
 dataSource.initialize();
 
@@ -23,7 +22,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use('/api/payments', paymentRouter);
 
 app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
   if (err instanceof SyntaxError) {
