@@ -31,8 +31,9 @@ export const TYPES = {
 
   // Presentation Layer
   // Controllers
-  PerfumeController: Symbol.for('PerfumeController'),
-  UserController: Symbol.for('UserController'),
   AuthController: Symbol.for('AuthController'),
+  UserController: Symbol.for('UserController'),
+  CartController: Symbol.for('CartController'),
+  PerfumeController: Symbol.for('PerfumeController'),
 };
 
