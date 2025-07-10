@@ -1,36 +1,47 @@
 import { injectable, inject } from "inversify";
 import { TYPES } from "@composition/types";
 import { ICartRepository } from "@port/repository/cart.repository.interface";
-import { ICreateCartUseCase } from "@port/use-case/cart/create-cart.use-case.interface";
-import { CreateCartRequestDto, CartItemDto as CartItemRequestDto} from "@application/dtos/cart/create-cart-request.dto";
-import { CreateCartResponseDto } from "@application/dtos/cart/create-cart-response.dto";
+import { IUpdateCartUseCase } from "@port/use-case/cart/update-cart.use-case.interface";
+import { UpdateCartRequestDto, CartItemDto as CartItemRequestDto} from "@dto/cart/update-cart-request.dto";
+import { UpdateCartResponseDto } from "@dto/cart/update-cart-response.dto";
 import { CartItem } from "@entity/cart-item.entity";
 import { IProductRepository } from "@port/repository/product.repository.interface";
 
 @injectable()
-export class CreateCartUseCase implements ICreateCartUseCase {
+export class UpdateCartUseCase implements IUpdateCartUseCase {
   constructor(
     @inject(TYPES.CartRepository) private readonly cartRepository: ICartRepository,
     @inject(TYPES.ProductRepository) private readonly productRepository: IProductRepository,
   ) {}
 
-  async executeAsync(userId: string, dto: CreateCartRequestDto): Promise<CreateCartResponseDto> {
+  async executeAsync(userId: string, dto: UpdateCartRequestDto): Promise<UpdateCartResponseDto> {
     const cartItems = await this.buildCartItems(dto.items);
-    const cart = CreateCartRequestDto.toDomain(dto, userId, cartItems);
+    const cart = UpdateCartRequestDto.toDomain(dto, userId, cartItems);
 
-    const savedCart = await this.cartRepository.saveOrReplace(cart);
-    return CreateCartResponseDto.fromDomain(savedCart);
+    const savedCart = await this.cartRepository.update(cart);
+    return UpdateCartResponseDto.fromDomain(savedCart);
   }
   
   async buildCartItems(items: CartItemRequestDto[]): Promise<CartItem[]> {
+    for (const item of items) {
+      if (item.quantity <= 0) {
+        throw new Error(`Invalid quantity for product ${item.productId}. Quantity must be greater than 0.`);
+      }
+    }
+
     const productIds = items.map(item => item.productId);
+
+    if (productIds.length === 0) {
+      return [];
+    }
+    
     const foundProducts = await this.productRepository.findByIds(productIds);
 
     const foundProductsIds = foundProducts.map(p => p.id);
     const notFoundProductsIds = productIds.filter(id => !foundProductsIds.includes(id));
 
     if (notFoundProductsIds.length > 0) {
-      throw new Error(`Could not find products with ids ${notFoundProductsIds.join(", ")}`);
+      throw new Error(`The following products were not found: ${notFoundProductsIds.join(", ")}`);
     }
 
     const cartItems: CartItem[] = [];
@@ -38,7 +49,12 @@ export class CreateCartUseCase implements ICreateCartUseCase {
     for (const item of items) {
       const product = foundProducts.find(product => product.id === item.productId);
       if (!product) {
+        // This case should not be reached due to the check above, but it's here for safety
         throw new Error(`Could not find product with id ${item.productId}`);
+      }
+      
+      if (product.stock < item.quantity) {
+        throw new Error(`Not enough stock for product ${product.name}. Requested: ${item.quantity}, Available: ${product.stock}`);
       }
 
       const cartItem = new CartItem(product, item.quantity);

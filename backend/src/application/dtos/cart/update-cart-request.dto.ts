@@ -8,12 +8,12 @@ export class CartItemDto {
   ) {}
 }
 
-export class CreateCartRequestDto {
+export class UpdateCartRequestDto {
   constructor(
     public readonly items: CartItemDto[],
   ) {}
 
-  static toDomain(dto: CreateCartRequestDto, userId: string, cartItems: CartItem[]): Cart {
+  static toDomain(dto: UpdateCartRequestDto, userId: string, cartItems: CartItem[]): Cart {
     return new Cart(
       userId,
       cartItems,

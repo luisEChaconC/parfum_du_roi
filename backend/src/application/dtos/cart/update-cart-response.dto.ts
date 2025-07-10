@@ -14,12 +14,12 @@ export class CartItemDto {
   }
 }
 
-export class CreateCartResponseDto {
+export class UpdateCartResponseDto {
   constructor(
     public readonly items: CartItemDto[],
   ) {}
 
-  static fromDomain(cart: Cart): CreateCartResponseDto {
-    return new CreateCartResponseDto(cart.items.map(CartItemDto.fromDomain));
+  static fromDomain(cart: Cart): UpdateCartResponseDto {
+    return new UpdateCartResponseDto(cart.items.map(CartItemDto.fromDomain));
   }
 }
