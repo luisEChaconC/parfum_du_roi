@@ -7,29 +7,20 @@ import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
 import { errorHandler } from "@presentation/middleware/error.middleware";
 import { paymentValidationRoutes } from "@presentation/routes/payment-validation.route";
+import cors from 'cors';
 
 dataSource.initialize();
 
 const app = express();
 
-// Debug logger – remove once issue is resolved
-app.use((req, res, next) => {
-  console.log(`>>> ${req.method} ${req.originalUrl}`);
-  console.log('  Headers:', req.headers);
-  let raw = '';
-  req.on('data', chunk => { raw += chunk; });
-  req.on('end', () => { console.log('  Raw-body:', raw); });
-  next();
-});
+app.use(cors({
+  origin: true, // permite cualquier origen dinámicamente
+  credentials: true, // permite envío de cookies (sesiones)
+}));
+
+app.use(cookieParser());
 
 app.use(express.json());
-
-app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-  if (err instanceof SyntaxError) {
-    console.error('JSON parse error:', err.message);
-  }
-  next(err);
-});
 
 app.use(session({
   secret: process.env.SESSION_SECRET!,
@@ -41,18 +32,14 @@ app.use(session({
   },
 }));
 
-app.use(cookieParser());
 app.use(csrf({ cookie: true }));
 
-// TEMP Debug logger for CSRF investigation
 app.use((req, res, next) => {
-  if (req.method === 'POST' && req.originalUrl === '/api/auth/login') {
-    console.log('--- CSRF Debug for /api/auth/login ---');
-    console.log('  req.body:', req.body);
-    console.log('  req.cookies:', req.cookies);
-    console.log('  req.csrfToken():', req.csrfToken());
-    console.log('---------------------------------------');
-  }
+  console.log(`>>> ${req.method} ${req.originalUrl}`);
+  console.log('  Headers:', req.headers);
+  let raw = '';
+  req.on('data', chunk => { raw += chunk; });
+  req.on('end', () => { console.log('  Raw-body:', raw); });
   next();
 });
 
@@ -61,7 +48,6 @@ app.get('/csrf-token', (req, res) => {
 });
 
 app.use("/api", routes);
-
 app.use("/api/payments", paymentValidationRoutes);
 
 interface CustomError extends Error {
