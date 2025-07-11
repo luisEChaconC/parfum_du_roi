@@ -47,6 +47,7 @@
   font-size: 18px;
   line-height: 1.6;
   color: #ccc;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .details {
@@ -56,6 +57,7 @@
   text-align: left;
   font-size: 17px;
   color: #ccc;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .details p {

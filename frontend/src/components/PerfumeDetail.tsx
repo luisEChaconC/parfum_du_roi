@@ -36,7 +36,7 @@ const PerfumeDetail = () => {
         <p className="description">{perfume.description}</p>
 
         <div className="details">
-          <p><strong>Precio:</strong> ₡{perfume.price}</p>
+          <p><strong>Precio:</strong> ${perfume.price}</p>
           <p><strong>Género:</strong> {perfume.targetGender}</p>
           <p><strong>Concentración:</strong> {perfume.concentration}</p>
           <p><strong>Categoría:</strong> {perfume.category}</p>
