@@ -14,12 +14,12 @@
   "dependencies": {
     "@dr.pogodin/csurf": "^1.16.5",
     "@types/bcrypt": "^5.0.2",
-    "@types/cookie-parser": "^1.4.9",
     "bcrypt": "^6.0.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "connect-typeorm": "^2.0.0",
     "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
     "express": "^5.1.0",
     "inversify": "^7.0.0-alpha.5",
     "mysql": "^2.18.1",
@@ -28,7 +28,13 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^9.8.0",
+    "@types/cookie-parser": "^1.4.9",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/prop-types": "^15.7.15",
+    "@types/react": "^19.1.8",
+    "@types/react-transition-group": "^4.4.12",
+    "@types/warning": "^3.0.3",
     "dotenv": "^16.5.0",
     "tsc-alias": "^1.8.16",
     "typeorm-extension": "^3.7.1"
