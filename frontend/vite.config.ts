@@ -10,12 +10,12 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'https://localhost:8080',
         changeOrigin: true,
         secure: false,
       },
     },
-    host: 'parfumduroi.local',
+    host: 'localhost',
     port: 5173,
     https: {
       key: fs.readFileSync(path.resolve(__dirname, '../backend/certs/parfumduroi.local+3-key.pem')),

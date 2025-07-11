@@ -2,6 +2,8 @@ import React, { useState, useEffect  } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./PaymentForm.css";
 import { useNavigate } from 'react-router-dom';
+import { processPayment } from "../utils/paymentService";
+import axios from 'axios';
 
 const PaymentForm: React.FC = () => {
   const [cardNumber, setCardNumber] = useState('');
@@ -29,7 +31,7 @@ const PaymentForm: React.FC = () => {
   }
 }, [paymentStatus, navigate]);
 
-  const handlePayment = (e: React.FormEvent) => {
+  const handlePayment = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const newErrors = {
@@ -84,9 +86,36 @@ const PaymentForm: React.FC = () => {
       name: ''
     });
 
-    setTimeout(() => {
-      setPaymentStatus('success');
-    }, 1500);
+    const paymentData = {
+      numeroTarjeta: cardNumber.replace(/\s/g, ''), 
+      fechaExpiracion: expiryDate,
+      cvc: cvv,
+      moneda: "CRC" 
+    };
+
+    try {
+      const csrfResponse = await axios.get<{ csrfToken: string }>('/csrf-token', { withCredentials: true });
+      const csrfToken = csrfResponse.data.csrfToken;
+
+
+      const result = await processPayment(paymentData, csrfToken);
+
+      if (result.aprobado) {
+        setPaymentStatus("success");
+      } else {
+        setPaymentStatus("error");
+        setErrors({
+          cardNumber: '',
+          expiryDate: '',
+          cvv: '',
+          name: ''
+        });
+        alert(result.mensaje); 
+      }
+    } catch (error) {
+      setPaymentStatus("error");
+      console.error("Error al procesar el pago.", error);
+    }
   };
 
   const handleExpiryChange = (value: string) => {

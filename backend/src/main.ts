@@ -1,6 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
+import cors from 'cors';
 import session from 'express-session';
 import csrf from '@dr.pogodin/csurf';
+import cookieParser from 'cookie-parser';
 import { createSessionStore } from '@typeorm/sessionStore';
 import { dataSource } from '@infrastructure/persistence/typeorm/data-source';
 import { routes } from "@routes";
@@ -13,6 +15,11 @@ import path from 'path';
 dataSource.initialize();
 
 const app = express();
+
+app.use(cors({
+  origin: 'https://localhost:5173',
+  credentials: true
+}));
 
 // Debug logger – remove once issue is resolved
 app.use((req, res, next) => {
@@ -43,7 +50,20 @@ app.use(session({
   },
 }));
 
-app.use(csrf());
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
+
+// TEMP Debug logger for CSRF investigation
+app.use((req, res, next) => {
+  if (req.method === 'POST' && req.originalUrl === '/api/auth/login') {
+    console.log('--- CSRF Debug for /api/auth/login ---');
+    console.log('  req.body:', req.body);
+    console.log('  req.cookies:', req.cookies);
+    console.log('  req.csrfToken():', req.csrfToken());
+    console.log('---------------------------------------');
+  }
+  next();
+});
 
 app.get('/csrf-token', (req, res) => {
   res.json({ csrfToken: req.csrfToken() });

@@ -14,15 +14,15 @@ export interface PerfumeData {
   baseNotes: string[];
 }
 
-
 import axios from "axios";
 
+
 export const loadPerfumesByCategory = async (category: string): Promise<PerfumeData[]> => {
-  const response = await axios.get(`/api/perfume/category/${category}`);
+  const response = await axios.get<PerfumeData[]>(`/api/perfume/category/${category}`);
   return response.data;
 };
 
 export const loadPerfumeById = async (id: string): Promise<PerfumeData> => {
-  const response = await axios.get(`/api/perfume/${id}`);
+  const response = await axios.get<PerfumeData>(`/api/perfume/${id}`);
   return response.data;
 };
