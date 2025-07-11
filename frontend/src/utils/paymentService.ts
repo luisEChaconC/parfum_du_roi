@@ -13,7 +13,8 @@ export interface PaymentResponse {
 }
 
 export const processPayment = async (paymentData: PaymentData, csrfToken: string) => {
-  const response = await axios.post<PaymentResponse>('/api/payments/validate', paymentData, {
+  console.log('Enviando CSRF token:', csrfToken);
+  const response = await axios.post<PaymentResponse>('https://localhost:8080/api/payments/validate', paymentData, {
     headers: {
       'X-CSRF-Token': csrfToken
     },

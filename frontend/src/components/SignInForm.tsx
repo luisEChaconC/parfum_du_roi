@@ -57,7 +57,7 @@ const SignInForm: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors: { [key: string]: string } = {};
 
@@ -76,28 +76,52 @@ const SignInForm: React.FC = () => {
       return;
     }
 
-    const registros = JSON.parse(localStorage.getItem('registros') || '[]');
+    try {
+      // Paso 1: Obtener token CSRF
+      const csrfResponse = await fetch("http://localhost:8080/csrf-token", {
+        credentials: "include",
+      });
+      const { csrfToken } = await csrfResponse.json();
 
-    if (registros.some((user: any) => user.correo === formData.correo)) {
-      setErrors({ correo: 'El correo electrónico ya está en uso.' });
+      // Paso 2: Enviar solicitud POST con token CSRF y cookies
+      const response = await fetch("http://localhost:8080/api/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": csrfToken,
+        },
+        credentials: "include", 
+        body: JSON.stringify({
+          email: formData.correo,
+          password: formData.contraseña,
+          fullName: formData.nombre,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Error al registrar usuario");
+      }
+
+      const data = await response.json();
+      console.log("Usuario creado:", data);
+      setSuccessMessage("¡Usuario registrado correctamente!");
+
+      setFormData({
+        nombre: '',
+        ubicacion: '',
+        correo: '',
+        contraseña: '',
+        confirmarContraseña: '',
+      });
+      setErrors({});
+      setPasswordProgress(0);
+      setPasswordError('');
+
+    } catch (error: any) {
+      setErrors({ correo: error.message });
       setSuccessMessage('');
-      return;
     }
-
-    registros.push(formData);
-    localStorage.setItem('registros', JSON.stringify(registros));
-
-    setSuccessMessage('¡Usuario registrado correctamente!');
-    setFormData({
-      nombre: '',
-      ubicacion: '',
-      correo: '',
-      contraseña: '',
-      confirmarContraseña: '',
-    });
-    setErrors({});
-    setPasswordProgress(0);
-    setPasswordError('');
   };
 
   return (

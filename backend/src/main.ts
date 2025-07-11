@@ -12,12 +12,13 @@ import https from 'https';
 import fs from 'fs';
 import path from 'path';
 
+
 dataSource.initialize();
 
 const app = express();
 
 app.use(cors({
-  origin: 'https://localhost:5173',
+  origin: true,
   credentials: true
 }));
 
@@ -31,14 +32,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.json());
+app.use(cookieParser());
 
-app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-  if (err instanceof SyntaxError) {
-    console.error('JSON parse error:', err.message);
-  }
-  next(err);
-});
+app.use(express.json());
 
 app.use(session({
   secret: process.env.SESSION_SECRET!,
@@ -50,18 +46,14 @@ app.use(session({
   },
 }));
 
-app.use(cookieParser());
 app.use(csrf({ cookie: true }));
 
-// TEMP Debug logger for CSRF investigation
 app.use((req, res, next) => {
-  if (req.method === 'POST' && req.originalUrl === '/api/auth/login') {
-    console.log('--- CSRF Debug for /api/auth/login ---');
-    console.log('  req.body:', req.body);
-    console.log('  req.cookies:', req.cookies);
-    console.log('  req.csrfToken():', req.csrfToken());
-    console.log('---------------------------------------');
-  }
+  console.log(`>>> ${req.method} ${req.originalUrl}`);
+  console.log('  Headers:', req.headers);
+  let raw = '';
+  req.on('data', chunk => { raw += chunk; });
+  req.on('end', () => { console.log('  Raw-body:', raw); });
   next();
 });
 
@@ -70,7 +62,6 @@ app.get('/csrf-token', (req, res) => {
 });
 
 app.use("/api", routes);
-
 app.use("/api/payments", paymentValidationRoutes);
 
 interface CustomError extends Error {
@@ -97,3 +88,4 @@ const PORT = process.env.PORT || 3000;
 https.createServer(credentials, app).listen(PORT, () => {
   console.log(`Server is running with HTTPS on https://localhost:${PORT}`);
 });
+

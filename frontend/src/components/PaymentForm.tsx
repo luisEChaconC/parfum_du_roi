@@ -18,6 +18,20 @@ const PaymentForm: React.FC = () => {
     name: ''
   });
   const navigate = useNavigate();
+  const [csrfToken, setCsrfToken] = useState('');
+
+  useEffect(() => {
+    const fetchCsrfToken = async () => {
+      const response = await fetch('https://localhost:8080/csrf-token', {
+        credentials: 'include'
+      });
+      const data = await response.json();
+      setCsrfToken(data.csrfToken);
+    };
+
+    fetchCsrfToken();
+  }, []);
+
 
   useEffect(() => {
   if (paymentStatus === 'success') {
@@ -94,10 +108,6 @@ const PaymentForm: React.FC = () => {
     };
 
     try {
-      const csrfResponse = await axios.get<{ csrfToken: string }>('/csrf-token', { withCredentials: true });
-      const csrfToken = csrfResponse.data.csrfToken;
-
-
       const result = await processPayment(paymentData, csrfToken);
 
       if (result.aprobado) {
@@ -112,9 +122,9 @@ const PaymentForm: React.FC = () => {
         });
         alert(result.mensaje); 
       }
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Error detalle:", error.response?.data);
       setPaymentStatus("error");
-      console.error("Error al procesar el pago.", error);
     }
   };
 
